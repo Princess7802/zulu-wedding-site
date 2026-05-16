@@ -244,6 +244,21 @@ export default function ZuluHeritageWeddingInvitation() {
         overflowX: "hidden",
       }}
     >
+      <style>{`
+        .cowhide-bg::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          background: rgba(10, 5, 0, 0.78);
+          z-index: 0;
+          pointer-events: none;
+        }
+        .cowhide-bg > * {
+          position: relative;
+          z-index: 1;
+        }
+      `}</style>
+
       <nav
         style={{
           position: "fixed",
@@ -382,7 +397,7 @@ export default function ZuluHeritageWeddingInvitation() {
               fontFamily: "Georgia,serif",
             }}
           >
-            Umshado · Traditional Wedding Celebration
+            Umembeso · Traditional Wedding Celebration
           </p>
           <p
             style={{
@@ -1170,25 +1185,4 @@ function SectionHeader({ sub, title, note }) {
       <Divider />
     </>
   );
-}
-
-const cowhideStyle = `
-  .cowhide-bg::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: rgba(10, 5, 0, 0.78);
-    z-index: 0;
-    pointer-events: none;
-  }
-  .cowhide-bg > * {
-    position: relative;
-    z-index: 1;
-  }
-`;
-
-if (typeof document !== "undefined") {
-  const tag = document.createElement("style");
-  tag.textContent = cowhideStyle;
-  document.head.appendChild(tag);
 }
