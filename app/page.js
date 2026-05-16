@@ -464,8 +464,9 @@ export default function ZuluHeritageWeddingInvitation() {
               }}
             >
               <img
-                src={`/images/${name}.jpeg`}
-                alt=""
+                src={`/images/${name}.jpg`}
+                alt={name}
+                onError={(e) => console.log("failed to load", name)}
                 style={{
                   width: "100%",
                   height: "100%",
