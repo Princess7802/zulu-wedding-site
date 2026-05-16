@@ -67,14 +67,15 @@ export default function ZuluHeritageWeddingInvitation() {
       >
         {/* Cowhide image from public/images/envelope.png */}
         <img
-          src="/images/envelope.png"
+          src="/images/envelope.jpg"
           alt="envelope"
           style={{
-            position: "relative",
+            position: "absolute",
             inset: 0,
             width: "100%",
             height: "100%",
             objectFit: "cover",
+            zIndex: 1,
           }}
         />
 
@@ -147,7 +148,7 @@ export default function ZuluHeritageWeddingInvitation() {
       className="cowhide-bg"
       style={{
         minHeight: "100vh",
-        background: "url('/images/cowhide.png') repeat center center / 400px",
+        background: "url('/images/cowhide.jpg') repeat center center / 400px",
         color: "#fff",
         fontFamily: "Georgia,serif",
         overflowX: "hidden",
