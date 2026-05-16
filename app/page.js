@@ -29,7 +29,14 @@ export default function ZuluHeritageWeddingInvitation() {
             {/* Cowhide Envelope */}
             <div className="relative w-[340px] h-[240px] md:w-[500px] md:h-[340px] rounded-2xl overflow-hidden shadow-2xl border border-amber-200/20 bg-gradient-to-br from-stone-200 via-amber-100 to-stone-300">
               {/* Cowhide Pattern */}
-              <div className="absolute inset-0 opacity-40 bg-[url('https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center mix-blend-multiply" />
+              <div
+                className="absolute inset-0 opacity-40 mix-blend-multiply"
+                style={{
+                  backgroundImage: "url('/images/closed-envelope.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              />
 
               {/* Pearl Decorations */}
               <div className="absolute top-4 left-4 right-4 flex justify-between">
@@ -52,7 +59,14 @@ export default function ZuluHeritageWeddingInvitation() {
 
               {/* Envelope Flap */}
               <div className="absolute top-0 left-0 w-full h-1/2 origin-top transition-transform duration-700 group-hover:-rotate-x-180 bg-gradient-to-b from-amber-200 to-stone-100 clip-path-envelope z-20 border-b border-white/20">
-                <div className="absolute inset-0 opacity-30 bg-[url('https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center mix-blend-multiply" />
+                <div
+                  className="absolute inset-0 opacity-30 mix-blend-multiply"
+                  style={{
+                    backgroundImage: "url('/images/closed-envelope.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                />
               </div>
 
               {/* Invitation Card */}
@@ -72,11 +86,11 @@ export default function ZuluHeritageWeddingInvitation() {
                 </p>
 
                 <h1 className="mt-4 text-4xl md:text-6xl font-serif leading-tight">
-                  Sipho
+                  Thobelinkosi
                   <span className="block text-amber-700 text-3xl md:text-5xl my-2">
                     &
                   </span>
-                  Naledi
+                  Koketso
                 </h1>
 
                 <p className="mt-4 text-base md:text-lg text-stone-700 italic">
