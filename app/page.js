@@ -70,7 +70,7 @@ export default function ZuluHeritageWeddingInvitation() {
           src="/images/envelope.png"
           alt="envelope"
           style={{
-            position: "absolute",
+            position: "relative",
             inset: 0,
             width: "100%",
             height: "100%",
