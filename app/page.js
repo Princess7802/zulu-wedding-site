@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 
 export default function ZuluHeritageWeddingInvitation() {
-  const [opened, setOpened] = useState(false);
-  const [showCard, setShowCard] = useState(false);
+  const [phase, setPhase] = useState("idle");
   const [showFull, setShowFull] = useState(false);
   const [countdown, setCountdown] = useState({
     days: 0,
@@ -42,9 +41,9 @@ export default function ZuluHeritageWeddingInvitation() {
   }, []);
 
   const handleOpen = () => {
-    if (opened) return;
-    setOpened(true);
-    setTimeout(() => setShowCard(true), 700);
+    if (phase !== "idle") return;
+    setPhase("flapping");
+    setTimeout(() => setShowFull(true), 950);
   };
 
   const pad = (n) => String(n).padStart(2, "0");
@@ -60,8 +59,10 @@ export default function ZuluHeritageWeddingInvitation() {
           height: "100vh",
           position: "relative",
           overflow: "hidden",
-          cursor: opened ? "default" : "pointer",
+          cursor: phase === "idle" ? "pointer" : "default",
           fontFamily: "Georgia, 'Times New Roman', serif",
+          animation:
+            phase === "flapping" ? "fadeOut 0.95s ease forwards" : "none",
         }}
       >
         {/* Cowhide image from public/images/envelope.png */}
@@ -107,7 +108,7 @@ export default function ZuluHeritageWeddingInvitation() {
         </button>
 
         {/* Tap prompt */}
-        {!opened && (
+        {phase === "idle" && (
           <p
             style={{
               position: "absolute",
@@ -128,106 +129,14 @@ export default function ZuluHeritageWeddingInvitation() {
           </p>
         )}
 
-        {/* Card rises up after tap */}
-        {showCard && (
-          <div
-            style={{
-              position: "absolute",
-              bottom: 0,
-              left: "6%",
-              right: "6%",
-              zIndex: 30,
-              animation: "riseUp 0.85s cubic-bezier(0.22,1,0.36,1) forwards",
-            }}
-          >
-            <div
-              style={{
-                background: "linear-gradient(160deg,#faf6f0,#f5ede0)",
-                borderRadius: "22px 22px 0 0",
-                padding: "36px 44px 48px",
-                textAlign: "center",
-                boxShadow: "0 -16px 60px rgba(0,0,0,0.55)",
-              }}
-            >
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  gap: "7px",
-                  marginBottom: "16px",
-                }}
-              >
-                {[...Array(9)].map((_, i) => (
-                  <div
-                    key={i}
-                    style={{
-                      width: "8px",
-                      height: "8px",
-                      borderRadius: "50%",
-                      background: "#c8780a",
-                    }}
-                  />
-                ))}
-              </div>
-              <p
-                style={{
-                  color: "#8b4a0a",
-                  fontSize: "11px",
-                  letterSpacing: "0.28em",
-                  textTransform: "uppercase",
-                  marginBottom: "10px",
-                }}
-              >
-                Traditional Zulu Wedding
-              </p>
-              <h2
-                style={{
-                  fontFamily: "Georgia,serif",
-                  fontSize: "clamp(20px,4vw,32px)",
-                  color: "#2d1a00",
-                  margin: "0 0 6px",
-                  lineHeight: 1.2,
-                }}
-              >
-                Thobelinkosi <span style={{ color: "#c8780a" }}>&</span> Koketso
-              </h2>
-              <p
-                style={{
-                  color: "#6b3a0a",
-                  fontSize: "13px",
-                  marginBottom: "24px",
-                }}
-              >
-                24 October 2026 · KwaZulu-Natal, South Africa
-              </p>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setShowFull(true);
-                }}
-                style={{
-                  background: "#c8780a",
-                  color: "#fff",
-                  border: "none",
-                  padding: "14px 40px",
-                  borderRadius: "999px",
-                  fontSize: "12px",
-                  letterSpacing: "0.28em",
-                  textTransform: "uppercase",
-                  cursor: "pointer",
-                  fontFamily: "Georgia,serif",
-                  boxShadow: "0 4px 20px rgba(200,120,10,0.4)",
-                }}
-              >
-                View Invitation ✦
-              </button>
-            </div>
-          </div>
-        )}
-
         <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');
           @keyframes tapPulse { 0%,100%{opacity:.85} 50%{opacity:.3} }
-          @keyframes riseUp { from{transform:translateY(100%);opacity:0} to{transform:translateY(0);opacity:1} }
+          @keyframes fadeOut {
+            0% { opacity: 1; transform: scale(1); }
+            60% { opacity: 0.6; transform: scale(1.03); }
+            100% { opacity: 0; transform: scale(1.06); }
+          }
         `}</style>
       </div>
     );
@@ -276,7 +185,7 @@ export default function ZuluHeritageWeddingInvitation() {
         }}
       >
         {[
-          ["ceremony", "Indlela Yethu"],
+          ["ceremony", "Ceremony"],
           ["venue", "Venue"],
           ["rsvp", "RSVP"],
         ].map(([id, label]) => (
@@ -308,17 +217,17 @@ export default function ZuluHeritageWeddingInvitation() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "100px 24px 60px",
+          padding: "80px 24px 40px",
         }}
       >
         <div
           style={{
             border: "1px solid rgba(200,160,60,0.6)",
             outline: "1px solid rgba(200,160,60,0.25)",
-            outlineOffset: "10px",
-            padding: "60px 40px",
+            outlineOffset: "8px",
+            padding: "36px 28px",
             width: "100%",
-            maxWidth: "600px",
+            maxWidth: "420px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -327,24 +236,24 @@ export default function ZuluHeritageWeddingInvitation() {
           <p
             style={{
               color: "#c8a84b",
-              fontSize: "11px",
+              fontSize: "10px",
               letterSpacing: "0.45em",
               textTransform: "uppercase",
-              marginBottom: "32px",
+              marginBottom: "16px",
               fontFamily: "Georgia,serif",
             }}
           >
-            Umshado
+            Umembeso x Mahlabiso
           </p>
           <Divider />
           <h1
             style={{
-              fontSize: "clamp(3rem,12vw,7rem)",
+              fontSize: "clamp(2rem,8vw,4rem)",
               color: "#f5e6c8",
               margin: "0",
               lineHeight: 1.1,
-              fontFamily: "'Palatino Linotype', Palatino, Georgia, serif",
-              fontWeight: "normal",
+              fontFamily: "'Cinzel', Georgia, serif",
+              fontWeight: "400",
               textTransform: "capitalize",
             }}
           >
@@ -353,23 +262,23 @@ export default function ZuluHeritageWeddingInvitation() {
           <span
             style={{
               color: "#c8a84b",
-              fontSize: "clamp(2rem,6vw,4rem)",
+              fontSize: "clamp(1.4rem,4vw,2.5rem)",
               display: "block",
-              margin: "8px 0",
-              fontFamily: "'Palatino Linotype', Palatino, Georgia, serif",
-              fontWeight: "normal",
+              margin: "4px 0",
+              fontFamily: "'Cinzel', Georgia, serif",
+              fontWeight: "400",
             }}
           >
             &amp;
           </span>
           <h1
             style={{
-              fontSize: "clamp(3rem,12vw,7rem)",
+              fontSize: "clamp(2rem,8vw,4rem)",
               color: "#f5e6c8",
-              margin: "0 0 32px",
+              margin: "0 0 16px",
               lineHeight: 1.1,
-              fontFamily: "'Palatino Linotype', Palatino, Georgia, serif",
-              fontWeight: "normal",
+              fontFamily: "'Cinzel', Georgia, serif",
+              fontWeight: "400",
               textTransform: "capitalize",
             }}
           >
@@ -379,10 +288,10 @@ export default function ZuluHeritageWeddingInvitation() {
           <p
             style={{
               color: "#a07040",
-              fontSize: "13px",
+              fontSize: "11px",
               letterSpacing: "0.25em",
               textTransform: "uppercase",
-              margin: "24px 0 6px",
+              margin: "14px 0 4px",
               fontFamily: "Georgia,serif",
             }}
           >
@@ -391,21 +300,21 @@ export default function ZuluHeritageWeddingInvitation() {
           <p
             style={{
               color: "#a07040",
-              fontSize: "13px",
+              fontSize: "12px",
               fontStyle: "italic",
-              marginBottom: "6px",
+              marginBottom: "4px",
               fontFamily: "Georgia,serif",
             }}
           >
-            Umembeso · Traditional Wedding Celebration
+            Umembeso · Mahlabiso
           </p>
           <p
             style={{
               color: "#a07040",
-              fontSize: "11px",
+              fontSize: "10px",
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              marginBottom: "32px",
+              marginBottom: "20px",
               fontFamily: "Georgia,serif",
             }}
           >
@@ -414,12 +323,12 @@ export default function ZuluHeritageWeddingInvitation() {
           <button
             onClick={() => scrollTo("rsvp")}
             style={{
-              padding: "14px 48px",
+              padding: "10px 36px",
               borderRadius: "0",
               border: "1px solid #c8a84b",
               background: "transparent",
               color: "#c8a84b",
-              fontSize: "11px",
+              fontSize: "10px",
               letterSpacing: "0.35em",
               textTransform: "uppercase",
               cursor: "pointer",
@@ -456,37 +365,6 @@ export default function ZuluHeritageWeddingInvitation() {
           100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
         }
       `}</style>
-
-      {/* LOVE STORY */}
-      <section
-        style={{
-          padding: "80px 24px",
-          borderTop: "1px solid rgba(200,120,10,0.12)",
-          textAlign: "center",
-          background: "rgba(17,8,0,0.6)",
-        }}
-      >
-        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <SectionHeader
-            sub="Our Story"
-            title="A Love Written By Destiny"
-            note=""
-          />
-          <p
-            style={{
-              color: "#a07040",
-              fontSize: "16px",
-              lineHeight: 2,
-              marginTop: "24px",
-            }}
-          >
-            Through every season, every challenge, and every blessing, our
-            hearts found home in one another. What began as a beautiful
-            friendship blossomed into a love rooted deeply in faith, family,
-            culture, and purpose.
-          </p>
-        </div>
-      </section>
 
       {/* CEREMONY */}
       <section
@@ -573,9 +451,9 @@ export default function ZuluHeritageWeddingInvitation() {
             margin: "48px auto 0",
           }}
         >
-          {[1, 2, 3].map((i) => (
+          {["couple", "molete", "zulus"].map((name) => (
             <div
-              key={i}
+              key={name}
               style={{
                 aspectRatio: "3/4",
                 borderRadius: "32px",
@@ -585,7 +463,7 @@ export default function ZuluHeritageWeddingInvitation() {
               }}
             >
               <img
-                src={`/images/gallery${i}.jpg`}
+                src={`/images/${name}.jpeg`}
                 alt=""
                 style={{
                   width: "100%",
@@ -600,17 +478,6 @@ export default function ZuluHeritageWeddingInvitation() {
             </div>
           ))}
         </div>
-        <p
-          style={{
-            color: "rgba(200,120,10,0.5)",
-            fontSize: "12px",
-            marginTop: "24px",
-            fontStyle: "italic",
-          }}
-        >
-          Add your photos as gallery1.jpg, gallery2.jpg, gallery3.jpg inside
-          public/images/
-        </p>
       </section>
 
       {/* VENUE */}
@@ -623,9 +490,9 @@ export default function ZuluHeritageWeddingInvitation() {
         }}
       >
         <SectionHeader
-          sub="Indawo Yomcimbi"
+          sub="Indawo Yomcimbi - Lefelo la Phuthego"
           title="The Venue"
-          note="Where we celebrate"
+          note="Where We Celebrate"
         />
         <div
           style={{
@@ -642,11 +509,10 @@ export default function ZuluHeritageWeddingInvitation() {
               background: "rgba(200,120,10,0.06)",
             }}
           >
-            <div style={{ fontSize: "32px", marginBottom: "12px" }}>🏔️</div>
             <h3
               style={{ color: "#f5e6c8", fontSize: "24px", margin: "0 0 6px" }}
             >
-              Nkosi Heritage Estate
+              Suitability Gardens
             </h3>
             <p
               style={{
@@ -655,7 +521,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 marginBottom: "28px",
               }}
             >
-              KwaZulu-Natal, South Africa
+              Gauteng, South Africa
             </p>
             <div
               style={{
@@ -670,7 +536,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 ["Date", "Saturday, 24 October 2026"],
                 ["Time", "09:00 – 20:00"],
                 ["Dress Code", "Traditional African Elegance"],
-                ["Colours", "Ochre, Rust & Ivory"],
+                ["Colours", "All acceptable"],
               ].map(([k, v]) => (
                 <div key={k}>
                   <p
@@ -689,7 +555,7 @@ export default function ZuluHeritageWeddingInvitation() {
               ))}
             </div>
             <a
-              href="https://maps.google.com"
+              href="https://www.google.com/maps/dir//Suitability+Gardens,+236+1st+Rd,+Walkers+Fruit+Farms+SH,+De+Deur,+1961/@-26.19429,28.217574,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x1e94ff3aa18f4bc5:0x2cf1e71d08baf31f!2m2!1d27.9813308!2d-26.5264928?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
               target="_blank"
               rel="noreferrer"
               style={{
@@ -719,7 +585,7 @@ export default function ZuluHeritageWeddingInvitation() {
         }}
       >
         <SectionHeader
-          sub="Uhlelo Lwezikhathi"
+          sub="Thulaganyo ya nako"
           title="Counting the Days"
           note="Until we are united"
         />
@@ -733,10 +599,10 @@ export default function ZuluHeritageWeddingInvitation() {
           }}
         >
           {[
-            ["days", "Izinsuku · Days"],
-            ["hours", "Amahora · Hours"],
-            ["minutes", "Amaminiti · Minutes"],
-            ["seconds", "Amasekendi · Seconds"],
+            ["days", "Malatsi a le · Days"],
+            ["hours", "Diura · Hours"],
+            ["minutes", "Metsotso · Minutes"],
+            ["seconds", "Metsotswana · Seconds"],
           ].map(([k, label]) => (
             <div key={k} style={{ textAlign: "center" }}>
               <div
@@ -784,7 +650,7 @@ export default function ZuluHeritageWeddingInvitation() {
         <SectionHeader
           sub="Bhalisa · Register"
           title="Confirm Your Attendance"
-          note="Siyakumema — You are invited"
+          note="O a Lalediwa — You are invited"
         />
         {submitted ? (
           <div
@@ -802,7 +668,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 marginBottom: "10px",
               }}
             >
-              Siyabonga
+              Rea Leboga
             </h3>
             <p
               style={{
@@ -827,13 +693,18 @@ export default function ZuluHeritageWeddingInvitation() {
                 cursor: "pointer",
               }}
             >
-              Vala · Close
+              Tswala · Close
             </button>
           </div>
         ) : (
           <form
-            onSubmit={(e) => {
+            onSubmit={async (e) => {
               e.preventDefault();
+              await fetch("https://formspree.io/f/xbdbrdvo", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+              });
               setSubmitted(true);
             }}
             style={{
@@ -846,7 +717,6 @@ export default function ZuluHeritageWeddingInvitation() {
           >
             {[
               ["Full Name *", "text", "name", true],
-              ["Email Address", "email", "email", false],
               ["Phone Number", "tel", "phone", false],
             ].map(([label, type, key, req]) => (
               <div key={key} style={{ textAlign: "left" }}>
@@ -980,7 +850,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       marginBottom: "8px",
                     }}
                   >
-                    Meal Preference
+                    Any Allergies
                   </label>
                   <input
                     type="text"
@@ -1005,41 +875,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 </div>
               </>
             )}
-            <div style={{ textAlign: "left" }}>
-              <label
-                style={{
-                  display: "block",
-                  color: "#c8780a",
-                  fontSize: "10px",
-                  letterSpacing: "0.22em",
-                  textTransform: "uppercase",
-                  marginBottom: "8px",
-                }}
-              >
-                Message to the Couple
-              </label>
-              <textarea
-                rows={3}
-                value={formData.message}
-                onChange={(e) =>
-                  setFormData({ ...formData, message: e.target.value })
-                }
-                placeholder="Share your wishes…"
-                style={{
-                  width: "100%",
-                  padding: "12px 16px",
-                  borderRadius: "12px",
-                  boxSizing: "border-box",
-                  background: "rgba(200,120,10,0.08)",
-                  border: "1px solid rgba(200,120,10,0.28)",
-                  color: "#f5e6c8",
-                  fontSize: "13px",
-                  outline: "none",
-                  resize: "none",
-                  fontFamily: "Georgia,serif",
-                }}
-              />
-            </div>
+
             <button
               type="submit"
               style={{
@@ -1100,7 +936,7 @@ export default function ZuluHeritageWeddingInvitation() {
             letterSpacing: "0.18em",
           }}
         >
-          24 · 10 · 2026 · KwaZulu-Natal
+          24 · 10 · 2026 · Gauteng
         </p>
         <p
           style={{
