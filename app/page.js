@@ -131,7 +131,7 @@ export default function ZuluHeritageWeddingInvitation() {
         )}
 
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
           @keyframes tapPulse { 0%,100%{opacity:.85} 50%{opacity:.3} }
           @keyframes fadeOut {
             0% { opacity: 1; transform: scale(1); }
@@ -199,7 +199,7 @@ export default function ZuluHeritageWeddingInvitation() {
               fontFamily: "Georgia,serif",
             }}
           >
-            Umembeso · You Are Invited
+            Umembeso x Serwalo · You Are Invited
           </p>
           <h2
             style={{
@@ -213,7 +213,7 @@ export default function ZuluHeritageWeddingInvitation() {
               lineHeight: 1.4,
             }}
           >
-            The Mahlangu and Molete Families
+            The Zulu and Molete Families
           </h2>
           <p
             style={{
@@ -225,15 +225,16 @@ export default function ZuluHeritageWeddingInvitation() {
               fontFamily: "Georgia,serif",
             }}
           >
-            joyfully request the honour of your presence at the wedding
-            celebration of their children
+            joyfully request the honour of your presence while celebrating their
+            children
           </p>
           <h1
             style={{
               color: "#c8a84b",
               fontSize: "clamp(40px,9vw,72px)",
-              fontFamily: "'Great Vibes', cursive",
-              fontWeight: "400",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontWeight: "300",
+              fontStyle: "italic",
               margin: "0 0 32px",
               lineHeight: 1.2,
             }}
