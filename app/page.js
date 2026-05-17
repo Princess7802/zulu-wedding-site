@@ -131,7 +131,7 @@ export default function ZuluHeritageWeddingInvitation() {
         )}
 
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
           @keyframes tapPulse { 0%,100%{opacity:.85} 50%{opacity:.3} }
           @keyframes fadeOut {
             0% { opacity: 1; transform: scale(1); }
@@ -172,12 +172,12 @@ export default function ZuluHeritageWeddingInvitation() {
       {/* INTRO SECTION */}
       <section
         style={{
-          minHeight: "auto",
+          minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "60px 40px",
+          padding: "0 40px",
           position: "relative",
         }}
       >
@@ -195,7 +195,7 @@ export default function ZuluHeritageWeddingInvitation() {
               fontSize: "11px",
               letterSpacing: "0.45em",
               textTransform: "uppercase",
-              marginBottom: "40px",
+              marginBottom: "20px",
               fontFamily: "Georgia,serif",
             }}
           >
@@ -204,12 +204,12 @@ export default function ZuluHeritageWeddingInvitation() {
           <h2
             style={{
               color: "#f5e6c8",
-              fontSize: "clamp(18px,4vw,28px)",
+              fontSize: "clamp(13px,2.5vw,18px)",
               fontFamily: "'Cinzel', Georgia, serif",
               fontWeight: "600",
               letterSpacing: "0.15em",
               textTransform: "uppercase",
-              margin: "0 0 32px",
+              margin: "0 0 16px",
               lineHeight: 1.4,
             }}
           >
@@ -221,8 +221,8 @@ export default function ZuluHeritageWeddingInvitation() {
               fontSize: "clamp(14px,2.5vw,18px)",
               fontStyle: "italic",
               lineHeight: 1.8,
-              marginBottom: "40px",
-              fontFamily: "Georgia,serif",
+              marginBottom: "20px",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}
           >
             joyfully request the honour of your presence while celebrating their
@@ -231,11 +231,12 @@ export default function ZuluHeritageWeddingInvitation() {
           <h1
             style={{
               color: "#c8a84b",
-              fontSize: "clamp(40px,9vw,72px)",
-              fontFamily: "'Great Vibes', cursive",
-              fontWeight: "400",
-              margin: "0 0 32px",
-              lineHeight: 1.4,
+              fontSize: "clamp(28px,6vw,52px)",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontWeight: "300",
+              fontStyle: "italic",
+              margin: "0 0 16px",
+              lineHeight: 1.3,
             }}
           >
             Thobelinkosi & Koketso
@@ -245,13 +246,14 @@ export default function ZuluHeritageWeddingInvitation() {
               width: "60px",
               height: "1px",
               background: "#c8a84b",
-              margin: "0 auto 32px",
+              margin: "0 auto 20px",
             }}
           />
           <div
             style={{
               display: "flex",
               justifyContent: "center",
+              marginTop: "16px",
             }}
           >
             <div
