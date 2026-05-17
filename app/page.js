@@ -248,20 +248,10 @@ export default function ZuluHeritageWeddingInvitation() {
               margin: "0 auto 32px",
             }}
           />
-          <p
-            style={{
-              color: "rgba(200,160,80,0.8)",
-              fontSize: "clamp(10px,2vw,13px)",
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-              fontFamily: "Georgia,serif",
-            }}
-          >
-            24 October 2026 · Suitability Gardens, Gauteng
-          </p>
         </div>
         <div
           style={{
+            width: "100%",
             display: "flex",
             justifyContent: "center",
             padding: "40px 0 0",
