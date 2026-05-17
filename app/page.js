@@ -248,24 +248,24 @@ export default function ZuluHeritageWeddingInvitation() {
               margin: "0 auto 32px",
             }}
           />
-        </div>
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            padding: "40px 0 0",
-          }}
-        >
           <div
             style={{
-              width: "1px",
-              height: "80px",
-              background:
-                "linear-gradient(to bottom, rgba(200,160,60,0.8), transparent)",
-              animation: "scrollLine 1.8s ease-in-out infinite",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              padding: "40px 0 0",
             }}
-          />
+          >
+            <div
+              style={{
+                width: "1px",
+                height: "80px",
+                background:
+                  "linear-gradient(to bottom, rgba(200,160,60,0.8), transparent)",
+                animation: "scrollLine 1.8s ease-in-out infinite",
+              }}
+            />
+          </div>
         </div>
       </section>
 
