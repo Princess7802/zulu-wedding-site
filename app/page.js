@@ -172,7 +172,7 @@ export default function ZuluHeritageWeddingInvitation() {
       {/* INTRO SECTION */}
       <section
         style={{
-          minHeight: "100vh",
+          minHeight: "auto",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
