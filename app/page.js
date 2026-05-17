@@ -169,6 +169,99 @@ export default function ZuluHeritageWeddingInvitation() {
         }
       `}</style>
 
+      {/* INTRO SECTION */}
+      <section
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          textAlign: "center",
+          padding: "60px 40px",
+          position: "relative",
+        }}
+      >
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            maxWidth: "700px",
+            width: "100%",
+          }}
+        >
+          <p
+            style={{
+              color: "rgba(200,160,80,0.7)",
+              fontSize: "11px",
+              letterSpacing: "0.45em",
+              textTransform: "uppercase",
+              marginBottom: "40px",
+              fontFamily: "Georgia,serif",
+            }}
+          >
+            Umembeso · You Are Invited
+          </p>
+          <h2
+            style={{
+              color: "#f5e6c8",
+              fontSize: "clamp(18px,4vw,28px)",
+              fontFamily: "'Cinzel', Georgia, serif",
+              fontWeight: "600",
+              letterSpacing: "0.15em",
+              textTransform: "uppercase",
+              margin: "0 0 32px",
+              lineHeight: 1.4,
+            }}
+          >
+            The Mahlangu and Molete Families
+          </h2>
+          <p
+            style={{
+              color: "rgba(245,230,200,0.75)",
+              fontSize: "clamp(14px,2.5vw,18px)",
+              fontStyle: "italic",
+              lineHeight: 1.8,
+              marginBottom: "40px",
+              fontFamily: "Georgia,serif",
+            }}
+          >
+            joyfully request the honour of your presence at the wedding
+            celebration of their children
+          </p>
+          <h1
+            style={{
+              color: "#c8a84b",
+              fontSize: "clamp(36px,8vw,62px)",
+              fontFamily: "'Cinzel', Georgia, serif",
+              fontWeight: "400",
+              margin: "0 0 32px",
+              lineHeight: 1.1,
+            }}
+          >
+            Thobelinkosi & Koketso
+          </h1>
+          <div
+            style={{
+              width: "60px",
+              height: "1px",
+              background: "#c8a84b",
+              margin: "0 auto 32px",
+            }}
+          />
+          <p
+            style={{
+              color: "rgba(200,160,80,0.8)",
+              fontSize: "clamp(10px,2vw,13px)",
+              letterSpacing: "0.3em",
+              textTransform: "uppercase",
+              fontFamily: "Georgia,serif",
+            }}
+          >
+            24 October 2026 · Suitability Gardens, Gauteng
+          </p>
+        </div>
+      </section>
+
       <nav
         style={{
           position: "fixed",
@@ -244,7 +337,7 @@ export default function ZuluHeritageWeddingInvitation() {
               fontFamily: "Georgia,serif",
             }}
           >
-            Umembeso x Mahlabiso
+            Umembeso x Serwalo
           </p>
           <Divider />
           <h1
@@ -307,7 +400,7 @@ export default function ZuluHeritageWeddingInvitation() {
               fontFamily: "Georgia,serif",
             }}
           >
-            Umembeso · Mahlabiso
+            Umembeso · Serwalo
           </p>
           <p
             style={{
@@ -380,7 +473,7 @@ export default function ZuluHeritageWeddingInvitation() {
       >
         <SectionHeader
           sub="Umembeso x Serwalo"
-          title="The Ceremony"
+          title="The Ceremonies"
           note="Traditional Gift-Giving Celebrations"
         />
         <div
