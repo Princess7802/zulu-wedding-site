@@ -261,6 +261,31 @@ export default function ZuluHeritageWeddingInvitation() {
           </p>
         </div>
       </section>
+      {/* Animated scroll line */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          padding: "20px 0",
+        }}
+      >
+        <div
+          style={{
+            width: "1px",
+            height: "80px",
+            background:
+              "linear-gradient(to bottom, rgba(200,160,60,0.8), transparent)",
+            animation: "scrollLine 1.8s ease-in-out infinite",
+          }}
+        />
+      </div>
+      <style>{`
+        @keyframes scrollLine {
+          0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+          50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+          100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+        }
+      `}</style>
 
       <nav
         style={{
