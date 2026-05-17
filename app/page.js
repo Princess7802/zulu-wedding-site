@@ -131,7 +131,7 @@ export default function ZuluHeritageWeddingInvitation() {
         )}
 
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&display=swap');
           @keyframes tapPulse { 0%,100%{opacity:.85} 50%{opacity:.3} }
           @keyframes fadeOut {
             0% { opacity: 1; transform: scale(1); }
@@ -231,11 +231,11 @@ export default function ZuluHeritageWeddingInvitation() {
           <h1
             style={{
               color: "#c8a84b",
-              fontSize: "clamp(36px,8vw,62px)",
-              fontFamily: "'Cinzel', Georgia, serif",
+              fontSize: "clamp(40px,9vw,72px)",
+              fontFamily: "'Great Vibes', cursive",
               fontWeight: "400",
               margin: "0 0 32px",
-              lineHeight: 1.1,
+              lineHeight: 1.2,
             }}
           >
             Thobelinkosi & Koketso
@@ -250,10 +250,8 @@ export default function ZuluHeritageWeddingInvitation() {
           />
           <div
             style={{
-              width: "100%",
               display: "flex",
               justifyContent: "center",
-              padding: "40px 0 0",
             }}
           >
             <div
