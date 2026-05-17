@@ -379,14 +379,64 @@ export default function ZuluHeritageWeddingInvitation() {
         }}
       >
         <SectionHeader
-          sub="Umembeso"
+          sub="Umembeso x Serwalo"
           title="The Ceremony"
-          note="A Traditional Zulu Gift-Giving Celebration"
+          note="Traditional Gift-Giving Celebrations"
         />
         <div
           style={{
             maxWidth: "600px",
             margin: "48px auto 0",
+            border: "1px solid rgba(200,120,10,0.22)",
+            borderRadius: "16px",
+            padding: "40px 36px",
+            background: "rgba(200,120,10,0.04)",
+            textAlign: "center",
+          }}
+        >
+          <p
+            style={{
+              color: "#c8780a",
+              fontSize: "12px",
+              letterSpacing: "0.2em",
+              marginBottom: "10px",
+            }}
+          >
+            24 October 2026
+          </p>
+          <h3
+            style={{
+              color: "#f5e6c8",
+              fontSize: "28px",
+              margin: "0 0 4px",
+            }}
+          >
+            Serwalo
+          </h3>
+          <p
+            style={{
+              color: "rgba(200,120,10,0.7)",
+              fontSize: "10px",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              marginBottom: "20px",
+            }}
+          >
+            A Gesture of Thanksgiving
+          </p>
+          <p style={{ color: "#a07040", fontSize: "14px", lineHeight: 1.9 }}>
+            Serwalo is a heartfelt ceremony of thanksgiving offered to the
+            groom's family in honour of the bride price paid. It officially
+            marks the joyful acceptance of the bride into her new in-laws' home
+            — a sacred moment where gratitude, blessing, and belonging are woven
+            together as two families become one.
+          </p>
+        </div>
+        {/* Umembeso Block */}
+        <div
+          style={{
+            maxWidth: "600px",
+            margin: "32px auto 0",
             border: "1px solid rgba(200,120,10,0.22)",
             borderRadius: "16px",
             padding: "40px 36px",
