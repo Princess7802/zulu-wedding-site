@@ -447,13 +447,13 @@ export default function ZuluHeritageWeddingInvitation() {
         style={{
           display: "flex",
           justifyContent: "center",
-          padding: "20px 0",
+          padding: "8px 0",
         }}
       >
         <div
           style={{
             width: "1px",
-            height: "80px",
+            height: "50px",
             background:
               "linear-gradient(to bottom, rgba(200,160,60,0.8), transparent)",
             animation: "scrollLine 1.8s ease-in-out infinite",
