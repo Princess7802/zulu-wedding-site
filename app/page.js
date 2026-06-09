@@ -199,7 +199,7 @@ export default function ZuluHeritageWeddingInvitation() {
               fontFamily: "Georgia,serif",
             }}
           >
-            Umembeso x Serwalo · You Are Invited
+            Tlhabiso ya Magadi x Umembeso· You Are Invited
           </p>
           <h2
             style={{
@@ -213,7 +213,7 @@ export default function ZuluHeritageWeddingInvitation() {
               lineHeight: 1.4,
             }}
           >
-            The Zulu and Molete Families
+            The Molete and Zulu Families
           </h2>
           <p
             style={{
@@ -344,7 +344,7 @@ export default function ZuluHeritageWeddingInvitation() {
               fontFamily: "Georgia,serif",
             }}
           >
-            Umembeso x Serwalo
+            Tlhabiso ya Magadi x Umembeso
           </p>
           <Divider />
           <h1
@@ -511,7 +511,7 @@ export default function ZuluHeritageWeddingInvitation() {
               margin: "0 0 4px",
             }}
           >
-            Serwalo
+            Tlhabiso ya Magadi
           </h3>
           <p
             style={{
@@ -525,8 +525,8 @@ export default function ZuluHeritageWeddingInvitation() {
             A Gesture of Thanksgiving
           </p>
           <p style={{ color: "#a07040", fontSize: "14px", lineHeight: 1.9 }}>
-            Serwalo is a heartfelt ceremony of thanksgiving offered to the
-            groom's family in honour of the bride price paid. It officially
+            Tlabiso ya Magadi is a heartfelt ceremony of thanksgiving offered to
+            the groom's family in honour of the bride price paid. It officially
             marks the joyful acceptance of the bride into her new in-laws' home
             — a sacred moment where gratitude, blessing, and belonging are woven
             together as two families become one.
@@ -602,7 +602,7 @@ export default function ZuluHeritageWeddingInvitation() {
             margin: "48px auto 0",
           }}
         >
-          {["couple", "molete", "zulus"].map((name) => (
+          {["couple", "molete", "zulus", "picture"].map((name) => (
             <div
               key={name}
               style={{
@@ -642,7 +642,7 @@ export default function ZuluHeritageWeddingInvitation() {
         }}
       >
         <SectionHeader
-          sub="Indawo Yomcimbi - Lefelo la Phuthego"
+          sub="Lefelo la Phuthego - Indawo Yomcimbi"
           title="The Venue"
           note="Where We Celebrate"
         />
@@ -927,8 +927,8 @@ export default function ZuluHeritageWeddingInvitation() {
                 }}
               >
                 {[
-                  ["accept", "Ngizobuya — Accept"],
-                  ["decline", "Ngixolele — Decline"],
+                  ["accept", "Accept"],
+                  ["decline", "Decline"],
                 ].map(([val, lbl]) => (
                   <button
                     key={val}
