@@ -174,10 +174,11 @@ export default function ZuluHeritageWeddingInvitation() {
         style={{
           minHeight: "100vh",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "0 40px",
+          padding: "0 40px 40px",
           position: "relative",
         }}
       >
