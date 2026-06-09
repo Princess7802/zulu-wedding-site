@@ -42,8 +42,9 @@ export default function ZuluHeritageWeddingInvitation() {
 
   const handleOpen = () => {
     if (phase !== "idle") return;
-    setPhase("flapping");
-    setTimeout(() => setShowFull(true), 950);
+    setPhase("opening");
+    setTimeout(() => setPhase("fading"), 1800);
+    setTimeout(() => setShowFull(true), 2700);
   };
 
   const pad = (n) => String(n).padStart(2, "0");
@@ -62,10 +63,26 @@ export default function ZuluHeritageWeddingInvitation() {
           cursor: phase === "idle" ? "pointer" : "default",
           fontFamily: "Georgia, 'Times New Roman', serif",
           animation:
-            phase === "flapping" ? "fadeOut 0.95s ease forwards" : "none",
+            phase === "fading" ? "envFadeOut 1s ease forwards" : "none",
         }}
       >
-        {/* Cowhide image from public/images/envelope.png */}
+        {/* Open envelope — fades in when tapped */}
+        <img
+          src="/images/envelope-open.jpg"
+          alt="envelope open"
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            zIndex: 1,
+            opacity: phase === "idle" ? 0 : 1,
+            transition: "opacity 1.2s ease",
+          }}
+        />
+
+        {/* Closed envelope — fades out when tapped */}
         <img
           src="/images/envelope.jpg"
           alt="envelope"
@@ -75,11 +92,11 @@ export default function ZuluHeritageWeddingInvitation() {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            zIndex: 1,
+            zIndex: 2,
+            opacity: phase === "idle" ? 1 : 0,
+            transition: "opacity 1.2s ease",
           }}
         />
-
-        {/* Wax seal SVG centred over the photo */}
 
         {/* Skip button */}
         <button
@@ -108,12 +125,11 @@ export default function ZuluHeritageWeddingInvitation() {
           Skip ›
         </button>
 
-        {/* Tap prompt */}
         {phase === "idle" && (
           <p
             style={{
               position: "absolute",
-              bottom: "36px",
+              bottom: "40px",
               left: "50%",
               transform: "translateX(-50%)",
               zIndex: 20,
@@ -131,12 +147,10 @@ export default function ZuluHeritageWeddingInvitation() {
         )}
 
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
           @keyframes tapPulse { 0%,100%{opacity:.85} 50%{opacity:.3} }
-          @keyframes fadeOut {
-            0% { opacity: 1; transform: scale(1); }
-            60% { opacity: 0.6; transform: scale(1.03); }
-            100% { opacity: 0; transform: scale(1.06); }
+          @keyframes envFadeOut {
+            0%   { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.04); }
           }
         `}</style>
       </div>
