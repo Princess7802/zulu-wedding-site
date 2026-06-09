@@ -178,7 +178,7 @@ export default function ZuluHeritageWeddingInvitation() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "0 40px 40px",
+          padding: "0 40px 0px",
           position: "relative",
         }}
       >
@@ -254,7 +254,7 @@ export default function ZuluHeritageWeddingInvitation() {
             style={{
               display: "flex",
               justifyContent: "center",
-              marginTop: "16px",
+              marginTop: "8px",
             }}
           >
             <div
