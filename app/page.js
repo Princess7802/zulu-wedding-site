@@ -42,8 +42,9 @@ export default function ZuluHeritageWeddingInvitation() {
 
   const handleOpen = () => {
     if (phase !== "idle") return;
-    setPhase("flapping");
-    setTimeout(() => setShowFull(true), 950);
+    setPhase("opening");
+    setTimeout(() => setPhase("fading"), 1200);
+    setTimeout(() => setShowFull(true), 1900);
   };
 
   const pad = (n) => String(n).padStart(2, "0");
@@ -62,10 +63,10 @@ export default function ZuluHeritageWeddingInvitation() {
           cursor: phase === "idle" ? "pointer" : "default",
           fontFamily: "Georgia, 'Times New Roman', serif",
           animation:
-            phase === "flapping" ? "fadeOut 0.95s ease forwards" : "none",
+            phase === "fading" ? "envFadeOut 0.8s ease forwards" : "none",
         }}
       >
-        {/* Cowhide image from public/images/envelope.png */}
+        {/* Your actual envelope.jpg — full screen */}
         <img
           src="/images/envelope.jpg"
           alt="envelope"
@@ -80,6 +81,151 @@ export default function ZuluHeritageWeddingInvitation() {
         />
 
         {/* Wax seal SVG centred over the photo */}
+        {/* White invitation card inside — rises up when flap opens */}
+        <div
+          style={{
+            position: "absolute",
+            left: "12%",
+            right: "12%",
+            top: "20%",
+            bottom: "15%",
+            zIndex: 2,
+            background: "linear-gradient(160deg, #faf6f0, #f2e6d0)",
+            borderRadius: "3px",
+            boxShadow: "0 -4px 20px rgba(0,0,0,0.3)",
+            transform:
+              phase === "opening" || phase === "fading"
+                ? "translateY(-8%)"
+                : "translateY(100%)",
+            transition: "transform 0.8s cubic-bezier(0.22,1,0.36,1)",
+            transitionDelay: phase === "opening" ? "0.5s" : "0s",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            paddingTop: "24px",
+          }}
+        >
+          <div style={{ display: "flex", gap: "6px", marginBottom: "8px" }}>
+            {[...Array(7)].map((_, i) => (
+              <div
+                key={i}
+                style={{
+                  width: "5px",
+                  height: "5px",
+                  borderRadius: "50%",
+                  background: "#c8780a",
+                }}
+              />
+            ))}
+          </div>
+          <p
+            style={{
+              color: "#8b4a0a",
+              fontSize: "9px",
+              letterSpacing: "0.3em",
+              textTransform: "uppercase",
+              fontFamily: "Georgia,serif",
+            }}
+          >
+            Thobelinkosi & Koketso
+          </p>
+        </div>
+
+        {/* Flap — cowhide triangle that rotates open */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "55%",
+            zIndex: 3,
+            perspective: "1200px",
+            perspectiveOrigin: "50% 0%",
+          }}
+        >
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              transformOrigin: "50% 0%",
+              transform:
+                phase === "idle" ? "rotateX(0deg)" : "rotateX(-180deg)",
+              transition: "transform 0.9s cubic-bezier(0.4,0,0.2,1)",
+              transformStyle: "preserve-3d",
+            }}
+          >
+            {/* Front of flap — cowhide texture + wax seal */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                backfaceVisibility: "hidden",
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "url('/images/cowhide.jpg') center/cover",
+                  clipPath: "polygon(0 0, 100% 0, 50% 100%)",
+                }}
+              />
+              {/* Wax seal */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: "12%",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "clamp(54px,13vw,72px)",
+                  height: "clamp(54px,13vw,72px)",
+                  borderRadius: "50%",
+                  background:
+                    "radial-gradient(circle at 38% 35%, #d4804a, #7a1800)",
+                  boxShadow:
+                    "0 4px 18px rgba(0,0,0,0.6), inset 0 1px 3px rgba(255,200,120,0.4)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  zIndex: 10,
+                }}
+              >
+                <span
+                  style={{
+                    color: "rgba(255,220,160,0.95)",
+                    fontSize: "clamp(11px,2.5vw,14px)",
+                    fontFamily: "Georgia,serif",
+                    fontWeight: "bold",
+                  }}
+                >
+                  T&K
+                </span>
+              </div>
+            </div>
+
+            {/* Back of flap — cream inner lining (like a real envelope) */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                backfaceVisibility: "hidden",
+                transform: "rotateX(180deg)",
+                overflow: "hidden",
+              }}
+            >
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(160deg, #f5ece0, #ebe0cc)",
+                  clipPath: "polygon(0 0, 100% 0, 50% 100%)",
+                }}
+              />
+            </div>
+          </div>
+        </div>
 
         {/* Skip button */}
         <button
@@ -113,7 +259,7 @@ export default function ZuluHeritageWeddingInvitation() {
           <p
             style={{
               position: "absolute",
-              bottom: "36px",
+              bottom: "40px",
               left: "50%",
               transform: "translateX(-50%)",
               zIndex: 20,
@@ -131,12 +277,10 @@ export default function ZuluHeritageWeddingInvitation() {
         )}
 
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
           @keyframes tapPulse { 0%,100%{opacity:.85} 50%{opacity:.3} }
-          @keyframes fadeOut {
+          @keyframes envFadeOut {
             0% { opacity: 1; transform: scale(1); }
-            60% { opacity: 0.6; transform: scale(1.03); }
-            100% { opacity: 0; transform: scale(1.06); }
+            100% { opacity: 0; transform: scale(1.04); }
           }
         `}</style>
       </div>
