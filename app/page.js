@@ -480,7 +480,7 @@ export default function ZuluHeritageWeddingInvitation() {
         }}
       >
         <SectionHeader
-          sub="Umembeso x Serwalo"
+          sub="Umembeso x Tlhabiso Ya Magadi"
           title="The Ceremonies"
           note="Traditional Gift-Giving Celebrations"
         />
