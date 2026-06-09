@@ -68,7 +68,7 @@ export default function ZuluHeritageWeddingInvitation() {
       >
         {/* Open envelope — fades in when tapped */}
         <img
-          src="/images/envelope-open.jpg"
+          src="/images/edit.jpg"
           alt="envelope open"
           style={{
             position: "absolute",
