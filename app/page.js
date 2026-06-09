@@ -313,13 +313,13 @@ export default function ZuluHeritageWeddingInvitation() {
       {/* HERO */}
       <section
         style={{
-          minHeight: "100vh",
+          minHeight: "auto",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "80px 24px 40px",
+          padding: "24px 40px",
         }}
       >
         <div
