@@ -97,10 +97,14 @@ export default function ZuluHeritageWeddingInvitation() {
           <div
             style={{
               position: "absolute",
-              inset: 0,
+              left: "18%",
+              top: "0%",
+              width: "65%",
+              height: "50%",
               backgroundImage: "url('/images/topflap.jpg')",
-              backgroundSize: "100% 100%",
-              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              clipPath: "polygon(0% 0%, 100% 0%, 100% 36%, 50% 100%, 0% 36%)",
               transformOrigin: "top center",
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
@@ -115,8 +119,8 @@ export default function ZuluHeritageWeddingInvitation() {
             style={{
               position: "absolute",
               left: "50%",
-              top: "89.7%",
-              width: "20%",
+              top: "50%",
+              width: "18%",
               aspectRatio: "1",
               borderRadius: "50%",
               overflow: "hidden",
