@@ -43,7 +43,7 @@ export default function ZuluHeritageWeddingInvitation() {
     e.stopPropagation();
     if (phase !== "idle") return;
     setPhase("open");
-    setTimeout(() => setShowFull(true), 2100);
+    setTimeout(() => setShowFull(true), 3000);
   };
 
   const pad = (n) => String(n).padStart(2, "0");
@@ -61,7 +61,7 @@ export default function ZuluHeritageWeddingInvitation() {
           background: "#1c120c",
           animation:
             phase === "open"
-              ? "masterEnvelopeDissolve 0.8s ease-in-out 1.3s forwards"
+              ? "masterEnvelopeDissolve 0.8s ease-in-out 2.2s forwards"
               : "none",
         }}
       >
@@ -77,6 +77,7 @@ export default function ZuluHeritageWeddingInvitation() {
             perspective: "1600px",
           }}
         >
+          {/* Bottom flap - lowest layer */}
           <div
             style={{
               position: "absolute",
@@ -88,6 +89,7 @@ export default function ZuluHeritageWeddingInvitation() {
             }}
           />
 
+          {/* Top flap - animates open */}
           <div
             style={{
               position: "absolute",
@@ -103,13 +105,13 @@ export default function ZuluHeritageWeddingInvitation() {
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
               transform: phase === "open" ? "rotateX(180deg)" : "rotateX(0deg)",
-              transition: "transform 0.9s cubic-bezier(0.45,0,0.2,1)",
+              transition: "transform 0.9s cubic-bezier(0.45,0,0.2,1) 0.4s",
               zIndex: 2,
             }}
           />
 
+          {/* Seal */}
           <div
-            onClick={handleOpen}
             style={{
               position: "absolute",
               left: "50%",
@@ -122,19 +124,36 @@ export default function ZuluHeritageWeddingInvitation() {
               backgroundSize: "175%",
               backgroundPosition: "center",
               boxShadow: "0 6px 16px rgba(0,0,0,0.45)",
-              cursor: phase === "idle" ? "pointer" : "default",
               zIndex: 3,
               opacity: phase === "open" ? 0 : 1,
-              pointerEvents: phase === "open" ? "none" : "auto",
+              pointerEvents: "none",
               transform:
                 phase === "open"
                   ? "translate(-50%, -50%) scale(0.5)"
                   : "translate(-50%, -50%) scale(1)",
-              transition: "opacity 0.4s ease-out, transform 0.4s ease-out",
+              transition:
+                "opacity 0.4s ease-out 0.4s, transform 0.4s ease-out 0.4s",
               animation:
                 phase === "idle"
                   ? "sealPulse 2.4s ease-in-out infinite"
                   : "none",
+            }}
+          />
+
+          {/* FULL ENVELOPE - top layer, what the user sees on load */}
+          <div
+            onClick={handleOpen}
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: "url('/images/envelope.jpg')",
+              backgroundSize: "100% 100%",
+              backgroundRepeat: "no-repeat",
+              cursor: phase === "idle" ? "pointer" : "default",
+              zIndex: 4,
+              opacity: phase === "open" ? 0 : 1,
+              pointerEvents: phase === "open" ? "none" : "auto",
+              transition: "opacity 0.6s ease-out",
             }}
           />
         </div>
@@ -156,7 +175,7 @@ export default function ZuluHeritageWeddingInvitation() {
               zIndex: 10,
             }}
           >
-            Tap the seal to open
+            Tap to open
           </p>
         )}
 
@@ -184,15 +203,15 @@ export default function ZuluHeritageWeddingInvitation() {
         </button>
 
         <style>{`
-          @keyframes sealPulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); }
-            50% { transform: translate(-50%, -50%) scale(1.06); }
-          }
-          @keyframes masterEnvelopeDissolve {
-            0% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(1.05); }
-          }
-        `}</style>
+        @keyframes sealPulse {
+          0%, 100% { transform: translate(-50%, -50%) scale(1); }
+          50% { transform: translate(-50%, -50%) scale(1.06); }
+        }
+        @keyframes masterEnvelopeDissolve {
+          0% { opacity: 1; transform: scale(1); }
+          100% { opacity: 0; transform: scale(1.05); }
+        }
+      `}</style>
       </div>
     );
   }
