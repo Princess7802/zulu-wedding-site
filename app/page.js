@@ -63,20 +63,24 @@ export default function ZuluHeritageWeddingInvitation() {
           justifyContent: "center",
           alignItems: "center",
           fontFamily: "Georgia, 'Times New Roman', serif",
+          padding: "24px",
+          boxSizing: "border-box",
+          animation:
+            phase === "open"
+              ? "masterEnvelopeDissolve 0.8s ease-in-out 1.3s forwards"
+              : "none",
         }}
       >
         <div
           style={{
             position: "relative",
             width: "100%",
-            maxWidth: "430px",
-            height: "740px",
-            margin: "0 auto",
-            perspective: "2000px",
-            animation:
-              phase === "open"
-                ? "masterEnvelopeDissolve 0.8s ease-in-out 1.3s forwards"
-                : "none",
+            maxWidth: "480px",
+            aspectRatio: "1448 / 1086",
+            perspective: "1600px",
+            boxShadow: "0 25px 60px rgba(0,0,0,0.55)",
+            borderRadius: "6px",
+            overflow: "hidden",
           }}
         >
           <div
@@ -84,68 +88,78 @@ export default function ZuluHeritageWeddingInvitation() {
               position: "absolute",
               inset: 0,
               backgroundImage: "url('/images/bottomflap.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              zIndex: 4,
+              backgroundSize: "100% 100%",
+              backgroundRepeat: "no-repeat",
+              zIndex: 1,
             }}
           />
+
           <div
             style={{
               position: "absolute",
               inset: 0,
               backgroundImage: "url('/images/topflap.jpg')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              zIndex: 5,
+              backgroundSize: "100% 100%",
+              backgroundRepeat: "no-repeat",
               transformOrigin: "top center",
+              backfaceVisibility: "hidden",
+              WebkitBackfaceVisibility: "hidden",
               transform: phase === "open" ? "rotateX(180deg)" : "rotateX(0deg)",
-              transition: "transform 0.7s cubic-bezier(0.4,0,0.2,1) 0.4s",
+              transition: "transform 0.9s cubic-bezier(0.45,0,0.2,1)",
+              zIndex: 2,
             }}
           />
+
           <div
             onClick={handleOpen}
             style={{
               position: "absolute",
-              top: "50%",
               left: "50%",
-              transform:
-                phase === "open"
-                  ? "translate(-50%, -40%) scale(0.75)"
-                  : "translate(-50%, -50%) scale(1)",
-              width: "125px",
-              height: "125px",
+              top: "89.7%",
+              width: "20%",
+              aspectRatio: "1",
+              borderRadius: "50%",
+              overflow: "hidden",
               backgroundImage: "url('/images/seal.jpg')",
-              backgroundSize: "contain",
-              backgroundRepeat: "no-repeat",
+              backgroundSize: "175%",
+              backgroundPosition: "center",
+              boxShadow: "0 6px 16px rgba(0,0,0,0.45)",
               cursor: phase === "idle" ? "pointer" : "default",
-              zIndex: 6,
+              zIndex: 3,
               opacity: phase === "open" ? 0 : 1,
               pointerEvents: phase === "open" ? "none" : "auto",
-              transition: "opacity 0.35s ease-out, transform 0.35s ease-out",
+              transform:
+                phase === "open"
+                  ? "translate(-50%, -50%) scale(0.5)"
+                  : "translate(-50%, -50%) scale(1)",
+              transition: "opacity 0.4s ease-out, transform 0.4s ease-out",
+              animation:
+                phase === "idle"
+                  ? "sealPulse 2.4s ease-in-out infinite"
+                  : "none",
             }}
           />
-          {phase === "idle" && (
-            <p
-              style={{
-                position: "absolute",
-                bottom: "40px",
-                left: "50%",
-                transform: "translateX(-50%)",
-                zIndex: 20,
-                color: "rgba(255,255,255,0.85)",
-                fontSize: "12px",
-                letterSpacing: "0.3em",
-                textTransform: "uppercase",
-                textShadow: "0 1px 6px rgba(0,0,0,0.7)",
-                animation: "tapPulse 2s ease-in-out infinite",
-                whiteSpace: "nowrap",
-                pointerEvents: "none",
-              }}
-            >
-              Tap seal to open
-            </p>
-          )}
         </div>
+
+        {phase === "idle" && (
+          <p
+            style={{
+              position: "absolute",
+              bottom: "32px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              color: "rgba(255,255,255,0.85)",
+              fontSize: "12px",
+              letterSpacing: "0.3em",
+              textTransform: "uppercase",
+              textShadow: "0 1px 6px rgba(0,0,0,0.7)",
+              whiteSpace: "nowrap",
+              pointerEvents: "none",
+            }}
+          >
+            Tap the seal to open
+          </p>
+        )}
 
         <button
           onClick={() => setShowFull(true)}
@@ -171,7 +185,10 @@ export default function ZuluHeritageWeddingInvitation() {
         </button>
 
         <style>{`
-          @keyframes tapPulse { 0%,100%{opacity:.85} 50%{opacity:.3} }
+          @keyframes sealPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.06); }
+          }
           @keyframes masterEnvelopeDissolve {
             0% { opacity: 1; transform: scale(1); }
             100% { opacity: 0; transform: scale(1.05); }
