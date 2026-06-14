@@ -43,7 +43,7 @@ export default function ZuluHeritageWeddingInvitation() {
     e.stopPropagation();
     if (phase !== "idle") return;
     setPhase("open");
-    setTimeout(() => setShowFull(true), 3000);
+    setTimeout(() => setShowFull(true), 2000);
   };
 
   const pad = (n) => String(n).padStart(2, "0");
@@ -61,7 +61,7 @@ export default function ZuluHeritageWeddingInvitation() {
           background: "#1c120c",
           animation:
             phase === "open"
-              ? "masterEnvelopeDissolve 0.8s ease-in-out 2.2s forwards"
+              ? "masterEnvelopeDissolve 0.8s ease-in-out 1.2s forwards"
               : "none",
         }}
       >
@@ -77,45 +77,46 @@ export default function ZuluHeritageWeddingInvitation() {
             perspective: "1600px",
           }}
         >
-          {/* Bottom flap - lowest layer */}
+          {/* BODY LAYER - bottom portion of the envelope photo (everything below the flap line) */}
           <div
             style={{
               position: "absolute",
               inset: 0,
-              backgroundImage: "url('/images/bottomflap.jpg')",
+              backgroundImage: "url('/images/envelope.jpg')",
               backgroundSize: "100% 100%",
+              backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
+              clipPath: "polygon(50% 48%, 100% 0%, 100% 100%, 0% 100%, 0% 0%)",
               zIndex: 1,
             }}
           />
 
-          {/* Top flap - animates open */}
+          {/* FLAP LAYER - top triangle of the SAME photo, folds open on click */}
           <div
             style={{
               position: "absolute",
-              left: "18%",
-              top: "0%",
-              width: "65%",
-              height: "50%",
-              backgroundImage: "url('/images/topflap.jpg')",
-              backgroundSize: "cover",
+              inset: 0,
+              backgroundImage: "url('/images/envelope.jpg')",
+              backgroundSize: "100% 100%",
               backgroundPosition: "center",
-              clipPath: "polygon(0% 0%, 100% 0%, 100% 36%, 50% 100%, 0% 36%)",
+              backgroundRepeat: "no-repeat",
+              clipPath: "polygon(0% 0%, 100% 0%, 50% 48%)",
               transformOrigin: "top center",
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
               transform: phase === "open" ? "rotateX(180deg)" : "rotateX(0deg)",
-              transition: "transform 0.9s cubic-bezier(0.45,0,0.2,1) 0.4s",
+              transition: "transform 0.9s cubic-bezier(0.45,0,0.2,1)",
               zIndex: 2,
             }}
           />
 
-          {/* Seal */}
+          {/* SEAL - sits at the flap's tip */}
           <div
+            onClick={handleOpen}
             style={{
               position: "absolute",
               left: "50%",
-              top: "50%",
+              top: "48%",
               width: "18%",
               aspectRatio: "1",
               borderRadius: "50%",
@@ -124,36 +125,19 @@ export default function ZuluHeritageWeddingInvitation() {
               backgroundSize: "175%",
               backgroundPosition: "center",
               boxShadow: "0 6px 16px rgba(0,0,0,0.45)",
+              cursor: phase === "idle" ? "pointer" : "default",
               zIndex: 3,
               opacity: phase === "open" ? 0 : 1,
-              pointerEvents: "none",
+              pointerEvents: phase === "open" ? "none" : "auto",
               transform:
                 phase === "open"
                   ? "translate(-50%, -50%) scale(0.5)"
                   : "translate(-50%, -50%) scale(1)",
-              transition:
-                "opacity 0.4s ease-out 0.4s, transform 0.4s ease-out 0.4s",
+              transition: "opacity 0.4s ease-out, transform 0.4s ease-out",
               animation:
                 phase === "idle"
                   ? "sealPulse 2.4s ease-in-out infinite"
                   : "none",
-            }}
-          />
-
-          {/* FULL ENVELOPE - top layer, what the user sees on load */}
-          <div
-            onClick={handleOpen}
-            style={{
-              position: "absolute",
-              inset: 0,
-              backgroundImage: "url('/images/envelope.jpg')",
-              backgroundSize: "100% 100%",
-              backgroundRepeat: "no-repeat",
-              cursor: phase === "idle" ? "pointer" : "default",
-              zIndex: 4,
-              opacity: phase === "open" ? 0 : 1,
-              pointerEvents: phase === "open" ? "none" : "auto",
-              transition: "opacity 0.6s ease-out",
             }}
           />
         </div>
@@ -175,7 +159,7 @@ export default function ZuluHeritageWeddingInvitation() {
               zIndex: 10,
             }}
           >
-            Tap to open
+            Tap the seal to open
           </p>
         )}
 
