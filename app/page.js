@@ -43,7 +43,7 @@ export default function ZuluHeritageWeddingInvitation() {
     e.stopPropagation();
     if (phase !== "idle") return;
     setPhase("open");
-    setTimeout(() => setShowFull(true), 2000);
+    setTimeout(() => setShowFull(true), 3000);
   };
 
   const pad = (n) => String(n).padStart(2, "0");
@@ -66,6 +66,7 @@ export default function ZuluHeritageWeddingInvitation() {
         }}
       >
         <div
+          onClick={handleOpen}
           style={{
             position: "absolute",
             top: "50%",
@@ -75,9 +76,10 @@ export default function ZuluHeritageWeddingInvitation() {
             minWidth: "100%",
             minHeight: "100%",
             perspective: "1600px",
+            cursor: phase === "idle" ? "pointer" : "default",
           }}
         >
-          {/* BODY LAYER - bottom portion of the envelope photo (everything below the flap line) */}
+          {/* BODY LAYER - everything below the flap+seal */}
           <div
             style={{
               position: "absolute",
@@ -86,12 +88,12 @@ export default function ZuluHeritageWeddingInvitation() {
               backgroundSize: "100% 100%",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              clipPath: "polygon(50% 48%, 100% 0%, 100% 100%, 0% 100%, 0% 0%)",
+              clipPath: "polygon(50% 60%, 100% 0%, 100% 100%, 0% 100%, 0% 0%)",
               zIndex: 1,
             }}
           />
 
-          {/* FLAP LAYER - top triangle of the SAME photo, folds open on click */}
+          {/* FLAP LAYER - top triangle + seal, folds open on click */}
           <div
             style={{
               position: "absolute",
@@ -100,44 +102,13 @@ export default function ZuluHeritageWeddingInvitation() {
               backgroundSize: "100% 100%",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
-              clipPath: "polygon(0% 0%, 100% 0%, 50% 48%)",
+              clipPath: "polygon(0% 0%, 100% 0%, 50% 60%)",
               transformOrigin: "top center",
               backfaceVisibility: "hidden",
               WebkitBackfaceVisibility: "hidden",
               transform: phase === "open" ? "rotateX(180deg)" : "rotateX(0deg)",
               transition: "transform 0.9s cubic-bezier(0.45,0,0.2,1)",
               zIndex: 2,
-            }}
-          />
-
-          {/* SEAL - sits at the flap's tip */}
-          <div
-            onClick={handleOpen}
-            style={{
-              position: "absolute",
-              left: "50%",
-              top: "48%",
-              width: "18%",
-              aspectRatio: "1",
-              borderRadius: "50%",
-              overflow: "hidden",
-              backgroundImage: "url('/images/seal.jpg')",
-              backgroundSize: "175%",
-              backgroundPosition: "center",
-              boxShadow: "0 6px 16px rgba(0,0,0,0.45)",
-              cursor: phase === "idle" ? "pointer" : "default",
-              zIndex: 3,
-              opacity: phase === "open" ? 0 : 1,
-              pointerEvents: phase === "open" ? "none" : "auto",
-              transform:
-                phase === "open"
-                  ? "translate(-50%, -50%) scale(0.5)"
-                  : "translate(-50%, -50%) scale(1)",
-              transition: "opacity 0.4s ease-out, transform 0.4s ease-out",
-              animation:
-                phase === "idle"
-                  ? "sealPulse 2.4s ease-in-out infinite"
-                  : "none",
             }}
           />
         </div>
@@ -159,7 +130,7 @@ export default function ZuluHeritageWeddingInvitation() {
               zIndex: 10,
             }}
           >
-            Tap the seal to open
+            Tap to open
           </p>
         )}
 
@@ -187,10 +158,6 @@ export default function ZuluHeritageWeddingInvitation() {
         </button>
 
         <style>{`
-        @keyframes sealPulse {
-          0%, 100% { transform: translate(-50%, -50%) scale(1); }
-          50% { transform: translate(-50%, -50%) scale(1.06); }
-        }
         @keyframes masterEnvelopeDissolve {
           0% { opacity: 1; transform: scale(1); }
           100% { opacity: 0; transform: scale(1.05); }
