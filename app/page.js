@@ -83,7 +83,7 @@ export default function ZuluHeritageWeddingInvitation() {
             style={{
               position: "absolute",
               inset: 0,
-              backgroundImage: "url('/images/bottomflap.png')",
+              backgroundImage: "url('/images/bottomflap.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               zIndex: 4,
@@ -93,7 +93,7 @@ export default function ZuluHeritageWeddingInvitation() {
             style={{
               position: "absolute",
               inset: 0,
-              backgroundImage: "url('/images/topflap.png')",
+              backgroundImage: "url('/images/topflap.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               zIndex: 5,
@@ -114,7 +114,7 @@ export default function ZuluHeritageWeddingInvitation() {
                   : "translate(-50%, -50%) scale(1)",
               width: "125px",
               height: "125px",
-              backgroundImage: "url('/images/seal.png')",
+              backgroundImage: "url('/images/seal.jpg')",
               backgroundSize: "contain",
               backgroundRepeat: "no-repeat",
               cursor: phase === "idle" ? "pointer" : "default",
