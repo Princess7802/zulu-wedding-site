@@ -18,7 +18,6 @@ export default function ZuluHeritageWeddingInvitation() {
     attending: "",
     guests: "1",
     meal: "",
-    dietary: "",
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
@@ -40,11 +39,11 @@ export default function ZuluHeritageWeddingInvitation() {
     return () => clearInterval(id);
   }, []);
 
-  const handleOpen = () => {
+  const handleOpen = (e) => {
+    e.stopPropagation();
     if (phase !== "idle") return;
-    setPhase("opening");
-    setTimeout(() => setPhase("fading"), 1800);
-    setTimeout(() => setShowFull(true), 2700);
+    setPhase("open");
+    setTimeout(() => setShowFull(true), 2100);
   };
 
   const pad = (n) => String(n).padStart(2, "0");
@@ -54,56 +53,102 @@ export default function ZuluHeritageWeddingInvitation() {
   if (!showFull) {
     return (
       <div
-        onClick={handleOpen}
         style={{
           width: "100vw",
           height: "100vh",
           position: "relative",
           overflow: "hidden",
-          cursor: phase === "idle" ? "pointer" : "default",
+          background: "#1c120c",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
           fontFamily: "Georgia, 'Times New Roman', serif",
-          animation:
-            phase === "fading" ? "envFadeOut 1s ease forwards" : "none",
         }}
       >
-        {/* Open envelope — fades in when tapped */}
-        <img
-          src="/images/edit.jpg"
-          alt="envelope open"
+        <div
           style={{
-            position: "absolute",
-            inset: 0,
+            position: "relative",
             width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 1,
-            opacity: phase === "idle" ? 0 : 1,
-            transition: "opacity 1.2s ease",
+            maxWidth: "430px",
+            height: "740px",
+            margin: "0 auto",
+            perspective: "2000px",
+            animation:
+              phase === "open"
+                ? "masterEnvelopeDissolve 0.8s ease-in-out 1.3s forwards"
+                : "none",
           }}
-        />
+        >
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: "url('/images/bottomflap.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              zIndex: 4,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: "url('/images/topflap.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              zIndex: 5,
+              transformOrigin: "top center",
+              transform: phase === "open" ? "rotateX(180deg)" : "rotateX(0deg)",
+              transition: "transform 0.7s cubic-bezier(0.4,0,0.2,1) 0.4s",
+            }}
+          />
+          <div
+            onClick={handleOpen}
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform:
+                phase === "open"
+                  ? "translate(-50%, -40%) scale(0.75)"
+                  : "translate(-50%, -50%) scale(1)",
+              width: "125px",
+              height: "125px",
+              backgroundImage: "url('/images/seal.png')",
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+              cursor: phase === "idle" ? "pointer" : "default",
+              zIndex: 6,
+              opacity: phase === "open" ? 0 : 1,
+              pointerEvents: phase === "open" ? "none" : "auto",
+              transition: "opacity 0.35s ease-out, transform 0.35s ease-out",
+            }}
+          />
+          {phase === "idle" && (
+            <p
+              style={{
+                position: "absolute",
+                bottom: "40px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                zIndex: 20,
+                color: "rgba(255,255,255,0.85)",
+                fontSize: "12px",
+                letterSpacing: "0.3em",
+                textTransform: "uppercase",
+                textShadow: "0 1px 6px rgba(0,0,0,0.7)",
+                animation: "tapPulse 2s ease-in-out infinite",
+                whiteSpace: "nowrap",
+                pointerEvents: "none",
+              }}
+            >
+              Tap seal to open
+            </p>
+          )}
+        </div>
 
-        {/* Closed envelope — fades out when tapped */}
-        <img
-          src="/images/envelope.jpg"
-          alt="envelope"
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            zIndex: 2,
-            opacity: phase === "idle" ? 1 : 0,
-            transition: "opacity 1.2s ease",
-          }}
-        />
-
-        {/* Skip button */}
         <button
-          onClick={(e) => {
-            e.stopPropagation();
-            setShowFull(true);
-          }}
+          onClick={() => setShowFull(true)}
           style={{
             position: "absolute",
             top: "20px",
@@ -125,32 +170,11 @@ export default function ZuluHeritageWeddingInvitation() {
           Skip ›
         </button>
 
-        {phase === "idle" && (
-          <p
-            style={{
-              position: "absolute",
-              bottom: "40px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              zIndex: 20,
-              color: "rgba(255,255,255,0.85)",
-              fontSize: "12px",
-              letterSpacing: "0.3em",
-              textTransform: "uppercase",
-              textShadow: "0 1px 6px rgba(0,0,0,0.7)",
-              animation: "tapPulse 2s ease-in-out infinite",
-              whiteSpace: "nowrap",
-            }}
-          >
-            Tap to open
-          </p>
-        )}
-
         <style>{`
           @keyframes tapPulse { 0%,100%{opacity:.85} 50%{opacity:.3} }
-          @keyframes envFadeOut {
-            0%   { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(1.04); }
+          @keyframes masterEnvelopeDissolve {
+            0% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0; transform: scale(1.05); }
           }
         `}</style>
       </div>
@@ -169,6 +193,7 @@ export default function ZuluHeritageWeddingInvitation() {
       }}
     >
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cormorant+Garamond:ital,wght@1,300;1,400&display=swap');
         .cowhide-bg::before {
           content: "";
           position: fixed;
@@ -181,6 +206,11 @@ export default function ZuluHeritageWeddingInvitation() {
           position: relative;
           z-index: 1;
         }
+        @keyframes scrollLine {
+          0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
+          50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
+          100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+        }
       `}</style>
 
       {/* INTRO SECTION */}
@@ -192,7 +222,7 @@ export default function ZuluHeritageWeddingInvitation() {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          padding: "0 40px 0px",
+          padding: "0 40px",
           position: "relative",
         }}
       >
@@ -214,7 +244,7 @@ export default function ZuluHeritageWeddingInvitation() {
               fontFamily: "Georgia,serif",
             }}
           >
-            Tlhabiso ya Magadi x Umembeso· You Are Invited
+            Tlhabiso ya Magadi x Umembeso · You Are Invited
           </p>
           <h2
             style={{
@@ -261,20 +291,59 @@ export default function ZuluHeritageWeddingInvitation() {
               width: "60px",
               height: "1px",
               background: "#c8a84b",
-              margin: "0 auto 20px",
+              margin: "0 auto 24px",
             }}
           />
           <div
             style={{
               display: "flex",
               justifyContent: "center",
-              marginTop: "8px",
+              gap: "12px",
+              marginBottom: "24px",
+              flexWrap: "wrap",
             }}
           >
+            {[
+              [countdown.days, "Days"],
+              [countdown.hours, "Hours"],
+              [countdown.minutes, "Minutes"],
+              [countdown.seconds, "Seconds"],
+            ].map(([val, label]) => (
+              <div
+                key={label}
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  padding: "12px 16px",
+                  borderRadius: "8px",
+                  border: "1px solid rgba(200,160,80,0.2)",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "24px",
+                    color: "#f5e6c8",
+                    display: "block",
+                  }}
+                >
+                  {pad(val)}
+                </span>
+                <small
+                  style={{
+                    fontSize: "10px",
+                    textTransform: "uppercase",
+                    color: "rgba(255,255,255,0.5)",
+                  }}
+                >
+                  {label}
+                </small>
+              </div>
+            ))}
+          </div>
+          <div style={{ display: "flex", justifyContent: "center" }}>
             <div
               style={{
                 width: "1px",
-                height: "80px",
+                height: "50px",
                 background:
                   "linear-gradient(to bottom, rgba(200,160,60,0.8), transparent)",
                 animation: "scrollLine 1.8s ease-in-out infinite",
@@ -372,9 +441,7 @@ export default function ZuluHeritageWeddingInvitation() {
               fontWeight: "400",
               textTransform: "capitalize",
             }}
-          >
-            Thobelinkosi
-          </h1>
+          ></h1>
           <span
             style={{
               color: "#c8a84b",
@@ -422,7 +489,7 @@ export default function ZuluHeritageWeddingInvitation() {
               fontFamily: "Georgia,serif",
             }}
           >
-            Umembeso · Serwalo
+            Umembeso · Tlhabiso ya Magadi
           </p>
           <p
             style={{
@@ -456,13 +523,8 @@ export default function ZuluHeritageWeddingInvitation() {
         </div>
       </section>
 
-      {/* Animated scroll line */}
       <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          padding: "8px 0",
-        }}
+        style={{ display: "flex", justifyContent: "center", padding: "8px 0" }}
       >
         <div
           style={{
@@ -474,13 +536,6 @@ export default function ZuluHeritageWeddingInvitation() {
           }}
         />
       </div>
-      <style>{`
-        @keyframes scrollLine {
-          0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
-          50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-          100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
-        }
-      `}</style>
 
       {/* CEREMONY */}
       <section
@@ -519,13 +574,7 @@ export default function ZuluHeritageWeddingInvitation() {
           >
             24 October 2026
           </p>
-          <h3
-            style={{
-              color: "#f5e6c8",
-              fontSize: "28px",
-              margin: "0 0 4px",
-            }}
-          >
+          <h3 style={{ color: "#f5e6c8", fontSize: "28px", margin: "0 0 4px" }}>
             Tlhabiso ya Magadi
           </h3>
           <p
@@ -540,14 +589,14 @@ export default function ZuluHeritageWeddingInvitation() {
             A Gesture of Thanksgiving
           </p>
           <p style={{ color: "#a07040", fontSize: "14px", lineHeight: 1.9 }}>
-            Tlabiso ya Magadi is a heartfelt ceremony of thanksgiving offered to
-            the groom's family in honour of the bride price paid. It officially
-            marks the joyful acceptance of the bride into her new in-laws' home
-            — a sacred moment where gratitude, blessing, and belonging are woven
-            together as two families become one.
+            Tlhabiso ya Magadi is a heartfelt ceremony of thanksgiving offered
+            to the groom's family in honour of the bride price paid. It
+            officially marks the joyful acceptance of the bride into her new
+            in-laws' home — a sacred moment where gratitude, blessing, and
+            belonging are woven together as two families become one.
           </p>
         </div>
-        {/* Umembeso Block */}
+
         <div
           style={{
             maxWidth: "600px",
@@ -569,13 +618,7 @@ export default function ZuluHeritageWeddingInvitation() {
           >
             24 October 2026
           </p>
-          <h3
-            style={{
-              color: "#f5e6c8",
-              fontSize: "28px",
-              margin: "0 0 4px",
-            }}
-          >
+          <h3 style={{ color: "#f5e6c8", fontSize: "28px", margin: "0 0 4px" }}>
             Umembeso
           </h3>
           <p
@@ -631,7 +674,6 @@ export default function ZuluHeritageWeddingInvitation() {
               <img
                 src={`/images/${name}.jpg`}
                 alt={name}
-                onError={(e) => console.log("failed to load", name)}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -722,17 +764,17 @@ export default function ZuluHeritageWeddingInvitation() {
               ))}
             </div>
             <a
-              href="https://www.google.com/maps/dir//Suitability+Gardens,+236+1st+Rd,+Walkers+Fruit+Farms+SH,+De+Deur,+1961/@-26.19429,28.217574,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x1e94ff3aa18f4bc5:0x2cf1e71d08baf31f!2m2!1d27.9813308!2d-26.5264928?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D"
+              href="https://www.google.com/maps/search/?api=1&query=Suitability+Gardens,+De+Deur,+South+Africa"
               target="_blank"
               rel="noreferrer"
               style={{
                 display: "inline-block",
-                padding: "11px 28px",
+                padding: "10px 28px",
                 borderRadius: "999px",
-                border: "1px solid #c8780a",
+                border: "1px solid @c8780a",
                 color: "#c8780a",
                 fontSize: "11px",
-                letterSpacing: "0.22em",
+                letterSpacing: "0,22em",
                 textTransform: "uppercase",
                 textDecoration: "none",
               }}
@@ -740,68 +782,6 @@ export default function ZuluHeritageWeddingInvitation() {
               Open in Maps ✦
             </a>
           </div>
-        </div>
-      </section>
-
-      {/* COUNTDOWN */}
-      <section
-        style={{
-          padding: "80px 24px",
-          borderTop: "1px solid rgba(200,120,10,0.12)",
-          textAlign: "center",
-        }}
-      >
-        <SectionHeader
-          sub="Thulaganyo ya nako"
-          title="Counting the Days"
-          note="Until we are united"
-        />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "clamp(12px,4vw,40px)",
-            marginTop: "48px",
-            flexWrap: "wrap",
-          }}
-        >
-          {[
-            ["days", "Malatsi a le · Days"],
-            ["hours", "Diura · Hours"],
-            ["minutes", "Metsotso · Minutes"],
-            ["seconds", "Metsotswana · Seconds"],
-          ].map(([k, label]) => (
-            <div key={k} style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  width: "clamp(70px,18vw,110px)",
-                  height: "clamp(70px,18vw,110px)",
-                  border: "1px solid rgba(200,120,10,0.4)",
-                  borderRadius: "16px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: "rgba(200,120,10,0.07)",
-                  marginBottom: "10px",
-                }}
-              >
-                <span
-                  style={{ color: "#f5e6c8", fontSize: "clamp(28px,8vw,48px)" }}
-                >
-                  {pad(countdown[k])}
-                </span>
-              </div>
-              <p
-                style={{
-                  color: "rgba(200,120,10,0.75)",
-                  fontSize: "10px",
-                  letterSpacing: "0.12em",
-                }}
-              >
-                {label}
-              </p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -1042,7 +1022,6 @@ export default function ZuluHeritageWeddingInvitation() {
                 </div>
               </>
             )}
-
             <button
               type="submit"
               style={{
