@@ -59,12 +59,6 @@ export default function ZuluHeritageWeddingInvitation() {
           position: "relative",
           overflow: "hidden",
           background: "#1c120c",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          fontFamily: "Georgia, 'Times New Roman', serif",
-          padding: "24px",
-          boxSizing: "border-box",
           animation:
             phase === "open"
               ? "masterEnvelopeDissolve 0.8s ease-in-out 1.3s forwards"
@@ -73,14 +67,14 @@ export default function ZuluHeritageWeddingInvitation() {
       >
         <div
           style={{
-            position: "relative",
-            width: "100%",
-            maxWidth: "480px",
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
             aspectRatio: "1448 / 1086",
+            minWidth: "100%",
+            minHeight: "100%",
             perspective: "1600px",
-            boxShadow: "0 25px 60px rgba(0,0,0,0.55)",
-            borderRadius: "6px",
-            overflow: "hidden",
           }}
         >
           <div
@@ -152,13 +146,14 @@ export default function ZuluHeritageWeddingInvitation() {
               bottom: "32px",
               left: "50%",
               transform: "translateX(-50%)",
-              color: "rgba(255,255,255,0.85)",
+              color: "rgba(255,255,255,0.9)",
               fontSize: "12px",
               letterSpacing: "0.3em",
               textTransform: "uppercase",
               textShadow: "0 1px 6px rgba(0,0,0,0.7)",
               whiteSpace: "nowrap",
               pointerEvents: "none",
+              zIndex: 10,
             }}
           >
             Tap the seal to open
