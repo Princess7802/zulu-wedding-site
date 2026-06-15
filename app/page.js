@@ -847,7 +847,7 @@ export default function ZuluHeritageWeddingInvitation() {
                   boxShadow: "0 4px 20px rgba(200,120,10,0.35)",
                 }}
               >
-                Romela — Thumela — Send Confirmation ✦
+                Send Confirmation ✦
               </button>
             </form>
           )}
