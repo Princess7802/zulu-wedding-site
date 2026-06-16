@@ -951,6 +951,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 backgroundSize: "100% 100%",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
+                transform: "translate(0px, 4px)",
                 zIndex: 1,
               }}
             />
