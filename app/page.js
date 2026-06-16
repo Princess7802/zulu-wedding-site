@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 export default function ZuluHeritageWeddingInvitation() {
   const [phase, setPhase] = useState("closed");
   const [overlayGone, setOverlayGone] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -40,6 +41,9 @@ export default function ZuluHeritageWeddingInvitation() {
       document.body.style.overflow = "";
     };
   }, [overlayGone]);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <>
