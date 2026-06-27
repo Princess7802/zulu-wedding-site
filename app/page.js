@@ -22,10 +22,10 @@ export default function ZuluHeritageWeddingInvitation() {
     setPhase("opening");
     setTimeout(() => {
       setPhase("zoom");
-    }, 2200);
+    }, 2900);
     setTimeout(() => {
       setOverlayGone(true);
-    }, 2600);
+    }, 3300);
   };
 
   const scrollTo = (id) =>
@@ -70,6 +70,12 @@ export default function ZuluHeritageWeddingInvitation() {
             pointer-events: none;
           }
           .cowhide-bg > * { position: relative; z-index: 1; }
+          @keyframes glowFlash {
+            0%   { opacity: 0; }
+            8%   { opacity: 0.9; }
+            50%  { opacity: 0.8; }
+            100% { opacity: 0; }
+          }
           @keyframes scrollLine {
             0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
             50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
@@ -452,7 +458,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <p
                 style={{
                   color: "#c8a84b",
-                  fontSize: "12px",
+                  fontSize: "10px",
                   letterSpacing: "0.45em",
                   textTransform: "uppercase",
                   marginBottom: "16px",
@@ -479,7 +485,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <p
                 style={{
                   color: "rgba(245,230,200,0.78)",
-                  fontSize: "clamp(14px,2.6vw,17px)",
+                  fontSize: "clamp(13px,2.5vw,16px)",
                   fontStyle: "italic",
                   lineHeight: 1.8,
                   margin: "0 0 14px",
@@ -534,7 +540,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <p
                 style={{
                   color: "#a07040",
-                  fontSize: "12px",
+                  fontSize: "11px",
                   letterSpacing: "0.25em",
                   textTransform: "uppercase",
                   margin: "14px 0 4px",
@@ -554,7 +560,7 @@ export default function ZuluHeritageWeddingInvitation() {
                   src="/images/cow.png"
                   alt="cow"
                   style={{
-                    width: "43px",
+                    width: "40px",
                     height: "34px",
                     objectFit: "contain",
                   }}
@@ -563,7 +569,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <p
                 style={{
                   color: "#a07040",
-                  fontSize: "12px",
+                  fontSize: "10px",
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
                   marginBottom: "20px",
@@ -580,7 +586,7 @@ export default function ZuluHeritageWeddingInvitation() {
                   border: "1px solid #c8a84b",
                   background: "transparent",
                   color: "#c8a84b",
-                  fontSize: "11px",
+                  fontSize: "10px",
                   letterSpacing: "0.35em",
                   textTransform: "uppercase",
                   cursor: "pointer",
@@ -1191,7 +1197,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       <p
                         style={{
                           color: "#a07040",
-                          fontSize: "7px",
+                          fontSize: "8px",
                           letterSpacing: "0.2em",
                           textTransform: "uppercase",
                           margin: "0 0 10px 0",
@@ -1241,7 +1247,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       <p
                         style={{
                           color: "#a07040",
-                          fontSize: "7px",
+                          fontSize: "8px",
                           letterSpacing: "0.2em",
                           textTransform: "uppercase",
                           margin: "0 0 10px 0",
@@ -1292,7 +1298,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       <p
                         style={{
                           color: "#a07040",
-                          fontSize: "7px",
+                          fontSize: "8px",
                           letterSpacing: "0.2em",
                           textTransform: "uppercase",
                           margin: "0 0 10px 0",
@@ -1336,7 +1342,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       <p
                         style={{
                           color: "#a07040",
-                          fontSize: "7px",
+                          fontSize: "8px",
                           letterSpacing: "0.2em",
                           textTransform: "uppercase",
                           margin: "0 0 10px 0",
@@ -1374,7 +1380,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <div
                 style={{
                   color: "#a07040",
-                  fontSize: "9px",
+                  fontSize: "10px",
                   marginBottom: "6px",
                 }}
               >
@@ -1383,7 +1389,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <p
                 style={{
                   color: "#d4b480",
-                  fontSize: "12px",
+                  fontSize: "13px",
                   fontStyle: "italic",
                   fontFamily: "'Cormorant Garamond', serif",
                   lineHeight: 1.7,
@@ -1397,7 +1403,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <p
                 style={{
                   color: "#a07040",
-                  fontSize: "7px",
+                  fontSize: "9px",
                   letterSpacing: "0.32em",
                   textTransform: "uppercase",
                   margin: 0,
@@ -1767,8 +1773,8 @@ export default function ZuluHeritageWeddingInvitation() {
                 src="/images/wax_seal.png"
                 alt="T&K Wax Seal"
                 style={{
-                  width: "118px",
-                  height: "118px",
+                  width: "104px",
+                  height: "104px",
                   objectFit: "contain",
                 }}
               />
@@ -1793,7 +1799,7 @@ export default function ZuluHeritageWeddingInvitation() {
           <p
             style={{
               color: "#a07040",
-              fontSize: "14px",
+              fontSize: "12px",
               letterSpacing: "0.22em",
               margin: "0 0 16px 0",
             }}
@@ -1855,7 +1861,7 @@ export default function ZuluHeritageWeddingInvitation() {
           <p
             style={{
               color: "#a07040",
-              fontSize: "16px",
+              fontSize: "13px",
               fontStyle: "italic",
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               lineHeight: 1.8,
@@ -1880,7 +1886,7 @@ export default function ZuluHeritageWeddingInvitation() {
             background: "transparent",
             transform: phase === "zoom" ? "scale(1.2)" : "scale(1)",
             opacity: phase === "zoom" ? 0 : 1,
-            transition: "transform 1.4s ease, opacity 1.4s ease",
+            transition: "transform 0.35s ease, opacity 0.35s ease",
           }}
         >
           <div
@@ -1923,7 +1929,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 WebkitBackfaceVisibility: "hidden",
                 transform:
                   phase === "closed" ? "rotateX(0deg)" : "rotateX(-165deg)",
-                transition: "transform 1.8s cubic-bezier(0.45,0,0.2,1)",
+                transition: "transform 3s cubic-bezier(0.45,0,0.2,1)",
                 zIndex: 2,
               }}
             />
@@ -1953,8 +1959,11 @@ export default function ZuluHeritageWeddingInvitation() {
               inset: 0,
               background:
                 "radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 60%, transparent 100%)",
-              opacity: phase === "opening" ? 1 : 0,
-              transition: "opacity 0.3s ease-in-out",
+              animation:
+                phase === "opening"
+                  ? "glowFlash 2s ease-in-out forwards"
+                  : "none",
+              opacity: 0,
               zIndex: 999,
               pointerEvents: "none",
             }}
