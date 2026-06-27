@@ -25,7 +25,7 @@ export default function ZuluHeritageWeddingInvitation() {
     }, 2200);
     setTimeout(() => {
       setOverlayGone(true);
-    }, 3200);
+    }, 2600);
   };
 
   const scrollTo = (id) =>
@@ -41,13 +41,14 @@ export default function ZuluHeritageWeddingInvitation() {
       document.body.style.overflow = "";
     };
   }, [overlayGone]);
+
   useEffect(() => {
     setMounted(true);
   }, []);
 
   return (
     <>
-      {/* SITE — always rendered underneath */}
+      {/* SITE */}
       <div
         className="cowhide-bg"
         style={{
@@ -68,18 +69,43 @@ export default function ZuluHeritageWeddingInvitation() {
             z-index: 0;
             pointer-events: none;
           }
-          .cowhide-bg > * {
+          .cowhide-bg > * { position: relative; z-index: 1; }
+          @keyframes scrollLine {
+            0%   { transform: scaleY(0); transform-origin: top; opacity: 1; }
+            50%  { transform: scaleY(1); transform-origin: top; opacity: 1; }
+            100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+          }
+          #rsvp {
             position: relative;
+          }
+          #rsvp::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url('/images/cowhide.jpg') center / cover no-repeat;
+            z-index: 0;
+            pointer-events: none;
+          }
+          .invitation-card { position: relative; overflow: visible; }
+          .invitation-card::before {
+            content: "";
+            position: absolute;
+            inset: 14px;
+            border: 1px solid rgba(200,160,60,.42);
+            pointer-events: none;
             z-index: 1;
           }
-          @keyframes scrollLine {
-            0% { transform: scaleY(0); transform-origin: top; opacity: 1; }
-            50% { transform: scaleY(1); transform-origin: top; opacity: 1; }
-            100% { transform: scaleY(1); transform-origin: top; opacity: 0; }
+          .invitation-card::after {
+            content: "";
+            position: absolute;
+            inset: 19px;
+            border: 1px solid rgba(200,160,60,.22);
+            pointer-events: none;
+            z-index: 1;
           }
         `}</style>
 
-        {/* INTRO SECTION */}
+        {/* INTRO */}
         <section
           style={{
             minHeight: "100vh",
@@ -174,6 +200,7 @@ export default function ZuluHeritageWeddingInvitation() {
           </div>
         </section>
 
+        {/* NAV */}
         <nav
           style={{
             position: "fixed",
@@ -217,121 +244,352 @@ export default function ZuluHeritageWeddingInvitation() {
         {/* HERO */}
         <section
           style={{
-            minHeight: "auto",
+            minHeight: "100vh",
+            position: "relative",
             display: "flex",
-            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
             textAlign: "center",
-            padding: "24px 40px",
+            padding: "120px 20px 80px",
+            backgroundImage: "url('/images/cowhide.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            overflow: "hidden",
           }}
         >
           <div
             style={{
-              border: "1px solid rgba(200,160,60,0.6)",
-              outline: "1px solid rgba(200,160,60,0.25)",
-              outlineOffset: "8px",
-              padding: "36px 28px",
+              position: "relative",
+              zIndex: 2,
               width: "100%",
-              maxWidth: "420px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
+              maxWidth: "640px",
             }}
           >
-            <p
+            <img
+              src="/images/wax_seal.png"
+              alt="Wax Seal"
               style={{
-                color: "#c8a84b",
-                fontSize: "10px",
-                letterSpacing: "0.45em",
-                textTransform: "uppercase",
-                marginBottom: "16px",
-                fontFamily: "Georgia,serif",
+                position: "absolute",
+                top: "-112px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "120px",
+                zIndex: 10,
+              }}
+            />
+            <div
+              className="invitation-card"
+              style={{
+                position: "relative",
+                background:
+                  "linear-gradient(rgba(18,12,8,0.92), rgba(18,12,8,0.92))",
+                border: "1px solid rgba(200,160,60,0.55)",
+                padding: "44px 72px 52px",
+                width: "100%",
+                maxWidth: "600px",
+                margin: "0 auto",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                boxShadow: "0 30px 70px rgba(0,0,0,.72)",
+                backdropFilter: "blur(4px)",
               }}
             >
-              Tlhabiso ya Magadi x Umembeso
-            </p>
-            <Divider />
-            <h1
-              style={{
-                fontSize: "clamp(2rem,8vw,4rem)",
-                color: "#f5e6c8",
-                margin: "0",
-                lineHeight: 1.1,
-                fontFamily: "'Great Vibes', cursive",
-                fontWeight: "400",
-                textTransform: "capitalize",
-              }}
-            >
-              Thobelinkosi
-            </h1>
-            <span
-              style={{
-                color: "#c8a84b",
-                fontSize: "clamp(1.4rem,4vw,2.5rem)",
-                display: "block",
-                margin: "4px 0",
-                fontFamily: "'Great Vibes', cursive",
-                fontWeight: "400",
-              }}
-            >
-              &amp;
-            </span>
-            <h1
-              style={{
-                fontSize: "clamp(2rem,8vw,4rem)",
-                color: "#f5e6c8",
-                margin: "0 0 16px",
-                lineHeight: 1.1,
-                fontFamily: "'Great Vibes', cursive",
-                fontWeight: "400",
-                textTransform: "capitalize",
-              }}
-            >
-              Koketso
-            </h1>
-            <Divider />
-            <p
-              style={{
-                color: "#a07040",
-                fontSize: "11px",
-                letterSpacing: "0.25em",
-                textTransform: "uppercase",
-                margin: "14px 0 4px",
-                fontFamily: "Georgia,serif",
-              }}
-            >
-              24 October 2026
-            </p>
-            <p
-              style={{
-                color: "#a07040",
-                fontSize: "10px",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                marginBottom: "20px",
-                fontFamily: "Georgia,serif",
-              }}
-            >
-              🐃 &nbsp;"Isibaya sakhe" · His cattle, Her family, Their union
-            </p>
-            <button
-              onClick={() => scrollTo("rsvp")}
-              style={{
-                padding: "10px 36px",
-                borderRadius: "0",
-                border: "1px solid #c8a84b",
-                background: "transparent",
-                color: "#c8a84b",
-                fontSize: "10px",
-                letterSpacing: "0.35em",
-                textTransform: "uppercase",
-                cursor: "pointer",
-                fontFamily: "Georgia,serif",
-              }}
-            >
-              RSVP - Bhalisa
-            </button>
+              {/* ── Corner notch ornaments + pearl ── */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  pointerEvents: "none",
+                  zIndex: 20,
+                }}
+              >
+                {/*
+                  Notched corner pattern — ::before (7px) forms an L with a rectangular step
+                  that passes through the ::after (12px) corner point, connecting both borders.
+                  Each SVG covers and redraws the corner area with the step pattern.
+                  Background rect matches card colour to cover the raw CSS right-angle corners.
+                */}
+
+                {/* Top-left */}
+                <svg
+                  style={{ position: "absolute", top: 0, left: 0 }}
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                >
+                  <rect width="40" height="40" fill="#120c08" />
+                  <path
+                    d="M40 14 L19 14 L19 19 L14 19 L14 40"
+                    stroke="#c8a84b"
+                    strokeWidth="1.3"
+                    strokeLinejoin="miter"
+                  />
+                  <path
+                    d="M40 19 L19 19 L19 40"
+                    stroke="rgba(200,160,60,0.65)"
+                    strokeWidth="1.0"
+                    strokeLinejoin="miter"
+                  />
+                </svg>
+
+                {/* Top-right — ::before at SVG x=26, ::after at SVG x=21 */}
+                <svg
+                  style={{ position: "absolute", top: 0, right: 0 }}
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                >
+                  <rect width="40" height="40" fill="#120c08" />
+                  <path
+                    d="M0 14 L21 14 L21 19 L26 19 L26 40"
+                    stroke="#c8a84b"
+                    strokeWidth="1.3"
+                    strokeLinejoin="miter"
+                  />
+                  <path
+                    d="M0 19 L21 19 L21 40"
+                    stroke="rgba(200,160,60,0.65)"
+                    strokeWidth="1.0"
+                    strokeLinejoin="miter"
+                  />
+                </svg>
+
+                {/* Bottom-left — ::before at SVG y=26, ::after at SVG y=21 */}
+                <svg
+                  style={{ position: "absolute", bottom: 0, left: 0 }}
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                >
+                  <rect width="40" height="40" fill="#120c08" />
+                  <path
+                    d="M14 0 L14 21 L19 21 L19 26 L40 26"
+                    stroke="#c8a84b"
+                    strokeWidth="1.3"
+                    strokeLinejoin="miter"
+                  />
+                  <path
+                    d="M19 0 L19 21 L40 21"
+                    stroke="rgba(200,160,60,0.65)"
+                    strokeWidth="1.0"
+                    strokeLinejoin="miter"
+                  />
+                </svg>
+
+                {/* Bottom-right */}
+                <svg
+                  style={{ position: "absolute", bottom: 0, right: 0 }}
+                  width="40"
+                  height="40"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                >
+                  <rect width="40" height="40" fill="#120c08" />
+                  <path
+                    d="M26 0 L26 21 L21 21 L21 26 L0 26"
+                    stroke="#c8a84b"
+                    strokeWidth="1.3"
+                    strokeLinejoin="miter"
+                  />
+                  <path
+                    d="M21 0 L21 21 L0 21"
+                    stroke="rgba(200,160,60,0.65)"
+                    strokeWidth="1.0"
+                    strokeLinejoin="miter"
+                  />
+                </svg>
+
+                {/* Pearl — centred between ::before (14px) and ::after (19px) from bottom */}
+                <div
+                  style={{
+                    position: "absolute",
+                    bottom: "7px",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "5px",
+                  }}
+                >
+                  <div
+                    style={{
+                      width: "9px",
+                      height: "9px",
+                      borderRadius: "50%",
+                      background:
+                        "radial-gradient(circle at 35% 32%, #f8e080, #c89020, #7a5010)",
+                      boxShadow: "0 1px 4px rgba(0,0,0,0.6)",
+                    }}
+                  />
+                  <div
+                    style={{
+                      width: "20px",
+                      height: "20px",
+                      borderRadius: "50%",
+                      background:
+                        "radial-gradient(ellipse at 36% 28%, rgba(255,255,255,1) 0%, rgba(248,244,240,1) 18%, rgba(225,220,213,0.97) 40%, rgba(198,192,185,0.94) 60%, rgba(170,164,157,0.97) 78%, rgba(145,140,133,1) 100%)",
+                      boxShadow:
+                        "0 3px 10px rgba(0,0,0,0.75), inset 0 2px 5px rgba(255,255,255,0.95), inset 0 -3px 6px rgba(0,0,0,0.3)",
+                      border: "0.5px solid rgba(155,150,143,0.4)",
+                    }}
+                  />
+                  <div
+                    style={{
+                      width: "9px",
+                      height: "9px",
+                      borderRadius: "50%",
+                      background:
+                        "radial-gradient(circle at 35% 32%, #f8e080, #c89020, #7a5010)",
+                      boxShadow: "0 1px 4px rgba(0,0,0,0.6)",
+                    }}
+                  />
+                </div>
+              </div>
+              <p
+                style={{
+                  color: "#c8a84b",
+                  fontSize: "12px",
+                  letterSpacing: "0.45em",
+                  textTransform: "uppercase",
+                  marginBottom: "16px",
+                  fontFamily: "Georgia,serif",
+                }}
+              >
+                Tlhabiso ya Magadi x Umembeso
+              </p>
+              <CardDivider />
+              <h2
+                style={{
+                  color: "#f5e6c8",
+                  fontSize: "clamp(12px,2.5vw,16px)",
+                  fontFamily: "'Cinzel', Georgia, serif",
+                  fontWeight: "600",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  margin: "12px 0 10px",
+                  lineHeight: 1.5,
+                }}
+              >
+                The Molete and Zulu Families
+              </h2>
+              <p
+                style={{
+                  color: "rgba(245,230,200,0.78)",
+                  fontSize: "clamp(14px,2.6vw,17px)",
+                  fontStyle: "italic",
+                  lineHeight: 1.8,
+                  margin: "0 0 14px",
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  textAlign: "center",
+                }}
+              >
+                joyfully request the honour of your presence
+                <br />
+                while celebrating their children
+              </p>
+              <CardDivider />
+              <h1
+                style={{
+                  fontSize: "clamp(3.5rem,8vw,5.5rem)",
+                  color: "#f5e6c8",
+                  margin: "0",
+                  lineHeight: 1.1,
+                  fontFamily: "'Great Vibes', cursive",
+                  fontWeight: "400",
+                  textTransform: "capitalize",
+                }}
+              >
+                Thobelinkosi
+              </h1>
+              <span
+                style={{
+                  color: "#c8a84b",
+                  fontSize: "clamp(1.4rem,4vw,2.5rem)",
+                  display: "block",
+                  margin: "4px 0",
+                  fontFamily: "'Great Vibes', cursive",
+                  fontWeight: "400",
+                }}
+              >
+                &amp;
+              </span>
+              <h1
+                style={{
+                  fontSize: "clamp(3.5rem,8vw,5.5rem)",
+                  color: "#f5e6c8",
+                  margin: "0 0 16px",
+                  lineHeight: 1.1,
+                  fontFamily: "'Great Vibes', cursive",
+                  fontWeight: "400",
+                  textTransform: "capitalize",
+                }}
+              >
+                Koketso
+              </h1>
+              <CardDivider />
+              <p
+                style={{
+                  color: "#a07040",
+                  fontSize: "12px",
+                  letterSpacing: "0.25em",
+                  textTransform: "uppercase",
+                  margin: "14px 0 4px",
+                  fontFamily: "Georgia,serif",
+                }}
+              >
+                24 October 2026
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginBottom: "8px",
+                }}
+              >
+                <img
+                  src="/images/cow.png"
+                  alt="cow"
+                  style={{
+                    width: "43px",
+                    height: "34px",
+                    objectFit: "contain",
+                  }}
+                />
+              </div>
+              <p
+                style={{
+                  color: "#a07040",
+                  fontSize: "12px",
+                  letterSpacing: "0.2em",
+                  textTransform: "uppercase",
+                  marginBottom: "20px",
+                  fontFamily: "Georgia,serif",
+                }}
+              >
+                "Isibaya sakhe" · His cattle, Her family, Their union
+              </p>
+              <button
+                onClick={() => scrollTo("rsvp")}
+                style={{
+                  padding: "10px 36px",
+                  borderRadius: "0",
+                  border: "1px solid #c8a84b",
+                  background: "transparent",
+                  color: "#c8a84b",
+                  fontSize: "11px",
+                  letterSpacing: "0.35em",
+                  textTransform: "uppercase",
+                  cursor: "pointer",
+                  fontFamily: "Georgia,serif",
+                }}
+              >
+                RSVP - Bhalisa
+              </button>
+            </div>
           </div>
         </section>
 
@@ -357,92 +615,278 @@ export default function ZuluHeritageWeddingInvitation() {
         <section
           id="ceremony"
           style={{
-            padding: "80px 24px",
-            maxWidth: "900px",
-            margin: "0 auto",
+            padding: "0",
             textAlign: "center",
-            background: "transparent",
+            position: "relative",
+            overflow: "hidden",
+            minHeight: "100vh",
+            display: "flex",
+            justifyContent: "center",
           }}
         >
-          <SectionHeader
-            sub="Tlhabiso Ya Magadi x Umembeso"
-            title="The Ceremonies"
-            note="Traditional Gift-Giving Celebrations"
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundImage: "url('/images/cowhide.jpg')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              zIndex: 0,
+            }}
           />
           <div
             style={{
-              maxWidth: "600px",
-              margin: "48px auto 0",
-              border: "1px solid rgba(200,120,10,0.22)",
-              borderRadius: "16px",
-              padding: "40px 36px",
-              background: "rgba(200,120,10,0.04)",
-              textAlign: "center",
+              position: "absolute",
+              inset: 0,
+              background:
+                "linear-gradient(to bottom, rgba(10,6,2,0.35), rgba(10,6,2,0.75))",
+              zIndex: 1,
             }}
-          >
-            <h3
-              style={{ color: "#f5e6c8", fontSize: "28px", margin: "0 0 4px" }}
-            >
-              Tlhabiso ya Magadi
-            </h3>
-            <p
-              style={{
-                color: "rgba(200,120,10,0.7)",
-                fontSize: "10px",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                marginBottom: "20px",
-              }}
-            >
-              A Gesture of Thanksgiving
-            </p>
-            <p style={{ color: "#a07040", fontSize: "14px", lineHeight: 1.9 }}>
-              Tlhabiso ya Magadi is a heartfelt ceremony of thanksgiving offered
-              to the Groom's family in honour of the Magadi paid. It is a sacred
-              and joyous occasion where the Bride's family pours out gratitude,
-              respect, and appreciation to the Groom's family, celebrating not
-              only the gift of Magadi, but the love, honour, and blessings that
-              have brought the two families together. It marks a beautiful step
-              in the customary journey towards the couple's wedding
-              celebrations, where two hearts are honoured, two homes are joined,
-              and two families begin to walk as one.
-            </p>
-          </div>
-
+          />
           <div
             style={{
-              maxWidth: "600px",
-              margin: "32px auto 0",
-              border: "1px solid rgba(200,120,10,0.22)",
-              borderRadius: "16px",
-              padding: "40px 36px",
-              background: "rgba(200,120,10,0.04)",
-              textAlign: "center",
+              position: "relative",
+              zIndex: 2,
+              maxWidth: "520px",
+              margin: "0 auto",
+              padding: "20px 20px 80px",
             }}
           >
-            <h3
-              style={{ color: "#f5e6c8", fontSize: "28px", margin: "0 0 4px" }}
-            >
-              Umembeso
-            </h3>
-            <p
+            <div
               style={{
-                color: "rgba(200,120,10,0.7)",
-                fontSize: "10px",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                marginBottom: "20px",
+                display: "flex",
+                justifyContent: "center",
+                marginBottom: "16px",
               }}
             >
-              The Gift-Giving Ceremony
+              <img
+                src="/images/wax_seal.png"
+                alt="T&K seal"
+                style={{
+                  width: "100px",
+                  height: "100px",
+                  objectFit: "contain",
+                }}
+              />
+            </div>
+            <p
+              style={{
+                color: "#c8a46b",
+                fontSize: "9px",
+                letterSpacing: "0.35em",
+                textTransform: "uppercase",
+                marginBottom: "4px",
+                fontFamily: "Georgia,serif",
+              }}
+            >
+              Tlhabiso Ya Magadi x Umembeso
             </p>
-            <p style={{ color: "#a07040", fontSize: "14px", lineHeight: 1.9 }}>
-              Umembeso is a vibrant and deeply symbolic traditional Zulu
-              ceremony where the Groom's family brings carefully chosen gifts to
-              the Bride's family. Each gift carries meaning, honouring the
-              Bride, expressing gratitude to the home that raised her, and
-              weaving two families together in love, gratitude, and tradition.
+            <h2
+              style={{
+                color: "#ffffff",
+                fontSize: "clamp(56px,10vw,80px)",
+                letterSpacing: "-0.02em",
+                margin: "0 0 4px",
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontWeight: "400",
+                lineHeight: 1.1,
+              }}
+            >
+              The Ceremonies
+            </h2>
+            <p
+              style={{
+                color: "#d4b483",
+                fontSize: "15px",
+                fontStyle: "italic",
+                marginBottom: "8px",
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+              }}
+            >
+              Traditional Gift-Giving Celebrations
             </p>
+            <Divider />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "18px",
+                margin: "20px auto 0",
+              }}
+            >
+              {/* TLHABISO CARD */}
+              <div
+                style={{
+                  position: "relative",
+                  border: "1px solid rgba(201,160,94,0.75)",
+                  borderRadius: "10px",
+                  padding: "24px",
+                  background: "rgba(18,12,8,0.82)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.45)",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "5px",
+                    left: "5px",
+                    right: "5px",
+                    bottom: "5px",
+                    border: "1px solid rgba(201,160,94,0.25)",
+                    borderRadius: "8px",
+                    pointerEvents: "none",
+                  }}
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "18px",
+                    marginBottom: "10px",
+                  }}
+                >
+                  <div style={{ flexShrink: 0 }}>
+                    <img
+                      src="/images/cattle-icon.png"
+                      alt="Cattle"
+                      style={{
+                        width: "70px",
+                        height: "70px",
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <h3
+                      style={{
+                        color: "#f5e6c8",
+                        fontSize: "32px",
+                        margin: "0 0 2px",
+                        fontFamily: "'Cormorant Garamond', Georgia, serif",
+                        fontWeight: "400",
+                        lineHeight: 1.1,
+                      }}
+                    >
+                      Tlhabiso ya Magadi
+                    </h3>
+                    <p
+                      style={{
+                        color: "#cfa76d",
+                        fontSize: "11px",
+                        letterSpacing: "0.2em",
+                        textTransform: "uppercase",
+                        margin: 0,
+                        fontFamily: "Georgia,serif",
+                      }}
+                    >
+                      A Gesture of Thanksgiving
+                    </p>
+                  </div>
+                </div>
+                <Divider />
+                <p
+                  style={{
+                    color: "#c8b89a",
+                    fontSize: "15px",
+                    lineHeight: 1.8,
+                    margin: "10px 0 0",
+                    fontFamily: "Georgia,serif",
+                  }}
+                >
+                  A sacred and joyous thanksgiving offered to the Groom's family
+                  in honour of the Magadi paid. It is a beautiful step in the
+                  customary journey towards the wedding celebration.
+                </p>
+              </div>
+              {/* UMEMBESO CARD */}
+              <div
+                style={{
+                  position: "relative",
+                  border: "1px solid rgba(201,160,94,0.75)",
+                  borderRadius: "10px",
+                  padding: "24px",
+                  background: "rgba(18,12,8,0.82)",
+                  boxShadow: "0 8px 24px rgba(0,0,0,0.45)",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    top: "5px",
+                    left: "5px",
+                    right: "5px",
+                    bottom: "5px",
+                    border: "1px solid rgba(201,160,94,0.25)",
+                    borderRadius: "8px",
+                    pointerEvents: "none",
+                  }}
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "18px",
+                    marginBottom: "10px",
+                  }}
+                >
+                  <div style={{ flexShrink: 0 }}>
+                    <img
+                      src="/images/shield-icon.png"
+                      alt="Shield"
+                      style={{
+                        width: "70px",
+                        height: "70px",
+                        objectFit: "contain",
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <h3
+                      style={{
+                        color: "#f5e6c8",
+                        fontSize: "32px",
+                        margin: "0 0 2px",
+                        fontFamily: "'Cormorant Garamond', Georgia, serif",
+                        fontWeight: "400",
+                        lineHeight: 1.1,
+                        textAlign: "left",
+                      }}
+                    >
+                      Umembeso
+                    </h3>
+                    <p
+                      style={{
+                        color: "#cfa76d",
+                        fontSize: "11px",
+                        letterSpacing: "0.2em",
+                        textTransform: "uppercase",
+                        margin: 0,
+                        fontFamily: "Georgia,serif",
+                      }}
+                    >
+                      The Gift-Giving Ceremony
+                    </p>
+                  </div>
+                </div>
+                <Divider />
+                <p
+                  style={{
+                    color: "#c8b89a",
+                    fontSize: "15px",
+                    lineHeight: 1.8,
+                    margin: "10px 0 0",
+                    fontFamily: "Georgia,serif",
+                  }}
+                >
+                  A vibrant and deeply symbolic Zulu ceremony where the Groom's
+                  family presents carefully chosen gifts to the Bride's family.
+                  Each gift carries meaning, honouring the Bride and expressing
+                  gratitude while weaving two families together in love, respect
+                  and tradition.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -500,97 +944,467 @@ export default function ZuluHeritageWeddingInvitation() {
           id="venue"
           style={{
             padding: "80px 24px",
-            borderTop: "1px solid rgba(200,120,10,0.12)",
+            borderTop: "1px solid rgba(160,112,64,0.12)",
             textAlign: "center",
           }}
         >
           <SectionHeader
-            sub="Lefelo la Mokete - Indawo Yomcimbi"
+            sub="Lefelo la Mokete · Indawo Yomcimbi"
             title="The Venue"
             note="Where We Celebrate"
           />
-          <div
-            style={{
-              maxWidth: "520px",
-              margin: "48px auto 0",
-              border: "1px solid rgba(200,120,10,0.28)",
-              borderRadius: "20px",
-              overflow: "hidden",
-            }}
-          >
+          <div style={{ maxWidth: "520px", margin: "48px auto 0" }}>
             <div
               style={{
-                padding: "40px 36px",
-                background: "rgba(200,120,10,0.06)",
+                border: "1px solid rgba(160,112,64,0.22)",
+                borderRadius: "22px",
+                padding: "3px",
               }}
             >
-              <h3
+              <div
                 style={{
-                  color: "#f5e6c8",
-                  fontSize: "24px",
-                  margin: "0 0 6px",
+                  border: "1px solid rgba(160,112,64,0.48)",
+                  borderRadius: "18px",
+                  overflow: "hidden",
                 }}
               >
-                Suitability Gardens
-              </h3>
+                <div
+                  style={{
+                    position: "relative",
+                    height: "380px",
+                    backgroundImage: "url('/images/venue.png')",
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                >
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      bottom: 0,
+                      background:
+                        "linear-gradient(to right, rgba(30,14,4,0.96) 48%, rgba(30,14,4,0.45) 75%, transparent 100%)",
+                    }}
+                  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      width: "60%",
+                      height: "100%",
+                      padding: "32px 24px",
+                      boxSizing: "border-box",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                  >
+                    <img
+                      src="/images/venue-ornament.png"
+                      alt=""
+                      style={{
+                        width: "72px",
+                        height: "auto",
+                        marginBottom: "14px",
+                      }}
+                    />
+                    <h3
+                      style={{
+                        color: "#fdf6ec",
+                        fontSize: "28px",
+                        fontFamily: "'Cormorant Garamond', serif",
+                        fontStyle: "italic",
+                        margin: "0 0 6px 0",
+                        lineHeight: 1.15,
+                        fontWeight: 400,
+                      }}
+                    >
+                      Suitability Gardens
+                    </h3>
+                    <p
+                      style={{
+                        color: "#a07040",
+                        fontSize: "9px",
+                        letterSpacing: "0.26em",
+                        textTransform: "uppercase",
+                        margin: "0 0 10px 0",
+                        fontWeight: 500,
+                      }}
+                    >
+                      Gauteng, South Africa
+                    </p>
+                    <div
+                      style={{
+                        width: "40px",
+                        height: "1px",
+                        background: "#a07040",
+                        marginBottom: "14px",
+                      }}
+                    />
+                    <p
+                      style={{
+                        color: "#e2cfa0",
+                        fontSize: "12px",
+                        lineHeight: 1.7,
+                        margin: "0 0 12px 0",
+                      }}
+                    >
+                      A beautiful garden venue that blends natural elegance with
+                      Nguni heritage.
+                    </p>
+                    <p
+                      style={{
+                        color: "#e2cfa0",
+                        fontSize: "12px",
+                        lineHeight: 1.7,
+                        margin: "0 0 28px 0",
+                      }}
+                    >
+                      Surrounded by lush landscapes and designed to host
+                      unforgettable celebrations with family and friends.
+                    </p>
+                    <a
+                      href="https://www.google.com/maps/search/?api=1&query=Suitability+Gardens,+De+Deur,+South+Africa"
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        padding: "10px 20px",
+                        borderRadius: "999px",
+                        border: "1px solid rgba(160,112,64,0.65)",
+                        color: "#a07040",
+                        fontSize: "10px",
+                        letterSpacing: "0.22em",
+                        textTransform: "uppercase",
+                        textDecoration: "none",
+                        background: "rgba(30,14,4,0.4)",
+                      }}
+                    >
+                      <svg
+                        width="11"
+                        height="14"
+                        viewBox="0 0 11 14"
+                        fill="none"
+                      >
+                        <path
+                          d="M5.5 0C2.46 0 0 2.46 0 5.5c0 4.125 5.5 8.5 5.5 8.5S11 9.625 11 5.5C11 2.46 8.54 0 5.5 0zm0 7.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+                          fill="#a07040"
+                        />
+                      </svg>
+                      Open in Maps
+                    </a>
+                  </div>
+                </div>
+                <div
+                  style={{
+                    background: "rgba(28,13,4,0.98)",
+                    borderTop: "1px solid rgba(160,112,64,0.25)",
+                    padding: "20px 12px 24px",
+                  }}
+                >
+                  <div style={{ textAlign: "center", marginBottom: "18px" }}>
+                    <p
+                      style={{
+                        color: "#a07040",
+                        fontSize: "8px",
+                        letterSpacing: "0.42em",
+                        textTransform: "uppercase",
+                        margin: "0 0 8px 0",
+                      }}
+                    >
+                      Venue Details
+                    </p>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        gap: "8px",
+                      }}
+                    >
+                      <div
+                        style={{
+                          width: "40px",
+                          height: "1px",
+                          background: "rgba(160,112,64,0.5)",
+                        }}
+                      />
+                      <span
+                        style={{
+                          color: "#a07040",
+                          fontSize: "8px",
+                          lineHeight: 1,
+                        }}
+                      >
+                        ✦
+                      </span>
+                      <div
+                        style={{
+                          width: "40px",
+                          height: "1px",
+                          background: "rgba(160,112,64,0.5)",
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "repeat(4, 1fr)",
+                      textAlign: "center",
+                    }}
+                  >
+                    <div
+                      style={{
+                        borderRight: "1px solid rgba(160,112,64,0.22)",
+                        padding: "4px 8px 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          marginBottom: "10px",
+                        }}
+                      >
+                        <svg
+                          width="26"
+                          height="26"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#a07040"
+                          strokeWidth="1.2"
+                        >
+                          <rect x="3" y="4" width="18" height="18" rx="2" />
+                          <line x1="16" y1="2" x2="16" y2="6" />
+                          <line x1="8" y1="2" x2="8" y2="6" />
+                          <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                      </div>
+                      <p
+                        style={{
+                          color: "#a07040",
+                          fontSize: "7px",
+                          letterSpacing: "0.2em",
+                          textTransform: "uppercase",
+                          margin: "0 0 10px 0",
+                        }}
+                      >
+                        Date
+                      </p>
+                      <p
+                        style={{
+                          color: "#f5ede0",
+                          fontSize: "11px",
+                          lineHeight: 1.65,
+                          margin: 0,
+                          fontWeight: 600,
+                        }}
+                      >
+                        Saturday,
+                        <br />
+                        24 October 2026
+                      </p>
+                    </div>
+                    <div
+                      style={{
+                        borderRight: "1px solid rgba(160,112,64,0.22)",
+                        padding: "4px 8px 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          marginBottom: "10px",
+                        }}
+                      >
+                        <svg
+                          width="26"
+                          height="26"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#a07040"
+                          strokeWidth="1.2"
+                        >
+                          <circle cx="12" cy="12" r="9" />
+                          <polyline points="12 7 12 12 15 15" />
+                        </svg>
+                      </div>
+                      <p
+                        style={{
+                          color: "#a07040",
+                          fontSize: "7px",
+                          letterSpacing: "0.2em",
+                          textTransform: "uppercase",
+                          margin: "0 0 10px 0",
+                        }}
+                      >
+                        Time
+                      </p>
+                      <p
+                        style={{
+                          color: "#f5ede0",
+                          fontSize: "11px",
+                          lineHeight: 1.65,
+                          margin: 0,
+                          fontWeight: 600,
+                        }}
+                      >
+                        09:00
+                        <br />– Late
+                      </p>
+                    </div>
+                    <div
+                      style={{
+                        borderRight: "1px solid rgba(160,112,64,0.22)",
+                        padding: "4px 8px 0",
+                      }}
+                    >
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          marginBottom: "10px",
+                        }}
+                      >
+                        <svg
+                          width="26"
+                          height="26"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#a07040"
+                          strokeWidth="1.2"
+                        >
+                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg>
+                      </div>
+                      <p
+                        style={{
+                          color: "#a07040",
+                          fontSize: "7px",
+                          letterSpacing: "0.2em",
+                          textTransform: "uppercase",
+                          margin: "0 0 10px 0",
+                        }}
+                      >
+                        Guests
+                      </p>
+                      <p
+                        style={{
+                          color: "#f5ede0",
+                          fontSize: "11px",
+                          lineHeight: 1.65,
+                          margin: 0,
+                          fontWeight: 600,
+                        }}
+                      >
+                        Family &amp;
+                        <br />
+                        Friends
+                      </p>
+                    </div>
+                    <div style={{ padding: "4px 8px 0" }}>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          marginBottom: "10px",
+                        }}
+                      >
+                        <svg
+                          width="26"
+                          height="26"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="#a07040"
+                          strokeWidth="1.2"
+                        >
+                          <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z" />
+                        </svg>
+                      </div>
+                      <p
+                        style={{
+                          color: "#a07040",
+                          fontSize: "7px",
+                          letterSpacing: "0.2em",
+                          textTransform: "uppercase",
+                          margin: "0 0 10px 0",
+                        }}
+                      >
+                        Dress Code
+                      </p>
+                      <p
+                        style={{
+                          color: "#f5ede0",
+                          fontSize: "11px",
+                          lineHeight: 1.65,
+                          margin: 0,
+                          fontWeight: 600,
+                        }}
+                      >
+                        Traditional African Elegance
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              style={{
+                margin: "10px auto 0",
+                maxWidth: "360px",
+                border: "1px solid rgba(160,112,64,0.5)",
+                borderRadius: "12px",
+                background: "rgba(28,13,4,0.9)",
+                padding: "10px 20px 12px",
+                textAlign: "center",
+              }}
+            >
+              <div
+                style={{
+                  color: "#a07040",
+                  fontSize: "9px",
+                  marginBottom: "6px",
+                }}
+              >
+                ✦
+              </div>
+              <p
+                style={{
+                  color: "#d4b480",
+                  fontSize: "12px",
+                  fontStyle: "italic",
+                  fontFamily: "'Cormorant Garamond', serif",
+                  lineHeight: 1.7,
+                  margin: "0 0 6px 0",
+                }}
+              >
+                &ldquo;This is the day the Lord has made;
+                <br />
+                we will rejoice and be glad in it.&rdquo;
+              </p>
               <p
                 style={{
                   color: "#a07040",
-                  fontSize: "13px",
-                  marginBottom: "28px",
-                }}
-              >
-                Gauteng, South Africa
-              </p>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: "20px",
-                  textAlign: "left",
-                  marginBottom: "28px",
-                }}
-              >
-                {[
-                  ["Date", "Saturday, 24 October 2026"],
-                  ["Time", "09:00 – Late"],
-                  ["Dress Code", "Traditional African Elegance"],
-                  ["Colours", "All acceptable"],
-                ].map(([k, v]) => (
-                  <div key={k}>
-                    <p
-                      style={{
-                        color: "#c8780a",
-                        fontSize: "10px",
-                        letterSpacing: "0.2em",
-                        textTransform: "uppercase",
-                        marginBottom: "4px",
-                      }}
-                    >
-                      {k}
-                    </p>
-                    <p style={{ color: "#f5e6c8", fontSize: "13px" }}>{v}</p>
-                  </div>
-                ))}
-              </div>
-              <a
-                href="https://www.google.com/maps/search/?api=1&query=Suitability+Gardens,+De+Deur,+South+Africa"
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "inline-block",
-                  padding: "10px 28px",
-                  borderRadius: "999px",
-                  border: "1px solid #c8780a",
-                  color: "#c8780a",
-                  fontSize: "11px",
-                  letterSpacing: "0.22em",
+                  fontSize: "7px",
+                  letterSpacing: "0.32em",
                   textTransform: "uppercase",
-                  textDecoration: "none",
+                  margin: 0,
                 }}
               >
-                Open in Maps ✦
-              </a>
+                Psalm 118:24
+              </p>
             </div>
           </div>
         </section>
@@ -599,321 +1413,463 @@ export default function ZuluHeritageWeddingInvitation() {
         <section
           id="rsvp"
           style={{
-            padding: "80px 24px",
-            borderTop: "1px solid rgba(200,120,10,0.12)",
+            padding: "60px 24px 60px",
+            borderTop: "1px solid rgba(160,112,64,0.12)",
             textAlign: "center",
           }}
         >
-          <SectionHeader
-            sub="Kwadisa · Bhalisa · Register"
-            title="Confirm Your Attendance"
-            note="O a Lalediwa · Umenyiwe · You are invited"
-          />
-          {submitted ? (
+          {/* Card — z-index:1 so it sits above the #rsvp::before cowhide layer */}
+          <div
+            style={{
+              position: "relative",
+              zIndex: 1,
+              maxWidth: "500px",
+              margin: "0 auto",
+              border: "1px solid rgba(160,112,64,0.35)",
+              borderRadius: "22px",
+              padding: "3px",
+            }}
+          >
             <div
               style={{
-                maxWidth: "420px",
-                margin: "48px auto 0",
-                textAlign: "center",
+                border: "1px solid rgba(160,112,64,0.55)",
+                borderRadius: "18px",
+                background: "rgba(10,5,1,0.88)",
+                backdropFilter: "blur(3px)",
+                padding: "36px 24px 28px",
               }}
             >
-              <div style={{ fontSize: "48px", marginBottom: "16px" }}>🐃</div>
-              <h3
-                style={{
-                  color: "#f5e6c8",
-                  fontSize: "26px",
-                  marginBottom: "10px",
-                }}
-              >
-                Rea Leboga · Siyabonga · Thank You
-              </h3>
+              {/* Section header — now inside the card */}
               <p
                 style={{
                   color: "#a07040",
-                  fontSize: "14px",
-                  lineHeight: 1.8,
-                  marginBottom: "20px",
-                }}
-              >
-                We give thanks for your response. It would be an honour to
-                celebrate with you.
-              </p>
-              <button
-                onClick={() => setSubmitted(false)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  color: "#c8780a",
                   fontSize: "11px",
-                  letterSpacing: "0.2em",
+                  letterSpacing: "0.4em",
                   textTransform: "uppercase",
-                  cursor: "pointer",
+                  margin: "0 0 6px 0",
                 }}
               >
-                Tswala · Close
-              </button>
-            </div>
-          ) : (
-            <form
-              onSubmit={async (e) => {
-                e.preventDefault();
-                await fetch("https://formspree.io/f/xbdbrdvo", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify(formData),
-                });
-                setSubmitted(true);
-              }}
-              style={{
-                maxWidth: "500px",
-                margin: "48px auto 0",
-                display: "flex",
-                flexDirection: "column",
-                gap: "18px",
-              }}
-            >
-              {[
-                ["Full Name *", "text", "name", true],
-                ["Phone Number", "tel", "phone", false],
-              ].map(([label, type, key, req]) => (
-                <div key={key} style={{ textAlign: "left" }}>
-                  <label
+                Kwadisa · Bhalisa · Register
+              </p>
+              <h2
+                style={{
+                  color: "#f5e6c8",
+                  fontSize: "clamp(24px,5vw,38px)",
+                  margin: "0 0 6px 0",
+                }}
+              >
+                Confirm Your Attendance
+              </h2>
+              <p
+                style={{
+                  color: "#a07040",
+                  fontSize: "13px",
+                  margin: "0 0 8px 0",
+                }}
+              >
+                O a Lalediwa · Umenyiwe · You are invited
+              </p>
+              <Divider />
+
+              <div style={{ marginTop: "24px" }}>
+                {submitted ? (
+                  <div style={{ textAlign: "center" }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        marginBottom: "16px",
+                      }}
+                    >
+                      <img
+                        src="/images/cow.png"
+                        alt="cow"
+                        style={{ width: "64px", height: "auto" }}
+                      />
+                    </div>
+                    <h3
+                      style={{
+                        color: "#f5e6c8",
+                        fontSize: "26px",
+                        marginBottom: "10px",
+                      }}
+                    >
+                      Rea Leboga · Siyabonga · Thank You
+                    </h3>
+                    <p
+                      style={{
+                        color: "#a07040",
+                        fontSize: "14px",
+                        lineHeight: 1.8,
+                        marginBottom: "20px",
+                      }}
+                    >
+                      We give thanks for your response. It would be an honour to
+                      celebrate with you.
+                    </p>
+                    <button
+                      onClick={() => setSubmitted(false)}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        color: "#a07040",
+                        fontSize: "11px",
+                        letterSpacing: "0.2em",
+                        textTransform: "uppercase",
+                        cursor: "pointer",
+                      }}
+                    >
+                      Tswala · Close
+                    </button>
+                  </div>
+                ) : (
+                  <form
+                    onSubmit={async (e) => {
+                      e.preventDefault();
+                      await fetch("https://formspree.io/f/xbdbrdvo", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(formData),
+                      });
+                      setSubmitted(true);
+                    }}
                     style={{
-                      display: "block",
-                      color: "#c8780a",
-                      fontSize: "10px",
-                      letterSpacing: "0.22em",
-                      textTransform: "uppercase",
-                      marginBottom: "8px",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "18px",
                     }}
                   >
-                    {label}
-                  </label>
-                  <input
-                    required={req}
-                    type={type}
-                    value={formData[key]}
-                    onChange={(e) =>
-                      setFormData({ ...formData, [key]: e.target.value })
-                    }
-                    style={{
-                      width: "100%",
-                      padding: "12px 16px",
-                      borderRadius: "12px",
-                      boxSizing: "border-box",
-                      background: "rgba(200,120,10,0.08)",
-                      border: "1px solid rgba(200,120,10,0.28)",
-                      color: "#f5e6c8",
-                      fontSize: "13px",
-                      outline: "none",
-                      fontFamily: "Georgia,serif",
-                    }}
-                  />
-                </div>
-              ))}
-              <div style={{ textAlign: "left" }}>
-                <label
-                  style={{
-                    display: "block",
-                    color: "#c8780a",
-                    fontSize: "10px",
-                    letterSpacing: "0.22em",
-                    textTransform: "uppercase",
-                    marginBottom: "10px",
-                  }}
-                >
-                  Will you attend? *
-                </label>
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "12px",
-                  }}
-                >
-                  {[
-                    ["accept", "Accept"],
-                    ["decline", "Decline"],
-                  ].map(([val, lbl]) => (
+                    {[
+                      ["Full Name *", "text", "name", true],
+                      ["Phone Number", "tel", "phone", false],
+                    ].map(([label, type, key, req]) => (
+                      <div key={key} style={{ textAlign: "left" }}>
+                        <label
+                          style={{
+                            display: "block",
+                            color: "#a07040",
+                            fontSize: "10px",
+                            letterSpacing: "0.22em",
+                            textTransform: "uppercase",
+                            marginBottom: "8px",
+                          }}
+                        >
+                          {label}
+                        </label>
+                        <input
+                          required={req}
+                          type={type}
+                          value={formData[key]}
+                          onChange={(e) =>
+                            setFormData({ ...formData, [key]: e.target.value })
+                          }
+                          style={{
+                            width: "100%",
+                            padding: "12px 16px",
+                            borderRadius: "12px",
+                            boxSizing: "border-box",
+                            background: "rgba(160,112,64,0.08)",
+                            border: "1px solid rgba(160,112,64,0.28)",
+                            color: "#f5e6c8",
+                            fontSize: "13px",
+                            outline: "none",
+                            fontFamily: "Georgia,serif",
+                          }}
+                        />
+                      </div>
+                    ))}
+                    <div style={{ textAlign: "left" }}>
+                      <label
+                        style={{
+                          display: "block",
+                          color: "#a07040",
+                          fontSize: "10px",
+                          letterSpacing: "0.22em",
+                          textTransform: "uppercase",
+                          marginBottom: "10px",
+                        }}
+                      >
+                        Will you attend? *
+                      </label>
+                      <div
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "1fr 1fr",
+                          gap: "12px",
+                        }}
+                      >
+                        {[
+                          ["accept", "Accept"],
+                          ["decline", "Decline"],
+                        ].map(([val, lbl]) => (
+                          <button
+                            key={val}
+                            type="button"
+                            onClick={() =>
+                              setFormData({ ...formData, attending: val })
+                            }
+                            style={{
+                              padding: "12px",
+                              borderRadius: "12px",
+                              cursor: "pointer",
+                              fontFamily: "Georgia,serif",
+                              fontSize: "12px",
+                              letterSpacing: "0.1em",
+                              border: `1px solid ${formData.attending === val ? "#a07040" : "rgba(160,112,64,0.28)"}`,
+                              background:
+                                formData.attending === val
+                                  ? "rgba(160,112,64,0.2)"
+                                  : "rgba(160,112,64,0.04)",
+                              color:
+                                formData.attending === val
+                                  ? "#f5e6c8"
+                                  : "#a07040",
+                            }}
+                          >
+                            {lbl}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                    {formData.attending === "accept" && (
+                      <>
+                        <div style={{ textAlign: "left" }}>
+                          <label
+                            style={{
+                              display: "block",
+                              color: "#a07040",
+                              fontSize: "10px",
+                              letterSpacing: "0.22em",
+                              textTransform: "uppercase",
+                              marginBottom: "8px",
+                            }}
+                          >
+                            Number of Guests
+                          </label>
+                          <select
+                            value={formData.guests}
+                            onChange={(e) =>
+                              setFormData({
+                                ...formData,
+                                guests: e.target.value,
+                              })
+                            }
+                            style={{
+                              width: "100%",
+                              padding: "12px 16px",
+                              borderRadius: "12px",
+                              background: "#1a0e00",
+                              border: "1px solid rgba(160,112,64,0.28)",
+                              color: "#f5e6c8",
+                              fontSize: "13px",
+                              outline: "none",
+                              fontFamily: "Georgia,serif",
+                            }}
+                          >
+                            {["1", "2", "3", "4"].map((n) => (
+                              <option key={n}>{n}</option>
+                            ))}
+                          </select>
+                        </div>
+                        <div style={{ textAlign: "left" }}>
+                          <label
+                            style={{
+                              display: "block",
+                              color: "#a07040",
+                              fontSize: "10px",
+                              letterSpacing: "0.22em",
+                              textTransform: "uppercase",
+                              marginBottom: "8px",
+                            }}
+                          >
+                            Any Allergies
+                          </label>
+                          <input
+                            type="text"
+                            value={formData.meal}
+                            onChange={(e) =>
+                              setFormData({ ...formData, meal: e.target.value })
+                            }
+                            placeholder="Traditional, Vegetarian…"
+                            style={{
+                              width: "100%",
+                              padding: "12px 16px",
+                              borderRadius: "12px",
+                              boxSizing: "border-box",
+                              background: "rgba(160,112,64,0.08)",
+                              border: "1px solid rgba(160,112,64,0.28)",
+                              color: "#f5e6c8",
+                              fontSize: "13px",
+                              outline: "none",
+                              fontFamily: "Georgia,serif",
+                            }}
+                          />
+                        </div>
+                      </>
+                    )}
                     <button
-                      key={val}
-                      type="button"
-                      onClick={() =>
-                        setFormData({ ...formData, attending: val })
-                      }
+                      type="submit"
                       style={{
-                        padding: "12px",
-                        borderRadius: "12px",
+                        padding: "15px",
+                        borderRadius: "999px",
+                        border: "none",
+                        background: "linear-gradient(135deg, #c8960a, #a07030)",
+                        color: "#fff",
+                        fontSize: "12px",
+                        letterSpacing: "0.28em",
+                        textTransform: "uppercase",
                         cursor: "pointer",
                         fontFamily: "Georgia,serif",
-                        fontSize: "12px",
-                        letterSpacing: "0.1em",
-                        border: `1px solid ${formData.attending === val ? "#c8780a" : "rgba(200,120,10,0.28)"}`,
-                        background:
-                          formData.attending === val
-                            ? "rgba(200,120,10,0.2)"
-                            : "rgba(200,120,10,0.04)",
-                        color:
-                          formData.attending === val ? "#f5e6c8" : "#a07040",
+                        boxShadow: "0 4px 20px rgba(160,112,64,0.45)",
                       }}
                     >
-                      {lbl}
+                      Send Confirmation ✦
                     </button>
-                  ))}
-                </div>
+                  </form>
+                )}
               </div>
-              {formData.attending === "accept" && (
-                <>
-                  <div style={{ textAlign: "left" }}>
-                    <label
-                      style={{
-                        display: "block",
-                        color: "#c8780a",
-                        fontSize: "10px",
-                        letterSpacing: "0.22em",
-                        textTransform: "uppercase",
-                        marginBottom: "8px",
-                      }}
-                    >
-                      Number of Guests
-                    </label>
-                    <select
-                      value={formData.guests}
-                      onChange={(e) =>
-                        setFormData({ ...formData, guests: e.target.value })
-                      }
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        borderRadius: "12px",
-                        background: "#1a0e00",
-                        border: "1px solid rgba(200,120,10,0.28)",
-                        color: "#f5e6c8",
-                        fontSize: "13px",
-                        outline: "none",
-                        fontFamily: "Georgia,serif",
-                      }}
-                    >
-                      {["1", "2", "3", "4"].map((n) => (
-                        <option key={n}>{n}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div style={{ textAlign: "left" }}>
-                    <label
-                      style={{
-                        display: "block",
-                        color: "#c8780a",
-                        fontSize: "10px",
-                        letterSpacing: "0.22em",
-                        textTransform: "uppercase",
-                        marginBottom: "8px",
-                      }}
-                    >
-                      Any Allergies
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.meal}
-                      onChange={(e) =>
-                        setFormData({ ...formData, meal: e.target.value })
-                      }
-                      placeholder="Traditional, Vegetarian…"
-                      style={{
-                        width: "100%",
-                        padding: "12px 16px",
-                        borderRadius: "12px",
-                        boxSizing: "border-box",
-                        background: "rgba(200,120,10,0.08)",
-                        border: "1px solid rgba(200,120,10,0.28)",
-                        color: "#f5e6c8",
-                        fontSize: "13px",
-                        outline: "none",
-                        fontFamily: "Georgia,serif",
-                      }}
-                    />
-                  </div>
-                </>
-              )}
-              <button
-                type="submit"
-                style={{
-                  padding: "15px",
-                  borderRadius: "999px",
-                  border: "none",
-                  background: "#c8780a",
-                  color: "#fff",
-                  fontSize: "12px",
-                  letterSpacing: "0.28em",
-                  textTransform: "uppercase",
-                  cursor: "pointer",
-                  fontFamily: "Georgia,serif",
-                  boxShadow: "0 4px 20px rgba(200,120,10,0.35)",
-                }}
-              >
-                Send Confirmation ✦
-              </button>
-            </form>
-          )}
+            </div>
+          </div>
         </section>
 
-        {/* FOOTER */}
+        {/* ── Footer: double border + wax seal + content ── */}
         <footer
           style={{
-            padding: "48px 24px",
-            borderTop: "1px solid rgba(200,120,10,0.12)",
+            padding: "0 0 48px",
             textAlign: "center",
+            position: "relative",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: "10px",
-              marginBottom: "20px",
-            }}
-          >
-            {[...Array(10)].map((_, i) => (
-              <div
-                key={i}
+          {/* Double border lines with wax seal centered on them */}
+          <div style={{ position: "relative", padding: "0 0 60px" }}>
+            <div
+              style={{
+                borderTop: "1px solid rgba(160,112,64,0.55)",
+                margin: "0 24px",
+              }}
+            />
+            <div
+              style={{
+                borderTop: "1px solid rgba(160,112,64,0.25)",
+                margin: "5px 24px 0",
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                top: "-52px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                zIndex: 10,
+              }}
+            >
+              <img
+                src="/images/wax_seal.png"
+                alt="T&K Wax Seal"
                 style={{
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  background: "rgba(200,120,10,0.35)",
+                  width: "118px",
+                  height: "118px",
+                  objectFit: "contain",
                 }}
               />
-            ))}
+            </div>
           </div>
-          <p
-            style={{ color: "#f5e6c8", fontSize: "18px", marginBottom: "6px" }}
-          >
-            Thobelinkosi & Koketso
-          </p>
+
+          {/* Names in Great Vibes cursive */}
           <p
             style={{
-              color: "rgba(200,120,10,0.55)",
-              fontSize: "11px",
-              letterSpacing: "0.18em",
+              color: "#f5e6c8",
+              fontSize: "clamp(32px,7vw,48px)",
+              fontFamily: "'Great Vibes', cursive",
+              fontWeight: 400,
+              margin: "0 0 10px 0",
+              lineHeight: 1.2,
+            }}
+          >
+            Thobelinkosi &amp; Koketso
+          </p>
+
+          {/* Date */}
+          <p
+            style={{
+              color: "#a07040",
+              fontSize: "14px",
+              letterSpacing: "0.22em",
+              margin: "0 0 16px 0",
             }}
           >
             24 · 10 · 2026 · Gauteng
           </p>
+
+          {/* Short ornamental divider */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "6px",
+              margin: "0 0 16px 0",
+            }}
+          >
+            <div
+              style={{
+                width: "28px",
+                height: "1px",
+                background: "rgba(160,112,64,0.5)",
+              }}
+            />
+            <div
+              style={{
+                width: "5px",
+                height: "5px",
+                background: "#a07040",
+                transform: "rotate(45deg)",
+              }}
+            />
+            <div
+              style={{
+                width: "5px",
+                height: "5px",
+                border: "1px solid #a07040",
+                transform: "rotate(45deg)",
+              }}
+            />
+            <div
+              style={{
+                width: "5px",
+                height: "5px",
+                background: "#a07040",
+                transform: "rotate(45deg)",
+              }}
+            />
+            <div
+              style={{
+                width: "28px",
+                height: "1px",
+                background: "rgba(160,112,64,0.5)",
+              }}
+            />
+          </div>
+
+          {/* Bible verse */}
           <p
             style={{
               color: "#a07040",
-              fontSize: "12px",
+              fontSize: "16px",
               fontStyle: "italic",
-              marginTop: "16px",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              lineHeight: 1.8,
+              margin: "0 24px",
             }}
           >
-            "1 John 4:7 - Beloved, let us love one another: for love is of
-            God..."
+            1 John 4:7 &mdash; Beloved, let us love one another:
+            <br />
+            for love is of God...
           </p>
         </footer>
       </div>
 
-      {/* ENVELOPE OVERLAY — fixed on top, removed once animation completes */}
+      {/* ENVELOPE OVERLAY */}
       {!overlayGone && (
         <div
           style={{
@@ -942,7 +1898,6 @@ export default function ZuluHeritageWeddingInvitation() {
               cursor: phase === "closed" ? "pointer" : "default",
             }}
           >
-            {/* ENVELOPE BASE */}
             <div
               style={{
                 position: "absolute",
@@ -955,8 +1910,6 @@ export default function ZuluHeritageWeddingInvitation() {
                 zIndex: 1,
               }}
             />
-
-            {/* ENVELOPE FLAP */}
             <div
               style={{
                 position: "absolute",
@@ -974,7 +1927,6 @@ export default function ZuluHeritageWeddingInvitation() {
                 zIndex: 2,
               }}
             />
-
             {phase === "closed" && (
               <p
                 style={{
@@ -995,7 +1947,18 @@ export default function ZuluHeritageWeddingInvitation() {
               </p>
             )}
           </div>
-
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background:
+                "radial-gradient(ellipse at center, rgba(255,255,255,1) 0%, rgba(255,255,255,0.6) 60%, transparent 100%)",
+              opacity: phase === "opening" ? 1 : 0,
+              transition: "opacity 0.3s ease-in-out",
+              zIndex: 999,
+              pointerEvents: "none",
+            }}
+          />
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -1027,13 +1990,13 @@ export default function ZuluHeritageWeddingInvitation() {
   );
 }
 
-function Divider() {
+function CardDivider() {
   return (
     <div
       style={{
         display: "flex",
         alignItems: "center",
-        gap: "12px",
+        gap: "0",
         justifyContent: "center",
         margin: "10px 0",
       }}
@@ -1041,25 +2004,89 @@ function Divider() {
       <div
         style={{
           height: "1px",
-          width: "60px",
-          background: "rgba(200,120,10,0.4)",
+          width: "44px",
+          background: "rgba(200,160,60,0.45)",
+          flexShrink: 0,
         }}
       />
-      <div
-        style={{
-          width: "8px",
-          height: "8px",
-          background: "#c8780a",
-          transform: "rotate(45deg)",
-        }}
-      />
+      <svg width="36" height="16" viewBox="0 0 36 16" fill="none">
+        {/* Bridge lines: connect outer line (at SVG edge) to where scroll paths begin */}
+        <line
+          x1="0"
+          y1="8"
+          x2="16"
+          y2="8"
+          stroke="rgba(200,160,60,0.45)"
+          strokeWidth="1"
+        />
+        <line
+          x1="20"
+          y1="8"
+          x2="36"
+          y2="8"
+          stroke="rgba(200,160,60,0.45)"
+          strokeWidth="1"
+        />
+        {/* Left scroll — begins at (16,8) where bridge line ends */}
+        <path
+          d="M16 8 C14 4 10 2 7 4 C4 6 5 11 8 10 C11 9 11 5 9 5"
+          stroke="#c8a84b"
+          strokeWidth="1.1"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        {/* Center diamond */}
+        <path d="M18 5 L21 8 L18 11 L15 8 Z" fill="#c8a84b" />
+        {/* Right scroll — begins at (20,8) where bridge line ends */}
+        <path
+          d="M20 8 C22 4 26 2 29 4 C32 6 31 11 28 10 C25 9 25 5 27 5"
+          stroke="#c8a84b"
+          strokeWidth="1.1"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
       <div
         style={{
           height: "1px",
-          width: "60px",
-          background: "rgba(200,120,10,0.4)",
+          width: "44px",
+          background: "rgba(200,160,60,0.45)",
+          flexShrink: 0,
         }}
       />
+    </div>
+  );
+}
+
+function Divider() {
+  return (
+    <div
+      style={{ display: "flex", justifyContent: "center", margin: "10px 0" }}
+    >
+      <svg width="136" height="16" viewBox="0 0 136 16" fill="none">
+        {/* Left line ends exactly at diamond left vertex */}
+        <line
+          x1="0"
+          y1="8"
+          x2="64"
+          y2="8"
+          stroke="rgba(200,120,10,0.4)"
+          strokeWidth="1"
+        />
+        {/* Diamond: left(64,8) top(68,4) right(72,8) bottom(68,12) */}
+        <path d="M64 8 L68 4 L72 8 L68 12 Z" fill="#c8780a" />
+        {/* Right line starts exactly at diamond right vertex */}
+        <line
+          x1="72"
+          y1="8"
+          x2="136"
+          y2="8"
+          stroke="rgba(200,120,10,0.4)"
+          strokeWidth="1"
+        />
+      </svg>
     </div>
   );
 }
