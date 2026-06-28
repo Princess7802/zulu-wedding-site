@@ -6,7 +6,6 @@ export default function ZuluHeritageWeddingInvitation() {
   const [phase, setPhase] = useState("closed");
   const [overlayGone, setOverlayGone] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const isMobile = window.innerWidth < 768;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -137,8 +136,7 @@ export default function ZuluHeritageWeddingInvitation() {
               style={{
                 color: "rgba(200,160,80,0.7)",
                 fontSize: "11px",
-                letterSpacing: "0.28em",
-                lineHeight: 1.7,
+                letterSpacing: "0.45em",
                 textTransform: "uppercase",
                 marginBottom: "20px",
                 fontFamily: "Georgia,serif",
@@ -462,9 +460,9 @@ export default function ZuluHeritageWeddingInvitation() {
                 style={{
                   color: "#c8a84b",
                   fontSize: "10px",
-                  letterSpacing: "0.47em",
+                  letterSpacing: "0.45em",
                   textTransform: "uppercase",
-                  marginBottom: "15px",
+                  marginBottom: "16px",
                   fontFamily: "Georgia,serif",
                 }}
               >
@@ -954,8 +952,8 @@ export default function ZuluHeritageWeddingInvitation() {
         <section
           id="venue"
           style={{
-            padding: "clamp(30px,2vw,65px) 0",
-            borderTop: "1px solid rgba(155,110,60,0.10)",
+            padding: "clamp(40px,6vw,80px) 0",
+            borderTop: "1px solid rgba(160,112,64,0.12)",
             textAlign: "center",
           }}
         >
@@ -964,14 +962,12 @@ export default function ZuluHeritageWeddingInvitation() {
             title="The Venue"
             note="Where We Celebrate"
           />
-          <div style={{ margin: "clamp(20px,2vw,35px) 0 0" }}>
+          <div style={{ margin: "clamp(24px,4vw,48px) 0 0" }}>
             <div
               style={{
-                maxWidth: "980px",
-                margin: "0 auto",
                 border: "1px solid rgba(160,112,64,0.22)",
-                borderRadius: "30px",
-                padding: "1px",
+                borderRadius: "22px",
+                padding: "3px",
               }}
             >
               <div
@@ -984,10 +980,10 @@ export default function ZuluHeritageWeddingInvitation() {
                 <div
                   style={{
                     position: "relative",
-                    minHeight: isMobile ? "560px" : "720px",
+                    minHeight: "clamp(380px,58vh,650px)",
                     backgroundImage: "url('/images/venue.png')",
                     backgroundSize: "cover",
-                    backgroundPosition: isMobile ? "72% center" : "center",
+                    backgroundPosition: "center",
                   }}
                 >
                   <div
@@ -998,7 +994,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       right: 0,
                       bottom: 0,
                       background:
-                        "linear-gradient(90deg,rgba(18,8,2,.90) 10%,rgba(18,8,2,.90) 23%,rgba(18,8,2,.55) 65%,rgba(18,8,2,0) 85%)",
+                        "linear-gradient(90deg,rgba(18,8,2,.92) 0%,rgba(18,8,2,.88) 22%,rgba(18,8,2,.50) 60%,rgba(18,8,2,0) 82%)",
                     }}
                   />
                   <div
@@ -1006,16 +1002,13 @@ export default function ZuluHeritageWeddingInvitation() {
                       position: "absolute",
                       top: 0,
                       left: 0,
-                      width: isMobile ? "100%" : "420px",
-                      maxWidth: "420px",
-                      minWidth: isMobile ? "0" : "380px",
+                      width: "clamp(150px,46%,420px)",
                       height: "100%",
-                      padding: isMobile ? "35px 20px" : "70px 45px",
+                      padding: "clamp(18px,3.5vw,60px) clamp(12px,2.5vw,40px)",
                       boxSizing: "border-box",
                       display: "flex",
                       flexDirection: "column",
-                      justifyContent: "space-between",
-                      padding: "70px 45px",
+                      justifyContent: "center",
                       alignItems: "center",
                       textAlign: "center",
                     }}
@@ -1024,24 +1017,23 @@ export default function ZuluHeritageWeddingInvitation() {
                       src="/images/venue-ornament.png"
                       alt=""
                       style={{
-                        width: "105px",
+                        width: "clamp(44px,7vw,105px)",
                         height: "auto",
                         display: "block",
-                        marginBottom: "18px",
+                        marginBottom: "clamp(8px,1.2vw,18px)",
                       }}
                     />
                     <h3
                       style={{
                         color: "#fdf6ec",
-                        fontSize: isMobile ? "56px" : "clamp(42px,4vw,48px)",
-                        maxWidth: "330px",
+                        fontSize: "clamp(18px,3.2vw,48px)",
                         width: "100%",
                         fontFamily: "'Cormorant Garamond', serif",
-                        fontStyle: "normal",
-                        margin: "0 4px 5px 0",
-                        lineHeight: 1.05,
+                        fontStyle: "italic",
+                        margin: "0 0 clamp(3px,0.8vw,6px) 0",
+                        lineHeight: 1.1,
                         fontWeight: 300,
-                        letterSpacing: "0.03em",
+                        letterSpacing: "0.02em",
                       }}
                     >
                       Suitability Gardens
@@ -1049,11 +1041,11 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#a07040",
-                        fontSize: "13px",
-                        letterSpacing: "0.38em",
-                        lineHeight: 1.9,
+                        fontSize: "clamp(7px,1.2vw,11px)",
+                        letterSpacing: "0.22em",
+                        lineHeight: 1.6,
                         textTransform: "uppercase",
-                        margin: "0 4px 5px 0",
+                        margin: "0 0 clamp(4px,0.8vw,8px) 0",
                         fontWeight: 400,
                       }}
                     >
@@ -1061,20 +1053,19 @@ export default function ZuluHeritageWeddingInvitation() {
                     </p>
                     <div
                       style={{
-                        width: "35px",
+                        width: "28px",
                         height: "1px",
                         background: "#a07040",
-                        marginBottom: "8px",
+                        marginBottom: "clamp(6px,1vw,10px)",
                       }}
                     />
                     <p
                       style={{
                         color: "#e2cfa0",
-                        fontSize: isMobile ? "13px" : "14px",
-                        maxWidth: "360px",
+                        fontSize: "clamp(9px,1.6vw,13px)",
                         width: "100%",
-                        lineHeight: 1.8,
-                        margin: "0 3px 9px 0",
+                        lineHeight: 1.65,
+                        margin: "0 0 clamp(5px,0.8vw,9px) 0",
                       }}
                     >
                       A beautiful garden venue that blends natural elegance with
@@ -1083,11 +1074,10 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#e2cfa0",
-                        fontSize: isMobile ? "13px" : "14px",
-                        maxWidth: "360px",
+                        fontSize: "clamp(9px,1.6vw,13px)",
                         width: "100%",
-                        lineHeight: 1.8,
-                        margin: "0 3px 9px 0",
+                        lineHeight: 1.65,
+                        margin: "0 0 clamp(8px,1.2vw,14px) 0",
                       }}
                     >
                       Surrounded by lush landscapes and designed to host
@@ -1098,27 +1088,26 @@ export default function ZuluHeritageWeddingInvitation() {
                       target="_blank"
                       rel="noreferrer"
                       style={{
-                        display: "flex",
+                        display: "inline-flex",
                         justifyContent: "center",
-                        width: isMobile ? "100%" : "220px",
-                        maxWidth: "220px",
-                        marginTop: "6px",
                         alignItems: "center",
-                        gap: "7px",
-                        padding: "11px 22px",
-                        borderRadius: "10px",
+                        gap: "6px",
+                        width: "100%",
+                        maxWidth: "clamp(120px,25vw,220px)",
+                        padding: "clamp(7px,1.2vw,11px) clamp(10px,1.8vw,22px)",
+                        borderRadius: "8px",
                         border: "1px solid rgba(160,112,64,0.65)",
                         color: "#a07040",
-                        fontSize: "11px",
-                        letterSpacing: "0.22em",
+                        fontSize: "clamp(8px,1.2vw,11px)",
+                        letterSpacing: "0.15em",
                         textTransform: "uppercase",
                         textDecoration: "none",
                         background: "rgba(30,14,4,0.45)",
                       }}
                     >
                       <svg
-                        width="11"
-                        height="14"
+                        width="10"
+                        height="13"
                         viewBox="0 0 11 14"
                         fill="none"
                       >
@@ -1133,19 +1122,25 @@ export default function ZuluHeritageWeddingInvitation() {
                 </div>
                 <div
                   style={{
-                    background: "rgba(28,13,4,0.70)",
+                    background: "rgba(18,8,2,0.85)",
                     borderTop: "1px solid rgba(160,112,64,0.25)",
-                    padding: "24px 30px 30px",
+                    padding:
+                      "clamp(14px,2vw,24px) clamp(8px,2vw,30px) clamp(16px,2vw,30px)",
                   }}
                 >
-                  <div style={{ textAlign: "center", marginBottom: "28px" }}>
+                  <div
+                    style={{
+                      textAlign: "center",
+                      marginBottom: "clamp(12px,2vw,28px)",
+                    }}
+                  >
                     <p
                       style={{
                         color: "#a07040",
-                        fontSize: "10px",
-                        letterSpacing: "0.42em",
+                        fontSize: "clamp(7px,1.2vw,10px)",
+                        letterSpacing: "0.35em",
                         textTransform: "uppercase",
-                        margin: "0 0 8px 0",
+                        margin: "0 0 6px 0",
                       }}
                     >
                       Venue Details
@@ -1160,7 +1155,7 @@ export default function ZuluHeritageWeddingInvitation() {
                     >
                       <div
                         style={{
-                          width: "40px",
+                          width: "30px",
                           height: "1px",
                           background: "rgba(160,112,64,0.5)",
                         }}
@@ -1176,7 +1171,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       </span>
                       <div
                         style={{
-                          width: "40px",
+                          width: "30px",
                           height: "1px",
                           background: "rgba(160,112,64,0.5)",
                         }}
@@ -1190,201 +1185,149 @@ export default function ZuluHeritageWeddingInvitation() {
                       textAlign: "center",
                     }}
                   >
-                    <div
-                      style={{
-                        borderRight: "1px solid rgba(160,112,64,0.22)",
-                        padding: "4px 8px 0",
-                      }}
-                    >
+                    {[
+                      {
+                        icon: (
+                          <svg
+                            key="cal"
+                            width="22"
+                            height="22"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#a07040"
+                            strokeWidth="1.3"
+                          >
+                            <rect x="3" y="4" width="18" height="18" rx="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                          </svg>
+                        ),
+                        label: "Date",
+                        value: (
+                          <>
+                            Saturday,
+                            <br />
+                            24 Oct 2026
+                          </>
+                        ),
+                      },
+                      {
+                        icon: (
+                          <svg
+                            key="clock"
+                            width="22"
+                            height="22"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#a07040"
+                            strokeWidth="1.3"
+                          >
+                            <circle cx="12" cy="12" r="9" />
+                            <polyline points="12 7 12 12 15 15" />
+                          </svg>
+                        ),
+                        label: "Time",
+                        value: (
+                          <>
+                            09:00
+                            <br />– Late
+                          </>
+                        ),
+                      },
+                      {
+                        icon: (
+                          <svg
+                            key="guests"
+                            width="22"
+                            height="22"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#a07040"
+                            strokeWidth="1.3"
+                          >
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                          </svg>
+                        ),
+                        label: "Guests",
+                        value: (
+                          <>
+                            Family &amp;
+                            <br />
+                            Friends
+                          </>
+                        ),
+                      },
+                      {
+                        icon: (
+                          <svg
+                            key="dress"
+                            width="22"
+                            height="22"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#a07040"
+                            strokeWidth="1.3"
+                          >
+                            <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z" />
+                          </svg>
+                        ),
+                        label: "Dress Code",
+                        value: (
+                          <>
+                            Traditional
+                            <br />
+                            African Elegance
+                          </>
+                        ),
+                      },
+                    ].map(({ icon, label, value }, i, arr) => (
                       <div
+                        key={label}
                         style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          marginBottom: "10px",
+                          borderRight:
+                            i < arr.length - 1
+                              ? "1px solid rgba(160,112,64,0.22)"
+                              : "none",
+                          padding: "4px clamp(4px,1vw,8px) 0",
                         }}
                       >
-                        <svg
-                          width="26"
-                          height="26"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="#a07040"
-                          strokeWidth="1.2"
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            marginBottom: "8px",
+                          }}
                         >
-                          <rect x="3" y="4" width="18" height="18" rx="2" />
-                          <line x1="16" y1="2" x2="16" y2="6" />
-                          <line x1="8" y1="2" x2="8" y2="6" />
-                          <line x1="3" y1="10" x2="21" y2="10" />
-                        </svg>
-                      </div>
-                      <p
-                        style={{
-                          color: "#a07040",
-                          fontSize: "7px",
-                          letterSpacing: "0.2em",
-                          textTransform: "uppercase",
-                          margin: "0 0 10px 0",
-                        }}
-                      >
-                        Date
-                      </p>
-                      <p
-                        style={{
-                          color: "#f5ede0",
-                          fontSize: "11px",
-                          lineHeight: 1.65,
-                          margin: 0,
-                          fontWeight: 600,
-                        }}
-                      >
-                        Saturday,
-                        <br />
-                        24 October 2026
-                      </p>
-                    </div>
-                    <div
-                      style={{
-                        borderRight: "1px solid rgba(160,112,64,0.22)",
-                        padding: "4px 8px 0",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          marginBottom: "10px",
-                        }}
-                      >
-                        <svg
-                          width="26"
-                          height="26"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="#a07040"
-                          strokeWidth="1.2"
+                          {icon}
+                        </div>
+                        <p
+                          style={{
+                            color: "#a07040",
+                            fontSize: "clamp(6px,1vw,7px)",
+                            letterSpacing: "0.15em",
+                            textTransform: "uppercase",
+                            margin: "0 0 6px 0",
+                          }}
                         >
-                          <circle cx="12" cy="12" r="9" />
-                          <polyline points="12 7 12 12 15 15" />
-                        </svg>
-                      </div>
-                      <p
-                        style={{
-                          color: "#a07040",
-                          fontSize: "7px",
-                          letterSpacing: "0.2em",
-                          textTransform: "uppercase",
-                          margin: "0 0 10px 0",
-                        }}
-                      >
-                        Time
-                      </p>
-                      <p
-                        style={{
-                          color: "#f5ede0",
-                          fontSize: "11px",
-                          lineHeight: 1.65,
-                          margin: 0,
-                          fontWeight: 600,
-                        }}
-                      >
-                        09:00
-                        <br />– Late
-                      </p>
-                    </div>
-                    <div
-                      style={{
-                        borderRight: "1px solid rgba(160,112,64,0.22)",
-                        padding: "4px 8px 0",
-                      }}
-                    >
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          marginBottom: "10px",
-                        }}
-                      >
-                        <svg
-                          width="26"
-                          height="26"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="#a07040"
-                          strokeWidth="1.2"
+                          {label}
+                        </p>
+                        <p
+                          style={{
+                            color: "#f5ede0",
+                            fontSize: "clamp(9px,1.5vw,11px)",
+                            lineHeight: 1.55,
+                            margin: 0,
+                            fontWeight: 600,
+                          }}
                         >
-                          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                          <circle cx="9" cy="7" r="4" />
-                          <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                        </svg>
+                          {value}
+                        </p>
                       </div>
-                      <p
-                        style={{
-                          color: "#a07040",
-                          fontSize: "7px",
-                          letterSpacing: "0.2em",
-                          textTransform: "uppercase",
-                          margin: "0 0 10px 0",
-                        }}
-                      >
-                        Guests
-                      </p>
-                      <p
-                        style={{
-                          color: "#f5ede0",
-                          fontSize: "11px",
-                          lineHeight: 1.65,
-                          margin: 0,
-                          fontWeight: 600,
-                        }}
-                      >
-                        Family &amp;
-                        <br />
-                        Friends
-                      </p>
-                    </div>
-                    <div style={{ padding: "4px 8px 0" }}>
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          marginBottom: "10px",
-                        }}
-                      >
-                        <svg
-                          width="26"
-                          height="26"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="#a07040"
-                          strokeWidth="1.2"
-                        >
-                          <path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.57a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.57a2 2 0 0 0-1.34-2.23z" />
-                        </svg>
-                      </div>
-                      <p
-                        style={{
-                          color: "#a07040",
-                          fontSize: "7px",
-                          letterSpacing: "0.2em",
-                          textTransform: "uppercase",
-                          margin: "0 0 10px 0",
-                        }}
-                      >
-                        Dress Code
-                      </p>
-                      <p
-                        style={{
-                          color: "#f5ede0",
-                          fontSize: "11px",
-                          lineHeight: 1.65,
-                          margin: 0,
-                          fontWeight: 600,
-                        }}
-                      >
-                        Traditional African Elegance
-                      </p>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -1436,6 +1379,10 @@ export default function ZuluHeritageWeddingInvitation() {
                 Psalm 118:24
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* RSVP            </div>
           </div>
         </section>
 
@@ -1781,7 +1728,7 @@ export default function ZuluHeritageWeddingInvitation() {
             />
             <div
               style={{
-                borderTop: "1px solid rgba(160,112,64,0.18)",
+                borderTop: "1px solid rgba(160,112,64,0.25)",
                 margin: "5px 24px 0",
               }}
             />
