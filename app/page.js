@@ -950,7 +950,7 @@ export default function ZuluHeritageWeddingInvitation() {
         <section
           id="venue"
           style={{
-            padding: "clamp(32px,5vw,64px) 8px",
+            padding: "clamp(40px,6vw,80px) 0",
             borderTop: "1px solid rgba(160,112,64,0.12)",
             textAlign: "center",
           }}
@@ -960,9 +960,7 @@ export default function ZuluHeritageWeddingInvitation() {
             title="The Venue"
             note="Where We Celebrate"
           />
-          <div
-            style={{ maxWidth: "700px", margin: "clamp(24px,4vw,48px) auto 0" }}
-          >
+          <div style={{ margin: "clamp(24px,4vw,48px) 0 0" }}>
             <div
               style={{
                 border: "1px solid rgba(160,112,64,0.22)",
@@ -980,7 +978,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 <div
                   style={{
                     position: "relative",
-                    height: "clamp(280px,55vw,420px)",
+                    height: "clamp(280px,60vh,420px)",
                     backgroundImage: "url('/images/venue.png')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -1002,9 +1000,9 @@ export default function ZuluHeritageWeddingInvitation() {
                       position: "absolute",
                       top: 0,
                       left: 0,
-                      width: "clamp(62%,65%,60%)",
+                      width: "60%",
                       height: "100%",
-                      padding: "clamp(16px,3vw,32px) clamp(12px,3vw,24px)",
+                      padding: "clamp(20px,3vw,32px) clamp(14px,3vw,24px)",
                       boxSizing: "border-box",
                       display: "flex",
                       flexDirection: "column",
@@ -1025,10 +1023,10 @@ export default function ZuluHeritageWeddingInvitation() {
                     <h3
                       style={{
                         color: "#fdf6ec",
-                        fontSize: "clamp(18px,4.5vw,28px)",
+                        fontSize: "clamp(20px,5vw,28px)",
                         fontFamily: "'Cormorant Garamond', serif",
                         fontStyle: "italic",
-                        margin: "0 0 4px 0",
+                        margin: "0 0 6px 0",
                         lineHeight: 1.15,
                         fontWeight: 400,
                       }}
@@ -1049,18 +1047,18 @@ export default function ZuluHeritageWeddingInvitation() {
                     </p>
                     <div
                       style={{
-                        width: "32px",
+                        width: "40px",
                         height: "1px",
                         background: "#a07040",
-                        marginBottom: "8px",
+                        marginBottom: "10px",
                       }}
                     />
                     <p
                       style={{
                         color: "#e2cfa0",
                         fontSize: "clamp(10px,2.5vw,12px)",
-                        lineHeight: 1.6,
-                        margin: "0 0 8px 0",
+                        lineHeight: 1.65,
+                        margin: "0 0 10px 0",
                       }}
                     >
                       A beautiful garden venue that blends natural elegance with
@@ -1070,8 +1068,8 @@ export default function ZuluHeritageWeddingInvitation() {
                       style={{
                         color: "#e2cfa0",
                         fontSize: "clamp(10px,2.5vw,12px)",
-                        lineHeight: 1.6,
-                        margin: "0 0 14px 0",
+                        lineHeight: 1.65,
+                        margin: "0 0 18px 0",
                       }}
                     >
                       Surrounded by lush landscapes and designed to host
@@ -1085,11 +1083,11 @@ export default function ZuluHeritageWeddingInvitation() {
                         display: "inline-flex",
                         alignItems: "center",
                         gap: "8px",
-                        padding: "7px 14px",
+                        padding: "9px 16px",
                         borderRadius: "999px",
                         border: "1px solid rgba(160,112,64,0.65)",
                         color: "#a07040",
-                        fontSize: "9px",
+                        fontSize: "10px",
                         letterSpacing: "0.22em",
                         textTransform: "uppercase",
                         textDecoration: "none",
