@@ -1566,7 +1566,9 @@ export default function ZuluHeritageWeddingInvitation() {
                               fontFamily: "Georgia,serif",
                             }}
                           >
-                            {["1", "2", "3", "4"].map((n) => (
+                            {Array.from({ length: 300 }, (_, i) =>
+                              String(i + 1),
+                            ).map((n) => (
                               <option key={n}>{n}</option>
                             ))}
                           </select>
