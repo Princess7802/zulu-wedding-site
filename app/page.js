@@ -980,7 +980,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 <div
                   style={{
                     position: "relative",
-                    height: "clamp(280px,55vh,400px)",
+                    height: "clamp(240px,42vh,360px)",
                     backgroundImage: "url('/images/venue.png')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -994,7 +994,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       right: 0,
                       bottom: 0,
                       background:
-                        "linear-gradient(to right, rgba(20,8,2,0.97) 0%, rgba(20,8,2,0.92) 45%, rgba(20,8,2,0.5) 70%, transparent 100%)",
+                        "linear-gradient(to right, rgba(10,4,0,0.82) 0%, rgba(10,4,0,0.68) 38%, rgba(10,4,0,0.18) 62%, transparent 100%)",
                     }}
                   />
                   <div
@@ -1002,9 +1002,9 @@ export default function ZuluHeritageWeddingInvitation() {
                       position: "absolute",
                       top: 0,
                       left: 0,
-                      width: "60%",
+                      width: "55%",
                       height: "100%",
-                      padding: "clamp(20px,3vw,32px) clamp(14px,3vw,22px)",
+                      padding: "clamp(16px,3vw,24px) clamp(12px,3vw,18px)",
                       boxSizing: "border-box",
                       display: "flex",
                       flexDirection: "column",
@@ -1113,9 +1113,9 @@ export default function ZuluHeritageWeddingInvitation() {
                 </div>
                 <div
                   style={{
-                    background: "rgba(28,13,4,0.98)",
+                    background: "rgba(18,8,2,0.7)",
                     borderTop: "1px solid rgba(160,112,64,0.25)",
-                    padding: "12px 8px 14px",
+                    padding: "14px 8px 16px",
                   }}
                 >
                   <div style={{ textAlign: "center", marginBottom: "10px" }}>
