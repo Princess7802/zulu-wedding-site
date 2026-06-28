@@ -952,8 +952,8 @@ export default function ZuluHeritageWeddingInvitation() {
         <section
           id="venue"
           style={{
-            padding: "clamp(40px,6vw,80px) 0",
-            borderTop: "1px solid rgba(160,112,64,0.12)",
+            padding: "clamp(30px,2vw,65px) 0",
+            borderTop: "1px solid rgba(155,110,60,0.10)",
             textAlign: "center",
           }}
         >
@@ -962,27 +962,27 @@ export default function ZuluHeritageWeddingInvitation() {
             title="The Venue"
             note="Where We Celebrate"
           />
-          <div style={{ margin: "clamp(24px,4vw,48px) 0 0" }}>
+          <div style={{ margin: "clamp(20px,2vw,35px) 0 0" }}>
             <div
               style={{
                 maxWidth: "980px",
                 margin: "0 auto",
                 border: "1px solid rgba(160,112,64,0.22)",
                 borderRadius: "30px",
-                padding: "3px",
+                padding: "1px",
               }}
             >
               <div
                 style={{
                   border: "1px solid rgba(160,112,64,0.48)",
-                  borderRadius: "26px",
+                  borderRadius: "20px",
                   overflow: "hidden",
                 }}
               >
                 <div
                   style={{
                     position: "relative",
-                    height: "clamp(460px,65vh,560px)",
+                    height: "clamp(450px,65vh,560px)",
                     backgroundImage: "url('/images/venue.png')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -1004,9 +1004,9 @@ export default function ZuluHeritageWeddingInvitation() {
                       position: "absolute",
                       top: 0,
                       left: 0,
-                      width: "42%",
+                      width: "40%",
                       height: "100%",
-                      padding: "40px 34px",
+                      padding: "55px 55px",
                       boxSizing: "border-box",
                       display: "flex",
                       flexDirection: "column",
@@ -1019,21 +1019,21 @@ export default function ZuluHeritageWeddingInvitation() {
                       src="/images/venue-ornament.png"
                       alt=""
                       style={{
-                        width: "90px",
-                        height: "auto",
-                        marginBottom: "14px",
+                        width: "85px",
+                        height: "80px",
+                        marginBottom: "12px",
                       }}
                     />
                     <h3
                       style={{
                         color: "#fdf6ec",
-                        fontSize: "clamp(34px,4vw,46px)",
+                        fontSize: "clamp(28px,2vw,39px)",
                         fontFamily: "'Cormorant Garamond', serif",
                         fontStyle: "normal",
-                        margin: "0 5px 6px 0",
+                        margin: "0 4px 5px 0",
                         lineHeight: 1.15,
                         fontWeight: 300,
-                        letterSpacing: "0.02em",
+                        letterSpacing: "0.03em",
                       }}
                     >
                       Suitability Gardens
@@ -1042,29 +1042,29 @@ export default function ZuluHeritageWeddingInvitation() {
                       style={{
                         color: "#a07040",
                         fontSize: "10px",
-                        letterSpacing: "0.35em",
+                        letterSpacing: "0.45em",
                         textTransform: "uppercase",
-                        margin: "0 5px 6px 0",
-                        fontWeight: 500,
+                        margin: "0 4px 5px 0",
+                        fontWeight: 400,
                       }}
                     >
                       Gauteng, South Africa
                     </p>
                     <div
                       style={{
-                        width: "40px",
+                        width: "35px",
                         height: "1px",
                         background: "#a07040",
-                        marginBottom: "10px",
+                        marginBottom: "8px",
                       }}
                     />
                     <p
                       style={{
                         color: "#e2cfa0",
-                        fontSize: "13px",
-                        maxWidth: "270px",
-                        lineHeight: 1.8,
-                        margin: "0 5px 10px 0",
+                        fontSize: "11px",
+                        maxWidth: "240px",
+                        lineHeight: 1.6,
+                        margin: "0 3px 9px 0",
                       }}
                     >
                       A beautiful garden venue that blends natural elegance with
@@ -1073,10 +1073,10 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#e2cfa0",
-                        fontSize: "13PX",
-                        maxWidth: "270px",
-                        lineHeight: 1.8,
-                        margin: "0 5px 18px 0",
+                        fontSize: "11px",
+                        maxWidth: "240px",
+                        lineHeight: 1.6,
+                        margin: "0 3px 16px 0",
                       }}
                     >
                       Surrounded by lush landscapes and designed to host
@@ -1089,8 +1089,8 @@ export default function ZuluHeritageWeddingInvitation() {
                       style={{
                         display: "inline-flex",
                         alignItems: "center",
-                        gap: "8px",
-                        padding: "13px 24px",
+                        gap: "7px",
+                        padding: "11px 22px",
                         borderRadius: "10px",
                         border: "1px solid rgba(160,112,64,0.65)",
                         color: "#a07040",
