@@ -111,101 +111,6 @@ export default function ZuluHeritageWeddingInvitation() {
           }
         `}</style>
 
-        {/* INTRO */}
-        <section
-          style={{
-            minHeight: "100vh",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-            padding: "0 clamp(16px,5vw,40px)",
-            position: "relative",
-          }}
-        >
-          <div
-            style={{
-              position: "relative",
-              zIndex: 2,
-              maxWidth: "700px",
-              width: "100%",
-            }}
-          >
-            <p
-              style={{
-                color: "rgba(200,160,80,0.7)",
-                fontSize: "11px",
-                letterSpacing: "0.45em",
-                textTransform: "uppercase",
-                marginBottom: "20px",
-                fontFamily: "Georgia,serif",
-              }}
-            >
-              Tlhabiso ya Magadi x Umembeso · You Are Invited
-            </p>
-            <h2
-              style={{
-                color: "#f5e6c8",
-                fontSize: "clamp(13px,2.5vw,18px)",
-                fontFamily: "'Cinzel', Georgia, serif",
-                fontWeight: "600",
-                letterSpacing: "0.15em",
-                textTransform: "uppercase",
-                margin: "0 0 16px",
-                lineHeight: 1.4,
-              }}
-            >
-              The Molete and Zulu Families
-            </h2>
-            <p
-              style={{
-                color: "rgba(245,230,200,0.75)",
-                fontSize: "clamp(14px,2.5vw,18px)",
-                fontStyle: "italic",
-                lineHeight: 1.8,
-                marginBottom: "20px",
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-              }}
-            >
-              joyfully request the honour of your presence while celebrating
-              their children
-            </p>
-            <h1
-              style={{
-                color: "#c8a84b",
-                fontSize: "clamp(28px,6vw,52px)",
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontWeight: "300",
-                fontStyle: "italic",
-                margin: "0 0 16px",
-                lineHeight: 1.3,
-              }}
-            >
-              Thobelinkosi & Koketso
-            </h1>
-            <div
-              style={{
-                width: "60px",
-                height: "1px",
-                background: "#c8a84b",
-                margin: "0 auto 24px",
-              }}
-            />
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <div
-                style={{
-                  width: "1px",
-                  height: "50px",
-                  background:
-                    "linear-gradient(to bottom, rgba(200,160,60,0.8), transparent)",
-                  animation: "scrollLine 1.8s ease-in-out infinite",
-                }}
-              />
-            </div>
-          </div>
-        </section>
-
         {/* NAV */}
         <nav
           style={{
@@ -276,10 +181,10 @@ export default function ZuluHeritageWeddingInvitation() {
               alt="Wax Seal"
               style={{
                 position: "absolute",
-                top: "-112px",
+                top: "-89px",
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: "120px",
+                width: "105px",
                 zIndex: 10,
               }}
             />
@@ -1231,7 +1136,7 @@ export default function ZuluHeritageWeddingInvitation() {
                         label: "Time",
                         value: (
                           <>
-                            09:00
+                            12:00
                             <br />– Late
                           </>
                         ),
@@ -1503,14 +1408,25 @@ export default function ZuluHeritageWeddingInvitation() {
                   </div>
                 ) : (
                   <form
+                    // AFTER
                     onSubmit={async (e) => {
                       e.preventDefault();
-                      await fetch("https://formspree.io/f/xbdbrdvo", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(formData),
-                      });
-                      setSubmitted(true);
+                      const response = await fetch(
+                        "https://api.web3forms.com/submit",
+                        {
+                          method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify({
+                            access_key: "123b5980-f212-4d2d-b418-8566bdcf61ec",
+                            subject:
+                              "New RSVP – Thobelinkosi & Koketso Wedding",
+                            from_name: "Wedding RSVP",
+                            ...formData,
+                          }),
+                        },
+                      );
+                      const result = await response.json();
+                      if (result.success) setSubmitted(true);
                     }}
                     style={{
                       display: "flex",
@@ -1518,6 +1434,11 @@ export default function ZuluHeritageWeddingInvitation() {
                       gap: "18px",
                     }}
                   >
+                    <input
+                      type="checkbox"
+                      name="botcheck"
+                      style={{ display: "none" }}
+                    />
                     {[
                       ["Full Name *", "text", "name", true],
                       ["Phone Number", "tel", "phone", false],
