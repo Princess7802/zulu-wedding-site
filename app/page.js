@@ -781,8 +781,8 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#cfa76d",
-                        fontSize: "11px",
-                        letterSpacing: "0.2em",
+                        fontSize: "10px",
+                        letterSpacing: "0.1em",
                         textTransform: "uppercase",
                         margin: 0,
                         fontFamily: "Georgia,serif",
@@ -996,7 +996,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       right: 0,
                       bottom: 0,
                       background:
-                        "linear-gradient(90deg,rgba(18,8,2,.98) 0%,rgba(18,8,2,.95) 40%,rgba(18,8,2,.55) 72%,rgba(18,8,2,0) 100%)",
+                        "linear-gradient(90deg,rgba(18,8,2,.90) 10%,rgba(18,8,2,.90) 23%,rgba(18,8,2,.55) 65%,rgba(18,8,2,0) 85%)",
                     }}
                   />
                   <div
@@ -1098,7 +1098,7 @@ export default function ZuluHeritageWeddingInvitation() {
                         letterSpacing: "0.22em",
                         textTransform: "uppercase",
                         textDecoration: "none",
-                        background: "rgba(30,14,4,0.4)",
+                        background: "rgba(30,14,4,0.45)",
                       }}
                     >
                       <svg
@@ -1118,7 +1118,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 </div>
                 <div
                   style={{
-                    background: "rgba(28,13,4,0.98)",
+                    background: "rgba(28,13,4,0.70)",
                     borderTop: "1px solid rgba(160,112,64,0.25)",
                     padding: "24px 30px 30px",
                   }}
@@ -1380,7 +1380,8 @@ export default function ZuluHeritageWeddingInvitation() {
                 maxWidth: "360px",
                 border: "1px solid rgba(160,112,64,0.5)",
                 borderRadius: "12px",
-                background: "rgba(28,13,4,0.9)",
+                background: "rgba(28,13,4,0.6)",
+                backdropFilter: "blur(8px)",
                 padding: "10px 20px 12px",
                 textAlign: "center",
               }}
