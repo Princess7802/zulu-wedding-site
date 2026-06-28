@@ -120,7 +120,7 @@ export default function ZuluHeritageWeddingInvitation() {
             alignItems: "center",
             justifyContent: "center",
             textAlign: "center",
-            padding: "0 40px",
+            padding: "0 clamp(16px,5vw,40px)",
             position: "relative",
           }}
         >
@@ -256,7 +256,7 @@ export default function ZuluHeritageWeddingInvitation() {
             alignItems: "center",
             justifyContent: "center",
             textAlign: "center",
-            padding: "120px 20px 80px",
+            padding: "clamp(60px,10vw,120px) 16px clamp(40px,7vw,80px)",
             backgroundImage: "url('/images/cowhide.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -290,7 +290,8 @@ export default function ZuluHeritageWeddingInvitation() {
                 background:
                   "linear-gradient(rgba(18,12,8,0.92), rgba(18,12,8,0.92))",
                 border: "1px solid rgba(200,160,60,0.55)",
-                padding: "44px 72px 52px",
+                padding:
+                  "clamp(20px,4vw,44px) clamp(16px,6vw,72px) clamp(24px,4vw,52px)",
                 width: "100%",
                 maxWidth: "600px",
                 margin: "0 auto",
@@ -500,7 +501,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <CardDivider />
               <h1
                 style={{
-                  fontSize: "clamp(3.5rem,8vw,5.5rem)",
+                  fontSize: "clamp(2.4rem,7vw,5.5rem)",
                   color: "#f5e6c8",
                   margin: "0",
                   lineHeight: 1.1,
@@ -525,7 +526,7 @@ export default function ZuluHeritageWeddingInvitation() {
               </span>
               <h1
                 style={{
-                  fontSize: "clamp(3.5rem,8vw,5.5rem)",
+                  fontSize: "clamp(2.4rem,7vw,5.5rem)",
                   color: "#f5e6c8",
                   margin: "0 0 16px",
                   lineHeight: 1.1,
@@ -656,7 +657,7 @@ export default function ZuluHeritageWeddingInvitation() {
               zIndex: 2,
               maxWidth: "520px",
               margin: "0 auto",
-              padding: "20px 20px 80px",
+              padding: "20px 16px clamp(40px,6vw,80px)",
             }}
           >
             <div
@@ -691,7 +692,7 @@ export default function ZuluHeritageWeddingInvitation() {
             <h2
               style={{
                 color: "#ffffff",
-                fontSize: "clamp(56px,10vw,80px)",
+                fontSize: "clamp(36px,8vw,80px)",
                 letterSpacing: "-0.02em",
                 margin: "0 0 4px",
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -899,7 +900,7 @@ export default function ZuluHeritageWeddingInvitation() {
         {/* GALLERY */}
         <section
           style={{
-            padding: "80px 24px",
+            padding: "clamp(40px,6vw,80px) 16px",
             borderTop: "1px solid rgba(200,120,10,0.12)",
             textAlign: "center",
           }}
@@ -949,7 +950,7 @@ export default function ZuluHeritageWeddingInvitation() {
         <section
           id="venue"
           style={{
-            padding: "80px 24px",
+            padding: "clamp(40px,6vw,80px) 16px",
             borderTop: "1px solid rgba(160,112,64,0.12)",
             textAlign: "center",
           }}
@@ -977,7 +978,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 <div
                   style={{
                     position: "relative",
-                    height: "380px",
+                    height: "clamp(220px,45vw,380px)",
                     backgroundImage: "url('/images/venue.png')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -1197,7 +1198,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       <p
                         style={{
                           color: "#a07040",
-                          fontSize: "8px",
+                          fontSize: "7px",
                           letterSpacing: "0.2em",
                           textTransform: "uppercase",
                           margin: "0 0 10px 0",
@@ -1247,7 +1248,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       <p
                         style={{
                           color: "#a07040",
-                          fontSize: "8px",
+                          fontSize: "7px",
                           letterSpacing: "0.2em",
                           textTransform: "uppercase",
                           margin: "0 0 10px 0",
@@ -1298,7 +1299,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       <p
                         style={{
                           color: "#a07040",
-                          fontSize: "8px",
+                          fontSize: "7px",
                           letterSpacing: "0.2em",
                           textTransform: "uppercase",
                           margin: "0 0 10px 0",
@@ -1342,7 +1343,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       <p
                         style={{
                           color: "#a07040",
-                          fontSize: "8px",
+                          fontSize: "7px",
                           letterSpacing: "0.2em",
                           textTransform: "uppercase",
                           margin: "0 0 10px 0",
@@ -1380,7 +1381,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <div
                 style={{
                   color: "#a07040",
-                  fontSize: "10px",
+                  fontSize: "9px",
                   marginBottom: "6px",
                 }}
               >
@@ -1389,7 +1390,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <p
                 style={{
                   color: "#d4b480",
-                  fontSize: "13px",
+                  fontSize: "12px",
                   fontStyle: "italic",
                   fontFamily: "'Cormorant Garamond', serif",
                   lineHeight: 1.7,
@@ -1403,7 +1404,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <p
                 style={{
                   color: "#a07040",
-                  fontSize: "9px",
+                  fontSize: "7px",
                   letterSpacing: "0.32em",
                   textTransform: "uppercase",
                   margin: 0,
@@ -1419,7 +1420,7 @@ export default function ZuluHeritageWeddingInvitation() {
         <section
           id="rsvp"
           style={{
-            padding: "60px 24px 60px",
+            padding: "clamp(32px,5vw,60px) 16px",
             borderTop: "1px solid rgba(160,112,64,0.12)",
             textAlign: "center",
           }}
@@ -1442,7 +1443,8 @@ export default function ZuluHeritageWeddingInvitation() {
                 borderRadius: "18px",
                 background: "rgba(10,5,1,0.88)",
                 backdropFilter: "blur(3px)",
-                padding: "36px 24px 28px",
+                padding:
+                  "clamp(20px,4vw,36px) clamp(14px,3vw,24px) clamp(18px,3vw,28px)",
               }}
             >
               {/* Section header — now inside the card */}
