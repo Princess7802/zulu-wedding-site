@@ -136,7 +136,8 @@ export default function ZuluHeritageWeddingInvitation() {
               style={{
                 color: "rgba(200,160,80,0.7)",
                 fontSize: "11px",
-                letterSpacing: "0.45em",
+                letterSpacing: "0.28em",
+                lineHeight: 1.7,
                 textTransform: "uppercase",
                 marginBottom: "20px",
                 fontFamily: "Georgia,serif",
@@ -982,7 +983,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 <div
                   style={{
                     position: "relative",
-                    height: "clamp(450px,65vh,560px)",
+                    minHeight: "720px",
                     backgroundImage: "url('/images/venue.png')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -1004,13 +1005,16 @@ export default function ZuluHeritageWeddingInvitation() {
                       position: "absolute",
                       top: 0,
                       left: 0,
-                      width: "40%",
+                      width: "48%",
+                      maxWidth: "420px",
+                      minWidth: "380px",
                       height: "100%",
                       padding: "55px 55px",
                       boxSizing: "border-box",
                       display: "flex",
                       flexDirection: "column",
-                      justifyContent: "center",
+                      justifyContent: "flex-start",
+                      Padding: "55px 45px",
                       alignItems: "center",
                       textAlign: "center",
                     }}
@@ -1019,15 +1023,17 @@ export default function ZuluHeritageWeddingInvitation() {
                       src="/images/venue-ornament.png"
                       alt=""
                       style={{
-                        width: "85px",
-                        height: "80px",
-                        marginBottom: "12px",
+                        width: "62px",
+                        height: "62px",
+                        marginBottom: "10px",
                       }}
                     />
                     <h3
                       style={{
                         color: "#fdf6ec",
                         fontSize: "clamp(28px,2vw,39px)",
+                        maxWidth: "330px",
+                        width: "100%",
                         fontFamily: "'Cormorant Garamond', serif",
                         fontStyle: "normal",
                         margin: "0 4px 5px 0",
@@ -1062,7 +1068,8 @@ export default function ZuluHeritageWeddingInvitation() {
                       style={{
                         color: "#e2cfa0",
                         fontSize: "11px",
-                        maxWidth: "240px",
+                        maxWidth: "330px",
+                        width: "100%",
                         lineHeight: 1.6,
                         margin: "0 3px 9px 0",
                       }}
@@ -1074,9 +1081,10 @@ export default function ZuluHeritageWeddingInvitation() {
                       style={{
                         color: "#e2cfa0",
                         fontSize: "11px",
-                        maxWidth: "240px",
+                        maxWidth: "330px",
+                        width: "100%",
                         lineHeight: 1.6,
-                        margin: "0 3px 16px 0",
+                        margin: "0 3px 9px 0",
                       }}
                     >
                       Surrounded by lush landscapes and designed to host
@@ -1087,7 +1095,11 @@ export default function ZuluHeritageWeddingInvitation() {
                       target="_blank"
                       rel="noreferrer"
                       style={{
-                        display: "inline-flex",
+                        display: "flex",
+                        justifyContent: "center",
+                        width: "220%",
+                        maxWidth: "220px",
+                        marginTop: "6px",
                         alignItems: "center",
                         gap: "7px",
                         padding: "11px 22px",
