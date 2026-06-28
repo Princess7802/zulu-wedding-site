@@ -6,6 +6,7 @@ export default function ZuluHeritageWeddingInvitation() {
   const [phase, setPhase] = useState("closed");
   const [overlayGone, setOverlayGone] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const isMobile = window.innerWidth < 768;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -983,10 +984,10 @@ export default function ZuluHeritageWeddingInvitation() {
                 <div
                   style={{
                     position: "relative",
-                    minHeight: "720px",
+                    minHeight: isMobile ? "560px" : "720px",
                     backgroundImage: "url('/images/venue.png')",
                     backgroundSize: "cover",
-                    backgroundPosition: "center",
+                    backgroundPosition: isMobile ? "72% center" : "center",
                   }}
                 >
                   <div
@@ -1005,11 +1006,11 @@ export default function ZuluHeritageWeddingInvitation() {
                       position: "absolute",
                       top: 0,
                       left: 0,
-                      width: "470%",
+                      width: isMobile ? "100%" : "420px",
                       maxWidth: "420px",
-                      minWidth: "380px",
+                      minWidth: isMobile ? "0" : "380px",
                       height: "100%",
-                      padding: "40px 30px",
+                      padding: isMobile ? "35px 20px" : "70px 45px",
                       boxSizing: "border-box",
                       display: "flex",
                       flexDirection: "column",
@@ -1032,7 +1033,7 @@ export default function ZuluHeritageWeddingInvitation() {
                     <h3
                       style={{
                         color: "#fdf6ec",
-                        fontSize: "clamp(42px,4vw,56px)",
+                        fontSize: isMobile ? "56px" : "clamp(42px,4vw,48px)",
                         maxWidth: "330px",
                         width: "100%",
                         fontFamily: "'Cormorant Garamond', serif",
@@ -1069,7 +1070,7 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#e2cfa0",
-                        fontSize: "14px",
+                        fontSize: isMobile ? "13px" : "14px",
                         maxWidth: "360px",
                         width: "100%",
                         lineHeight: 1.8,
@@ -1082,7 +1083,7 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#e2cfa0",
-                        fontSize: "14px",
+                        fontSize: isMobile ? "13px" : "14px",
                         maxWidth: "360px",
                         width: "100%",
                         lineHeight: 1.8,
@@ -1099,7 +1100,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       style={{
                         display: "flex",
                         justifyContent: "center",
-                        width: "220%",
+                        width: isMobile ? "100%" : "220px",
                         maxWidth: "220px",
                         marginTop: "6px",
                         alignItems: "center",
