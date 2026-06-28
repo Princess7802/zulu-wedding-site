@@ -781,8 +781,8 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#cfa76d",
-                        fontSize: "11px",
-                        letterSpacing: "0.2em",
+                        fontSize: "10px",
+                        letterSpacing: "0.1em",
                         textTransform: "uppercase",
                         margin: 0,
                         fontFamily: "Georgia,serif",
@@ -980,7 +980,7 @@ export default function ZuluHeritageWeddingInvitation() {
                 <div
                   style={{
                     position: "relative",
-                    height: "clamp(280px,60vh,420px)",
+                    height: "clamp(360px,65vh,500px)",
                     backgroundImage: "url('/images/venue.png')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -994,42 +994,40 @@ export default function ZuluHeritageWeddingInvitation() {
                       right: 0,
                       bottom: 0,
                       background:
-                        "linear-gradient(to right, rgba(30,14,4,0.96) 48%, rgba(30,14,4,0.45) 75%, transparent 100%)",
+                        "linear-gradient(to top, rgba(10,4,0,0.97) 0%, rgba(10,4,0,0.88) 35%, rgba(10,4,0,0.4) 62%, transparent 100%)",
                     }}
                   />
                   <div
                     style={{
                       position: "absolute",
-                      top: 0,
+                      bottom: 0,
                       left: 0,
-                      width: "60%",
-                      height: "100%",
-                      padding: "clamp(20px,3vw,32px) clamp(14px,3vw,24px)",
+                      width: "100%",
+                      padding: "clamp(16px,3vw,24px)",
                       boxSizing: "border-box",
                       display: "flex",
                       flexDirection: "column",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      textAlign: "center",
+                      alignItems: "flex-start",
+                      textAlign: "left",
                     }}
                   >
                     <img
                       src="/images/venue-ornament.png"
                       alt=""
                       style={{
-                        width: "72px",
+                        width: "44px",
                         height: "auto",
-                        marginBottom: "14px",
+                        marginBottom: "8px",
                       }}
                     />
                     <h3
                       style={{
                         color: "#fdf6ec",
-                        fontSize: "clamp(20px,5vw,28px)",
+                        fontSize: "clamp(24px,6vw,36px)",
                         fontFamily: "'Cormorant Garamond', serif",
                         fontStyle: "italic",
-                        margin: "0 0 6px 0",
-                        lineHeight: 1.15,
+                        margin: "0 0 4px 0",
+                        lineHeight: 1.1,
                         fontWeight: 400,
                       }}
                     >
@@ -1039,9 +1037,9 @@ export default function ZuluHeritageWeddingInvitation() {
                       style={{
                         color: "#a07040",
                         fontSize: "9px",
-                        letterSpacing: "0.26em",
+                        letterSpacing: "0.2em",
                         textTransform: "uppercase",
-                        margin: "0 0 6px 0",
+                        margin: "0 0 8px 0",
                         fontWeight: 500,
                       }}
                     >
@@ -1049,7 +1047,7 @@ export default function ZuluHeritageWeddingInvitation() {
                     </p>
                     <div
                       style={{
-                        width: "40px",
+                        width: "32px",
                         height: "1px",
                         background: "#a07040",
                         marginBottom: "10px",
@@ -1058,9 +1056,9 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#e2cfa0",
-                        fontSize: "clamp(10px,2.5vw,12px)",
+                        fontSize: "clamp(11px,2.8vw,13px)",
                         lineHeight: 1.65,
-                        margin: "0 0 10px 0",
+                        margin: "0 0 8px 0",
                       }}
                     >
                       A beautiful garden venue that blends natural elegance with
@@ -1069,9 +1067,9 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#e2cfa0",
-                        fontSize: "clamp(10px,2.5vw,12px)",
+                        fontSize: "clamp(11px,2.8vw,13px)",
                         lineHeight: 1.65,
-                        margin: "0 0 18px 0",
+                        margin: "0 0 16px 0",
                       }}
                     >
                       Surrounded by lush landscapes and designed to host
@@ -1115,7 +1113,7 @@ export default function ZuluHeritageWeddingInvitation() {
                   style={{
                     background: "rgba(28,13,4,0.98)",
                     borderTop: "1px solid rgba(160,112,64,0.25)",
-                    padding: "12px 12px 18px",
+                    padding: "20px 12px 20px",
                   }}
                 >
                   <div style={{ textAlign: "center", marginBottom: "18px" }}>
