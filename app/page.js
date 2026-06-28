@@ -256,7 +256,7 @@ export default function ZuluHeritageWeddingInvitation() {
             alignItems: "center",
             justifyContent: "center",
             textAlign: "center",
-            padding: "clamp(60px,10vw,120px) 16px clamp(40px,7vw,80px)",
+            padding: "clamp(130px,15vw,160px) 16px clamp(40px,7vw,80px)",
             backgroundImage: "url('/images/cowhide.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -768,11 +768,12 @@ export default function ZuluHeritageWeddingInvitation() {
                     <h3
                       style={{
                         color: "#f5e6c8",
-                        fontSize: "32px",
+                        fontSize: "clamp(18px,4vw,28px)",
                         margin: "0 0 2px",
                         fontFamily: "'Cormorant Garamond', Georgia, serif",
                         fontWeight: "400",
                         lineHeight: 1.1,
+                        textAlign: "left",
                       }}
                     >
                       Tlhabiso ya Magadi
@@ -785,6 +786,7 @@ export default function ZuluHeritageWeddingInvitation() {
                         textTransform: "uppercase",
                         margin: 0,
                         fontFamily: "Georgia,serif",
+                        textAlign: "left",
                       }}
                     >
                       A Gesture of Thanksgiving
@@ -1113,7 +1115,7 @@ export default function ZuluHeritageWeddingInvitation() {
                   style={{
                     background: "rgba(28,13,4,0.98)",
                     borderTop: "1px solid rgba(160,112,64,0.25)",
-                    padding: "20px 12px 24px",
+                    padding: "12px 12px 18px",
                   }}
                 >
                   <div style={{ textAlign: "center", marginBottom: "18px" }}>
