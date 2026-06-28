@@ -1008,7 +1008,7 @@ export default function ZuluHeritageWeddingInvitation() {
                       boxSizing: "border-box",
                       display: "flex",
                       flexDirection: "column",
-                      justifyContent: "center",
+                      justifyContent: "space-between",
                       alignItems: "center",
                       textAlign: "center",
                     }}
