@@ -686,7 +686,7 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#cfa76d",
-                        fontSize: "11px",
+                        fontSize: "10px",
                         letterSpacing: "0.2em",
                         textTransform: "uppercase",
                         margin: 0,
@@ -772,7 +772,7 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#cfa76d",
-                        fontSize: "11px",
+                        fontSize: "10px",
                         letterSpacing: "0.2em",
                         textTransform: "uppercase",
                         margin: 0,
