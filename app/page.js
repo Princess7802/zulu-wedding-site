@@ -415,7 +415,7 @@ export default function ZuluHeritageWeddingInvitation() {
                   textTransform: "capitalize",
                 }}
               >
-                Thobelinkosi
+                Mntwana Thobelinkosi
               </h1>
               <span
                 style={{
@@ -673,7 +673,7 @@ export default function ZuluHeritageWeddingInvitation() {
                     <h3
                       style={{
                         color: "#f5e6c8",
-                        fontSize: "clamp(18px,4vw,28px)",
+                        fontSize: "32px",
                         margin: "0 0 2px",
                         fontFamily: "'Cormorant Garamond', Georgia, serif",
                         fontWeight: "400",
@@ -686,8 +686,8 @@ export default function ZuluHeritageWeddingInvitation() {
                     <p
                       style={{
                         color: "#cfa76d",
-                        fontSize: "10px",
-                        letterSpacing: "0.1em",
+                        fontSize: "11px",
+                        letterSpacing: "0.2em",
                         textTransform: "uppercase",
                         margin: 0,
                         fontFamily: "Georgia,serif",
@@ -822,7 +822,14 @@ export default function ZuluHeritageWeddingInvitation() {
               margin: "48px auto 0",
             }}
           >
-            {["couple", "molete", "zulus", "zulucouple"].map((name) => (
+            {[
+              "couple",
+              "molete",
+              "zulus",
+              "zulucouple",
+              "zulu-family",
+              "molete-family",
+            ].map((name) => (
               <div
                 key={name}
                 style={{
@@ -1419,7 +1426,7 @@ export default function ZuluHeritageWeddingInvitation() {
                           body: JSON.stringify({
                             access_key: "123b5980-f212-4d2d-b418-8566bdcf61ec",
                             subject:
-                              "New RSVP – Thobelinkosi & Koketso Wedding",
+                              "New RSVP – Mntwana Thobelinkosi & Koketso Wedding",
                             from_name: "Wedding RSVP",
                             ...formData,
                           }),
@@ -1688,7 +1695,7 @@ export default function ZuluHeritageWeddingInvitation() {
               lineHeight: 1.2,
             }}
           >
-            Thobelinkosi &amp; Koketso
+            Mntwana Thobelinkosi &amp; Koketso
           </p>
 
           {/* Date */}
@@ -1764,9 +1771,9 @@ export default function ZuluHeritageWeddingInvitation() {
               margin: "0 24px",
             }}
           >
-            1 John 4:7 &mdash; Beloved, let us love one another:
+            Beloved, let us love one another:
             <br />
-            for love is of God...
+            for love is of God... &mdash; 1 John 4:7
           </p>
         </footer>
       </div>
