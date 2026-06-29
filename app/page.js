@@ -673,7 +673,7 @@ export default function ZuluHeritageWeddingInvitation() {
                     <h3
                       style={{
                         color: "#f5e6c8",
-                        fontSize: "30px",
+                        fontSize: "25px",
                         margin: "0 0 2px",
                         fontFamily: "'Cormorant Garamond', Georgia, serif",
                         fontWeight: "400",
@@ -759,7 +759,7 @@ export default function ZuluHeritageWeddingInvitation() {
                     <h3
                       style={{
                         color: "#f5e6c8",
-                        fontSize: "30px",
+                        fontSize: "25px",
                         margin: "0 0 2px",
                         fontFamily: "'Cormorant Garamond', Georgia, serif",
                         fontWeight: "400",
