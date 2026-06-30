@@ -1786,7 +1786,7 @@ export default function ZuluHeritageWeddingInvitation() {
             inset: 0,
             zIndex: 1000,
             overflow: "hidden",
-            background: "#0a0500",
+            background: phase === "closed" ? "#0a0500" : "transparent",
             transform: phase === "zoom" ? "scale(1.2)" : "scale(1)",
             opacity: phase === "zoom" ? 0 : 1,
             transition: "transform 0.35s ease, opacity 0.35s ease",
