@@ -26,6 +26,9 @@ export default function ZuluHeritageWeddingInvitation() {
     setTimeout(() => {
       setOverlayGone(true);
     }, 3300);
+    setTimeout(() => {
+      setOverlayGone(true);
+    }, 3700);
   };
 
   const scrollTo = (id) =>
@@ -1815,7 +1818,14 @@ export default function ZuluHeritageWeddingInvitation() {
                 backgroundSize: "100% 100%",
                 backgroundPosition: "center",
                 backgroundRepeat: "no-repeat",
-                transform: "translate(0px, 4px)",
+                transformOrigin: "50% 100%",
+                backfaceVisibility: "hidden",
+                WebkitBackfaceVisibility: "hidden",
+                transform:
+                  phase === "closed"
+                    ? "translate(0px, 4px) rotateX(0deg)"
+                    : "translate(0px, 4px) rotateX(-165deg)",
+                transition: "transform 3s cubic-bezier(0.45,0,0.2,1)",
                 zIndex: 1,
               }}
             />
