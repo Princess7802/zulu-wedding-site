@@ -828,7 +828,7 @@ export default function ZuluHeritageWeddingInvitation() {
               "zulus",
               "zulu-family",
               "molete-family",
-              "moletes",
+              "aunties",
             ].map((name) => (
               <div
                 key={name}
