@@ -833,7 +833,7 @@ export default function ZuluHeritageWeddingInvitation() {
               <div
                 key={name}
                 style={{
-                  aspectRatio: "4/4",
+                  aspectRatio: "3/4",
                   borderRadius: "32px",
                   overflow: "hidden",
                   background: "rgba(200,120,10,0.08)",
