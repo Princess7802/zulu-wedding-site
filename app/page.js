@@ -443,7 +443,7 @@ export default function ZuluHeritageWeddingInvitation() {
                   textTransform: "capitalize",
                 }}
               >
-                Koketso
+                Koketso Molete
               </h1>
               <CardDivider />
               <p
@@ -1429,7 +1429,7 @@ export default function ZuluHeritageWeddingInvitation() {
                           body: JSON.stringify({
                             access_key: "123b5980-f212-4d2d-b418-8566bdcf61ec",
                             subject:
-                              "New RSVP – Mntwana Thobelinkosi & Koketso Wedding",
+                              "New RSVP – Mntwana Thobelinkosi & Koketso Molete Wedding",
                             from_name: "Wedding RSVP",
                             ...formData,
                           }),
@@ -1691,14 +1691,14 @@ export default function ZuluHeritageWeddingInvitation() {
           <p
             style={{
               color: "#f5e6c8",
-              fontSize: "clamp(32px,7vw,48px)",
+              fontSize: "clamp(32px,7vw,46px)",
               fontFamily: "'Great Vibes', cursive",
               fontWeight: 400,
               margin: "0 0 10px 0",
               lineHeight: 1.2,
             }}
           >
-            Mntwana Thobelinkosi &amp; Koketso
+            Mntwana Thobelinkosi &amp; Koketso Molete
           </p>
 
           {/* Date */}
