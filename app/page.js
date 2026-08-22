@@ -1196,7 +1196,7 @@ export default function ZuluHeritageWeddingInvitation() {
                           <>
                             Traditional
                             <br />
-                            African Elegance
+                            Attire
                           </>
                         ),
                       },
