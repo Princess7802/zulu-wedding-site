@@ -2,9 +2,6 @@
 
 import { useState, useEffect } from "react";
 
-
-export default function ZuluHeritageWeddingInvitation() 
-
 export default function ZuluHeritageWeddingInvitation() {
   const [phase, setPhase] = useState("closed");
   const [overlayGone, setOverlayGone] = useState(false);
@@ -141,18 +138,18 @@ export default function ZuluHeritageWeddingInvitation() {
           ].map(([id, label]) => (
             <button
               key={id}
-  onClick={() => scrollTo(id)}
-  disabled={id === "rsvp"}
-  style={{
-    background: "none",
-    border: "none",
-    color: "rgba(200,160,80,0.8)",
-    cursor: id === "rsvp" ? "not-allowed" : "pointer",
-    opacity: id === "rsvp" ? 0.4 : 1,
-    fontSize: "11px",
-    letterSpacing: "0.22em",
-    textTransform: "uppercase",
-    fontFamily: "Georgia,serif",
+              onClick={() => scrollTo(id)}
+              disabled={id === "rsvp"}
+              style={{
+                background: "none",
+                border: "none",
+                color: "rgba(200,160,80,0.8)",
+                cursor: id === "rsvp" ? "not-allowed" : "pointer",
+                opacity: id === "rsvp" ? 0.4 : 1,
+                fontSize: "11px",
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                fontFamily: "Georgia,serif",
               }}
             >
               {label}
@@ -493,19 +490,19 @@ export default function ZuluHeritageWeddingInvitation() {
                 "Isibaya sakhe" · His cattle, Her family, Their union
               </p>
               <button
-                 disabled
-  style={{
-    padding: "10px 36px",
-    borderRadius: "0",
-    border: "1px solid #c8a84b",
-    background: "transparent",
-    color: "#c8a84b",
-    fontSize: "10px",
-    letterSpacing: "0.35em",
-    textTransform: "uppercase",
-    cursor: "not-allowed",
-    opacity: 0.4,
-    fontFamily: "Georgia,serif",
+                disabled
+                style={{
+                  padding: "10px 36px",
+                  borderRadius: "0",
+                  border: "1px solid #c8a84b",
+                  background: "transparent",
+                  color: "#c8a84b",
+                  fontSize: "10px",
+                  letterSpacing: "0.35em",
+                  textTransform: "uppercase",
+                  cursor: "not-allowed",
+                  opacity: 0.4,
+                  fontFamily: "Georgia,serif",
                 }}
               >
                 RSVP - Bhalisa
@@ -1358,7 +1355,7 @@ export default function ZuluHeritageWeddingInvitation() {
                   margin: "0 0 6px 0",
                 }}
               >
-                {RSVP_OPEN ? "Confirm Your Attendance" : "RSVPs Are Now Closed"}
+                Confirm Your Attendance
               </h2>
               <p
                 style={{
@@ -1427,6 +1424,7 @@ export default function ZuluHeritageWeddingInvitation() {
                     // AFTER
                     onSubmit={async (e) => {
                       e.preventDefault();
+                      return;
                       const response = await fetch(
                         "https://api.web3forms.com/submit",
                         {
@@ -1450,106 +1448,31 @@ export default function ZuluHeritageWeddingInvitation() {
                       gap: "18px",
                     }}
                   >
-                    <input
-                      type="checkbox"
-                      name="botcheck"
-                      style={{ display: "none" }}
-                    />
-                    {[
-                      ["Full Name *", "text", "name", true],
-                      ["Phone Number", "tel", "phone", false],
-                    ].map(([label, type, key, req]) => (
-                      <div key={key} style={{ textAlign: "left" }}>
-                        <label
-                          style={{
-                            display: "block",
-                            color: "#a07040",
-                            fontSize: "10px",
-                            letterSpacing: "0.22em",
-                            textTransform: "uppercase",
-                            marginBottom: "8px",
-                          }}
-                        >
-                          {label}
-                        </label>
-                        <input
-                          required={req}
-                          type={type}
-                          value={formData[key]}
-                          onChange={(e) =>
-                            setFormData({ ...formData, [key]: e.target.value })
-                          }
-                          style={{
-                            width: "100%",
-                            padding: "12px 16px",
-                            borderRadius: "12px",
-                            boxSizing: "border-box",
-                            background: "rgba(160,112,64,0.08)",
-                            border: "1px solid rgba(160,112,64,0.28)",
-                            color: "#f5e6c8",
-                            fontSize: "13px",
-                            outline: "none",
-                            fontFamily: "Georgia,serif",
-                          }}
-                        />
-                      </div>
-                    ))}
-                    <div style={{ textAlign: "left" }}>
-                      <label
-                        style={{
-                          display: "block",
-                          color: "#a07040",
-                          fontSize: "10px",
-                          letterSpacing: "0.22em",
-                          textTransform: "uppercase",
-                          marginBottom: "10px",
-                        }}
-                      >
-                        Will you attend? *
-                      </label>
-                      <div
-                        style={{
-                          display: "grid",
-                          gridTemplateColumns: "1fr 1fr",
-                          gap: "12px",
-                        }}
-                      >
-                        {[
-                          ["accept", "Accept"],
-                          ["decline", "Decline"],
-                        ].map(([val, lbl]) => (
-                          <button
-                            key={val}
-                            type="button"
-                            onClick={() =>
-                              setFormData({ ...formData, attending: val })
-                            }
-                            style={{
-                              padding: "12px",
-                              borderRadius: "12px",
-                              cursor: "pointer",
-                              fontFamily: "Georgia,serif",
-                              fontSize: "12px",
-                              letterSpacing: "0.1em",
-                              border: `1px solid ${formData.attending === val ? "#a07040" : "rgba(160,112,64,0.28)"}`,
-                              background:
-                                formData.attending === val
-                                  ? "rgba(160,112,64,0.2)"
-                                  : "rgba(160,112,64,0.04)",
-                              color:
-                                formData.attending === val
-                                  ? "#f5e6c8"
-                                  : "#a07040",
-                            }}
-                          >
-                            {lbl}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                    {formData.attending === "accept" && (
-                      <>
-                        <div style={{ textAlign: "left" }}>
+                    <fieldset
+                      disabled
+                      style={{
+                        border: "none",
+                        padding: 0,
+                        margin: 0,
+                        minWidth: 0,
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "18px",
+                        filter: "grayscale(1)",
+                        opacity: 0.45,
+                        cursor: "not-allowed",
+                      }}
+                    >
+                      <input
+                        type="checkbox"
+                        name="botcheck"
+                        style={{ display: "none" }}
+                      />
+                      {[
+                        ["Full Name *", "text", "name", true],
+                        ["Phone Number", "tel", "phone", false],
+                      ].map(([label, type, key, req]) => (
+                        <div key={key} style={{ textAlign: "left" }}>
                           <label
                             style={{
                               display: "block",
@@ -1560,55 +1483,18 @@ export default function ZuluHeritageWeddingInvitation() {
                               marginBottom: "8px",
                             }}
                           >
-                            Number of Guests
+                            {label}
                           </label>
-                          <select
-                            value={formData.guests}
+                          <input
+                            required={req}
+                            type={type}
+                            value={formData[key]}
                             onChange={(e) =>
                               setFormData({
                                 ...formData,
-                                guests: e.target.value,
+                                [key]: e.target.value,
                               })
                             }
-                            style={{
-                              width: "100%",
-                              padding: "12px 16px",
-                              borderRadius: "12px",
-                              background: "#1a0e00",
-                              border: "1px solid rgba(160,112,64,0.28)",
-                              color: "#f5e6c8",
-                              fontSize: "13px",
-                              outline: "none",
-                              fontFamily: "Georgia,serif",
-                            }}
-                          >
-                            {Array.from({ length: 300 }, (_, i) =>
-                              String(i + 1),
-                            ).map((n) => (
-                              <option key={n}>{n}</option>
-                            ))}
-                          </select>
-                        </div>
-                        <div style={{ textAlign: "left" }}>
-                          <label
-                            style={{
-                              display: "block",
-                              color: "#a07040",
-                              fontSize: "10px",
-                              letterSpacing: "0.22em",
-                              textTransform: "uppercase",
-                              marginBottom: "8px",
-                            }}
-                          >
-                            Any Allergies
-                          </label>
-                          <input
-                            type="text"
-                            value={formData.meal}
-                            onChange={(e) =>
-                              setFormData({ ...formData, meal: e.target.value })
-                            }
-                            placeholder="Traditional, Vegetarian…"
                             style={{
                               width: "100%",
                               padding: "12px 16px",
@@ -1623,26 +1509,161 @@ export default function ZuluHeritageWeddingInvitation() {
                             }}
                           />
                         </div>
-                      </>
-                    )}
-                    <button
-                      type="submit"
-                      style={{
-                        padding: "15px",
-                        borderRadius: "999px",
-                        border: "none",
-                        background: "linear-gradient(135deg, #c8960a, #a07030)",
-                        color: "#fff",
-                        fontSize: "12px",
-                        letterSpacing: "0.28em",
-                        textTransform: "uppercase",
-                        cursor: "pointer",
-                        fontFamily: "Georgia,serif",
-                        boxShadow: "0 4px 20px rgba(160,112,64,0.45)",
-                      }}
-                    >
-                      Send Confirmation ✦
-                    </button>
+                      ))}
+                      <div style={{ textAlign: "left" }}>
+                        <label
+                          style={{
+                            display: "block",
+                            color: "#a07040",
+                            fontSize: "10px",
+                            letterSpacing: "0.22em",
+                            textTransform: "uppercase",
+                            marginBottom: "10px",
+                          }}
+                        >
+                          Will you attend? *
+                        </label>
+                        <div
+                          style={{
+                            display: "grid",
+                            gridTemplateColumns: "1fr 1fr",
+                            gap: "12px",
+                          }}
+                        >
+                          {[
+                            ["accept", "Accept"],
+                            ["decline", "Decline"],
+                          ].map(([val, lbl]) => (
+                            <button
+                              key={val}
+                              type="button"
+                              onClick={() =>
+                                setFormData({ ...formData, attending: val })
+                              }
+                              style={{
+                                padding: "12px",
+                                borderRadius: "12px",
+                                cursor: "pointer",
+                                fontFamily: "Georgia,serif",
+                                fontSize: "12px",
+                                letterSpacing: "0.1em",
+                                border: `1px solid ${formData.attending === val ? "#a07040" : "rgba(160,112,64,0.28)"}`,
+                                background:
+                                  formData.attending === val
+                                    ? "rgba(160,112,64,0.2)"
+                                    : "rgba(160,112,64,0.04)",
+                                color:
+                                  formData.attending === val
+                                    ? "#f5e6c8"
+                                    : "#a07040",
+                              }}
+                            >
+                              {lbl}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                      {formData.attending === "accept" && (
+                        <>
+                          <div style={{ textAlign: "left" }}>
+                            <label
+                              style={{
+                                display: "block",
+                                color: "#a07040",
+                                fontSize: "10px",
+                                letterSpacing: "0.22em",
+                                textTransform: "uppercase",
+                                marginBottom: "8px",
+                              }}
+                            >
+                              Number of Guests
+                            </label>
+                            <select
+                              value={formData.guests}
+                              onChange={(e) =>
+                                setFormData({
+                                  ...formData,
+                                  guests: e.target.value,
+                                })
+                              }
+                              style={{
+                                width: "100%",
+                                padding: "12px 16px",
+                                borderRadius: "12px",
+                                background: "#1a0e00",
+                                border: "1px solid rgba(160,112,64,0.28)",
+                                color: "#f5e6c8",
+                                fontSize: "13px",
+                                outline: "none",
+                                fontFamily: "Georgia,serif",
+                              }}
+                            >
+                              {Array.from({ length: 300 }, (_, i) =>
+                                String(i + 1),
+                              ).map((n) => (
+                                <option key={n}>{n}</option>
+                              ))}
+                            </select>
+                          </div>
+                          <div style={{ textAlign: "left" }}>
+                            <label
+                              style={{
+                                display: "block",
+                                color: "#a07040",
+                                fontSize: "10px",
+                                letterSpacing: "0.22em",
+                                textTransform: "uppercase",
+                                marginBottom: "8px",
+                              }}
+                            >
+                              Any Allergies
+                            </label>
+                            <input
+                              type="text"
+                              value={formData.meal}
+                              onChange={(e) =>
+                                setFormData({
+                                  ...formData,
+                                  meal: e.target.value,
+                                })
+                              }
+                              placeholder="Traditional, Vegetarian…"
+                              style={{
+                                width: "100%",
+                                padding: "12px 16px",
+                                borderRadius: "12px",
+                                boxSizing: "border-box",
+                                background: "rgba(160,112,64,0.08)",
+                                border: "1px solid rgba(160,112,64,0.28)",
+                                color: "#f5e6c8",
+                                fontSize: "13px",
+                                outline: "none",
+                                fontFamily: "Georgia,serif",
+                              }}
+                            />
+                          </div>
+                        </>
+                      )}
+                      <button
+                        type="submit"
+                        style={{
+                          padding: "15px",
+                          borderRadius: "999px",
+                          border: "none",
+                          background:
+                            "linear-gradient(135deg, #c8960a, #a07030)",
+                          color: "#fff",
+                          fontSize: "12px",
+                          letterSpacing: "0.28em",
+                          textTransform: "uppercase",
+                          cursor: "pointer",
+                          fontFamily: "Georgia,serif",
+                          boxShadow: "0 4px 20px rgba(160,112,64,0.45)",
+                        }}
+                      >
+                        Send Confirmation ✦
+                      </button>
+                    </fieldset>
                   </form>
                 )}
               </div>
