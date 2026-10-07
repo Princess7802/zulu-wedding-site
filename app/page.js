@@ -2,6 +2,9 @@
 
 import { useState, useEffect } from "react";
 
+
+export default function ZuluHeritageWeddingInvitation() 
+
 export default function ZuluHeritageWeddingInvitation() {
   const [phase, setPhase] = useState("closed");
   const [overlayGone, setOverlayGone] = useState(false);
@@ -138,16 +141,18 @@ export default function ZuluHeritageWeddingInvitation() {
           ].map(([id, label]) => (
             <button
               key={id}
-              onClick={() => scrollTo(id)}
-              style={{
-                background: "none",
-                border: "none",
-                color: "rgba(200,160,80,0.8)",
-                cursor: "pointer",
-                fontSize: "11px",
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                fontFamily: "Georgia,serif",
+  onClick={() => scrollTo(id)}
+  disabled={id === "rsvp"}
+  style={{
+    background: "none",
+    border: "none",
+    color: "rgba(200,160,80,0.8)",
+    cursor: id === "rsvp" ? "not-allowed" : "pointer",
+    opacity: id === "rsvp" ? 0.4 : 1,
+    fontSize: "11px",
+    letterSpacing: "0.22em",
+    textTransform: "uppercase",
+    fontFamily: "Georgia,serif",
               }}
             >
               {label}
@@ -488,18 +493,19 @@ export default function ZuluHeritageWeddingInvitation() {
                 "Isibaya sakhe" · His cattle, Her family, Their union
               </p>
               <button
-                onClick={() => scrollTo("rsvp")}
-                style={{
-                  padding: "10px 36px",
-                  borderRadius: "0",
-                  border: "1px solid #c8a84b",
-                  background: "transparent",
-                  color: "#c8a84b",
-                  fontSize: "10px",
-                  letterSpacing: "0.35em",
-                  textTransform: "uppercase",
-                  cursor: "pointer",
-                  fontFamily: "Georgia,serif",
+                 disabled
+  style={{
+    padding: "10px 36px",
+    borderRadius: "0",
+    border: "1px solid #c8a84b",
+    background: "transparent",
+    color: "#c8a84b",
+    fontSize: "10px",
+    letterSpacing: "0.35em",
+    textTransform: "uppercase",
+    cursor: "not-allowed",
+    opacity: 0.4,
+    fontFamily: "Georgia,serif",
                 }}
               >
                 RSVP - Bhalisa
@@ -1352,7 +1358,7 @@ export default function ZuluHeritageWeddingInvitation() {
                   margin: "0 0 6px 0",
                 }}
               >
-                Confirm Your Attendance
+                {RSVP_OPEN ? "Confirm Your Attendance" : "RSVPs Are Now Closed"}
               </h2>
               <p
                 style={{
